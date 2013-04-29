@@ -195,48 +195,38 @@ function content_access_disabling($set = NULL) {
 }
 
 /**
- * Returncontent_access' settings.
+ * Return content_access' settings.
  *
- * @param $return
+ * @param $setting
  *   One of the content_access_available_settings(), e.g. 'view' or 'per_node'.
- * @param $type
- *   If not all, return the setting for the specified type.
+ *   If 'all' is passed, all available settings are returned.
+ * @param $type_name
+ *   The name of the content type to return settings for.
+ *
+ * @return
+ *   The value of the given setting or an array of all settings.
  */
-function content_access_get_settings($return = 'all', $type = NULL) {
-  if ($return == 'all') {
-    return variable_get('content_access_settings', array());
+function content_access_get_settings($setting, $type_name) {
+  $settings = variable_get('content_access_' . $type_name, array());
+  $settings += content_access_get_setting_defaults($type_name);
+  if ($setting == 'all') {
+    return $settings;
   }
-  if (isset($type)) {
-    $settings = content_access_get_settings($return);
-    return isset($settings[$type]) ? $settings[$type] : content_access_get_setting_defaults($return, $type);
-  }
-  if (!isset($type)) {
-    $settings = content_access_get_settings();
-    return isset($settings[$return]) ? $settings[$return] : array();
-  }
-  return array();
+  return isset($settings[$setting]) ? $settings[$setting] : NULL;
 }
 
 /**
- * Save content_access settings.
- *
- * Needs the complete settings array.
+ * Save content_access settings of a content type.
  */
-function content_access_set_settings($settings) {
-  // Cleanup the settings before saving.
-  foreach (content_access_available_settings() as $setting) {
-    if (isset($settings[$setting])) {
-      foreach ($settings[$setting] as $type => $value) {
-        if (!isset($value)) {
-          unset($settings[$setting][$type]);
-        }
-      }
+function content_access_set_settings($settings, $type_name) {
+  // Do not store default values so we do not have to care about synching our
+  // settings with the permissions.
+  foreach (content_access_get_setting_defaults($type_name) as $setting => $default_value) {
+    if (isset($settings[$setting]) && $settings[$setting] == $default_value) {
+      unset($settings[$setting]);
     }
   }
-
-  variable_set('content_access_settings', $settings);
-
-  module_invoke_all('content_type_access', $settings);
+  variable_set('content_access_' . $type_name, $settings);
 }
 
 /**
@@ -249,30 +239,23 @@ function content_access_available_settings() {
 /**
  * Defines default values for settings.
  */
-function content_access_get_setting_defaults($setting, $type) {
-  switch ($setting) {
-    default:
-      return array();
-    case 'view':
-    case 'view_own':
-      return array(DRUPAL_ANONYMOUS_RID, DRUPAL_AUTHENTICATED_RID);
-    case 'update':
-    case 'update_own':
-    case 'delete':
-    case 'delete_own':
-      return content_access_get_permission_access(content_access_get_permission_by_op($setting, $type));
-    case 'priority':
-      return 0;
-     case 'per_node' :
-      return array();
+function content_access_get_setting_defaults($type) {
+  $defaults = array();
+  $defaults['view'] = $defaults['view_own'] = array(DRUPAL_ANONYMOUS_RID, DRUPAL_AUTHENTICATED_RID);
+  foreach (array('update', 'delete') as $op) {
+    $defaults[$op] = content_access_get_permission_access(content_access_get_permission_by_op($op, $type));
+    $defaults[$op . '_own'] = content_access_get_permission_access(content_access_get_permission_by_op($op . '_own', $type));
   }
+  $defaults['priority'] = 0;
+  $defaults['per_node'] = FALSE;
+  return $defaults;
 }
 
 /**
- * Returns an array of role ids, that contain the given permission.
+ * Returns an array of role ids that contain the given permission.
  */
 function content_access_get_permission_access($perm, $reset = FALSE) {
-  static $roles = array();
+  $roles = &drupal_static(__FUNCTION__, array());
 
   if ($reset) {
     $roles = array();
@@ -536,15 +519,9 @@ function content_access_optimize_grants(&$grants, $node) {
 
 /**
  * Implements hook_node_type_delete().
- *
- * Updates settings on node type name delete.
  */
 function content_access_node_type_delete($info) {
-  $settings = content_access_get_settings();
-  foreach (content_access_available_settings() as $setting) {
-    unset($settings[$setting][$info->type]);
-  }
-  content_access_set_settings($settings);
+  variable_del('content_access_' . $info->type);
 }
 
 /**
@@ -554,14 +531,9 @@ function content_access_node_type_delete($info) {
  */
 function content_access_node_type_update($info) {
   if (!empty($info->old_type) && $info->old_type != $info->type) {
-    $settings = content_access_get_settings();
-    foreach (content_access_available_settings() as $setting) {
-      if (isset($settings[$setting][$info->old_type])) {
-        $settings[$setting][$info->type] = $settings[$setting][$info->old_type];
-        unset($settings[$setting][$info->old_type]);
-      }
-    }
-    content_access_set_settings($settings);
+    $settings = content_access_get_settings('all', $info->old_type);
+    content_access_set_settings($settings, $info->type);
+    variable_del('content_access_' . $info->old_type);
   }
 }
 
@@ -623,7 +595,7 @@ function content_access_disable_checkboxes($element) {
         !in_array(DRUPAL_AUTHENTICATED_RID, $access_roles)) {
       $element[$key]['#disabled'] = TRUE;
       $element[$key]['#default_value'] = FALSE;
-      $element[$key]['#prefix'] = '<span title="' . t("This role is lacking the permission '@perm', so it has no access.", array('@perm' => t('access content'))) . '">';
+      $element[$key]['#prefix'] = '<span' . drupal_attributes(array('title' => t("This role is lacking the permission '@perm', so it has no access.", array('@perm' => t('access content'))))) . '>';
       $element[$key]['#suffix'] = "</span>";
     }
     elseif (in_array($key, $admin_roles) ||
@@ -631,7 +603,7 @@ function content_access_disable_checkboxes($element) {
       // Fix the checkbox to be enabled for users with administer node privileges
       $element[$key]['#disabled'] = TRUE;
       $element[$key]['#default_value'] = TRUE;
-      $element[$key]['#prefix'] = '<span title="' . t("This role has '@perm' permission, so access is granted.", array('@perm' => t('administer nodes'))) . '">';
+      $element[$key]['#prefix'] = '<span' . drupal_attributes(array('title' => t("This role has '@perm' permission, so access is granted.", array('@perm' => t('administer nodes'))))) . '>';
       $element[$key]['#suffix'] = "</span>";
     }
   }

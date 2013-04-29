@@ -2,7 +2,7 @@
 
 /**
  * CKEditor - The text editor for the Internet - http://ckeditor.com
- * Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  *
  * == BEGIN LICENSE ==
  *
@@ -73,7 +73,7 @@ function ckeditor_profile_features_export_render($module_name, $data) {
   $profiles = array();
   $roles = user_roles();
   foreach ($data as $name) {
-    $profile = (array) ckeditor_profile_load($name);
+    $profile = (array) ckeditor_profile_load($name, TRUE, FALSE);
 
     $profiles[$name] = $profile;
   }

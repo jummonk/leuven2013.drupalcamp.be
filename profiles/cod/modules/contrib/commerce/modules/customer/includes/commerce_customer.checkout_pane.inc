@@ -89,7 +89,10 @@ function commerce_customer_profile_pane_checkout_form($form, &$form_state, $chec
 
   // If the associated order field has been set...
   if ($field_name = variable_get('commerce_' . $checkout_pane['pane_id'] . '_field', '')) {
-    $profile = $wrapper->{$field_name}->value();
+    watchdog('DEBUG', $field_name);
+    if (isset($wrapper->{$field_name})) {
+      $profile = $wrapper->{$field_name}->value();
+    }
   }
   else {
     // Or try the association stored in the order's data array if no field is set.

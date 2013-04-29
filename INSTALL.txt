@@ -396,6 +396,3 @@ MORE INFORMATION
 - For information about the wide range of available support options, visit
   http://drupal.org and click on Community and Support in the top or bottom
   navigation.
-
-
-test nog eens
