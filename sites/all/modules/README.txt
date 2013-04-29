@@ -1,4 +1,4 @@
-Place downloaded and custom modules that extend your site functionality beyond
+Pace downloaded and custom modules that extend your site functionality beyond
 Drupal core in this directory to ensure clean separation from core modules and
 to facilitate safe, self-contained code updates. Contributed modules from the
 Drupal community may be downloaded at http://drupal.org/project/modules.
@@ -14,3 +14,4 @@ be used to restrict modules to a specific site instance.
 
 Refer to the "Developing for Drupal" section of the README.txt in the Drupal
 root directory for further information on extending Drupal with custom modules.
+KOEKOEK
