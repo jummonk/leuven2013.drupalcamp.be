@@ -1,0 +1,52 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+/**
+ * Implements hook_install()
+ *
+ * Set up everything needed for an empty intranet.vdab.be website
+ */
+function leuven2013_general_install() {
+  // We need more time at install of intranet modules
+  ini_set('max_execution_time', 60);
+  // Set the default theme
+  theme_enable(array('leuven2013_theme'));
+
+  // Set variables
+  _leuven2013_general_set_variables();
+  // Enable leuven2013 modules
+  _leuven2013_enable_default_modules();
+ }
+ 
+ /**
+ * Enable default modules
+ *
+ * Instead of adding modules as dependencies, enable them on install.
+ * This allows them to be disabled at some point (without bringing down the whole site).
+ * Modules that are necessary for the functionality, should still be dependencies off course.
+ * This can also depend upon environment (overlay off for dev, on for staging/live)
+ */
+function _leuven2013_general_enable_default_modules() {
+  $core = array();
+  $contrib = array();
+  $leuven2013 = array(
+    'omega_tools',
+  );
+
+  if (count($core)) {
+    watchdog('Installation', 'About to install core modules %modules for DrupalCamp Leuven 2013', array('%modules' => implode(', ', $core)), WATCHDOG_INFO);
+    $result = module_enable($core, TRUE);
+  }
+  if (count($contrib)) {
+    watchdog('Installation', 'About to install contrib modules %modules for DrupalCamp Leuven 2013', array('%modules' => implode(', ', $contrib)), WATCHDOG_INFO);
+    $result = module_enable($contrib, TRUE);
+  }
+  if (count($leuven2013)) {
+    watchdog('Installation', 'About to install custom %modules for DrupalCamp Leuven 2013', array('%modules' => implode(', ', $leuven2013)), WATCHDOG_INFO);
+    $result = module_enable($leuven2013, TRUE);
+  }
+}

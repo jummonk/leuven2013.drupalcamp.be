@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the leuven2013_general feature.
+ */
+
+include_once 'leuven2013_general.features.inc';
