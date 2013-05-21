@@ -55,3 +55,4 @@
  */
  $sites['leuven2013.drupalcamp.local'] = 'leuven2013';
  $sites['leuven2013.drupalcamp.be'] = 'leuven2013';
+ $sites['dev.qandisa.be'] = 'leuven2013';
