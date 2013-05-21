@@ -1,10 +1,10 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file
+ * The DrupalCamp Leuven 2013 install file.
  */
-?>
+
 /**
  * Implements hook_install()
  *
@@ -17,9 +17,9 @@ function leuven2013_general_install() {
   theme_enable(array('leuven2013_theme'));
 
   // Set variables
-  _leuven2013_general_set_variables();
+  //_leuven2013_general_set_variables();
   // Enable leuven2013 modules
-  _leuven2013_enable_default_modules();
+  _leuven2013_general_enable_default_modules();
  }
  
  /**
