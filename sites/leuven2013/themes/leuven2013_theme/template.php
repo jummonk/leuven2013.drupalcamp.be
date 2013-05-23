@@ -20,7 +20,7 @@ function leuven2013_theme_preprocess_field(&$variables, $hook) {
     $element = $variables['element'];
     if ($element['#entity_type'] == 'user' && $element['#field_name'] == 'field_twitter_handle') {
       $twitter_handle = field_get_items('user', $element['#object'], 'field_twitter_handle');
-      if (empty($twitter_handle[0]['value'])) {
+      if (empty($twitter_handle) || empty($twitter_handle[0]['value'])) {
         return;
       }
       $link_twitter = l($twitter_handle[0]['value'], 'http://twitter.com/' . $twitter_handle[0]['value'], array('attributes'=>array('target'=>'blank')));
