@@ -1,0 +1,9 @@
+name = Leuven2013 User Profile
+core = 7.x
+package = Leuven2013
+php = 5.2.4
+version = 7.x-1.0
+project = leuven2013_user_profile
+dependencies[] = features
+features[features_api][] = api:1
+features[field][] = user-user-field_twitter_handle
