@@ -61,6 +61,13 @@ function commerce_order_entity_info() {
     ),
   );
 
+  $return['commerce_order']['bundles'] = array();
+  foreach (commerce_order_type_get_name() as $type => $name) {
+    $return['commerce_order']['bundles'][$type] = array(
+      'label' => $name,
+    );
+  }
+
   return $return;
 }
 
@@ -93,6 +100,12 @@ function commerce_order_label($entity, $entity_type) {
  */
 function commerce_order_hook_info() {
   $hooks = array(
+    'commerce_order_type_info' => array(
+      'group' => 'commerce',
+    ),
+    'commerce_order_type_info_alter' => array(
+      'group' => 'commerce',
+    ),
     'commerce_order_state_info' => array(
       'group' => 'commerce',
     ),
@@ -657,6 +670,52 @@ function commerce_order_form_commerce_customer_customer_profile_delete_form_alte
 }
 
 /**
+ * Implements hook_commerce_order_type_info().
+ */
+function commerce_order_commerce_order_type_info() {
+  $order_types = array();
+
+  $order_types['commerce_order'] = array(
+    'type' => 'commerce_order',
+    'name' => t('Order'),
+    'description' => t('Default order.'),
+  );
+
+  return $order_types;
+}
+
+/**
+ * Returns an array of order type arrays keyed by type.
+ */
+function commerce_order_types() {
+  // First check the static cache for a product types array.
+  $order_types = &drupal_static(__FUNCTION__);
+
+  // If it did not exist, fetch the types now.
+  if (!isset($order_types)) {
+    $order_types = array();
+
+    // Find order types defined by hook_commerce_order_type_info().
+    foreach (module_implements('commerce_order_type_info') as $module) {
+      foreach (module_invoke($module, 'commerce_order_type_info') as $type => $order_type) {
+        // Set the module each order type is defined by and revision handling
+        // if they aren't set yet.
+        $order_type += array(
+          'module' => $module,
+          'revision' => 1,
+        );
+        $order_types[$type] = $order_type;
+      }
+    }
+
+    // Last allow the info to be altered by other modules.
+    drupal_alter('commerce_order_type_info', $order_types);
+  }
+
+  return $order_types;
+}
+
+/**
  * Returns the name of the specified order type or all names keyed by type if no
  *   type is specified.
  *
@@ -676,24 +735,27 @@ function commerce_order_form_commerce_customer_customer_profile_delete_form_alte
  *   found, or an array of all names keyed by type if no type is passed in.
  */
 function commerce_order_type_get_name($type = NULL) {
-  $names = array();
+  $order_types = commerce_order_types();
 
-  $entity = entity_get_info('commerce_order');
-
-  foreach ($entity['bundles'] as $key => $value) {
-    $names[$key] = $value['label'];
+  // Return a type name if specified and it exists.
+  if (!empty($type)) {
+    if (isset($order_types[$type])) {
+      return $order_types[$type]['name'];
+    }
+    else {
+      // Return FALSE if it does not exist.
+      return FALSE;
+    }
   }
 
-  if (empty($type)) {
-    return $names;
+  // Otherwise turn the array values into the type name only.
+  $order_type_names = array();
+
+  foreach ($order_types as $key => $value) {
+    $order_type_names[$key] = $value['name'];
   }
 
-  if (empty($names[$type])) {
-    return check_plain($type);
-  }
-  else {
-    return $names[$type];
-  }
+  return $order_type_names;
 }
 
 /**
