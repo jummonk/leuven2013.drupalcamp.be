@@ -7,6 +7,49 @@
 
 
 /**
+ * Defines the types of orders available for creation on the site.
+ *
+ * The order type array structure includes the following keys:
+ * - type: the machine-name of the order type
+ * - name: the translatable name of the order type
+ * - description: a translatable description of the order type for use in
+ *   administrative lists and pages
+ * - help: the translatable help text included at the top of the add / edit form
+ *   for orders of this type
+ * - revision: for order types governed by the Order UI module, this boolean
+ *   determines whether or not orders of this type will default to creating
+ *   new revisions when edited
+ * - module: the name of the module defining the order type; should not be set
+ *   by the hook itself but will be set when all order types are loaded
+ *
+ * @return
+ *   An array of oreder type arrays keyed by type.
+ */
+function hook_commerce_order_type_info() {
+  $order_types = array();
+
+  $order_types['standard'] = array(
+    'type' => 'standard',
+    'name' => t('Standard order'),
+    'description' => t('Standard order without any customizations.'),
+  );
+
+  return $order_types;
+}
+
+/**
+ * Allows modules to alter the order types defined by other modules.
+ *
+ * @param $order_types
+ *   The array of order types defined by enabled modules.
+ *
+ * @see hook_commerce_order_type_info()
+ */
+function hook_commerce_order_type_info_alter(&$order_types) {
+  // No example.
+}
+
+/**
  * Defines order states for use in grouping order statuses together.
  *
  * An order state is a particular phase in the life-cycle of an order that is
