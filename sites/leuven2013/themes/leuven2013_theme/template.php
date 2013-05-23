@@ -10,3 +10,20 @@
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
+
+/**
+ * Preprocess field. 
+ * 
+ * Cannot place this in preprocess/preprocess-field.inc since the field hook is never included here.
+ */
+function leuven2013_theme_preprocess_field(&$variables, $hook) {
+    $element = $variables['element'];
+    if ($element['#entity_type'] == 'user' && $element['#field_name'] == 'field_twitter_handle') {
+      $twitter_handle = field_get_items('user', $element['#object'], 'field_twitter_handle');
+      if (empty($twitter_handle[0]['value'])) {
+        return;
+      }
+      $link_twitter = l($twitter_handle[0]['value'], 'http://twitter.com/' . $twitter_handle[0]['value'], array('attributes'=>array('target'=>'blank')));
+      $variables['items']['0']['#markup'] = $link_twitter;
+    }
+}
