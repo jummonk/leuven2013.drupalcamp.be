@@ -8,6 +8,9 @@ body {
 .content ul li {
   margin-left: 30px;
 }
+.region-sidebar-second .block ul li {
+  margin-left: 0;
+}
 
 .node .content img {
   width: 100%;
