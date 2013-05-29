@@ -1,10 +1,31 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
+body {
+  background: url('../img/bg_pattern.png') repeat;
+}
+
 .node .content img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+.block-tweets-block {
+  background: white;
+  padding: 1.5em 1.5em 1.5em 0;
+  border: 1px solid lightGrey;
+}
+
+.block-tweets-block ul li {
+  border-bottom: 1px solid lightGrey;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+.block-tweets-block ul li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .block-tweets-block ul li .views-field-profile-image-url {
