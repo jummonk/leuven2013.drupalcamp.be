@@ -15,7 +15,7 @@ body {
   height: auto;
 }
 
-.block, .region-content {
+.region-sidebar-second .block, .region-content {
   background: white;
   padding: 1.5em 1.5em 1.5em 0;
   border: 1px solid lightGrey;
