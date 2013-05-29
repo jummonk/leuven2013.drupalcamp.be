@@ -94,11 +94,11 @@ function leuven2013_general_strongarm() {
     'toggle_favicon' => 1,
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
-    'default_logo' => 0,
-    'logo_path' => 'public://drupalcamp-header.png',
+    'default_logo' => 1,
+    'logo_path' => '',
     'logo_upload' => '',
-    'default_favicon' => 0,
-    'favicon_path' => 'public://drupalcamp-avatar.png',
+    'default_favicon' => 1,
+    'favicon_path' => '',
     'favicon_upload' => '',
     'alpha_grid' => 'alpha_default',
     'alpha_responsive' => 1,
@@ -487,7 +487,6 @@ function leuven2013_general_strongarm() {
     'alpha_region_footer_second_css' => '',
     'alpha_region_footer_second_equal_height_element' => 0,
     'alpha_region_footer_second_equal_height_container' => 0,
-    'favicon_mimetype' => 'image/png',
   );
   $export['theme_leuven2013_theme_settings'] = $strongarm;
 
