@@ -19,4 +19,5 @@ features[variable][] = install_profile
 features[variable][] = site_default_country
 features[variable][] = site_name
 features[variable][] = theme_default
+features[variable][] = theme_leuven2013_theme_settings
 features[variable][] = user_default_timezone
