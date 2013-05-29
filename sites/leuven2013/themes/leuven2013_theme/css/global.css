@@ -17,14 +17,14 @@ body {
 
 .region-sidebar-second .block, .region-content {
   background: white;
-  padding: 1.5em 1.5em 1.5em 0;
+  padding: 1.5em;
   border: 1px solid lightGrey;
   box-sizing: border-box;
 }
 
 .block-tweets-block ul li {
   border-bottom: 1px solid lightGrey;
-  padding-bottom: 1em;
+  padding: 0 0 1em 0;
   margin-bottom: 1em;
 }
 .block-tweets-block ul li:last-child {
