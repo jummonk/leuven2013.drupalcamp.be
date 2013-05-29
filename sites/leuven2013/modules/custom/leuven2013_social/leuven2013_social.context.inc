@@ -17,9 +17,10 @@ function leuven2013_social_context_default_contexts() {
   $context->description = 'Social Context';
   $context->tag = 'Leuven2013';
   $context->conditions = array(
-    'sitewide' => array(
+    'path' => array(
       'values' => array(
-        1 => 1,
+        '*' => '*',
+        '~tweets*' => '~tweets*',
       ),
     ),
   );

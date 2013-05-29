@@ -7,6 +7,7 @@ version = 7.x-1.0
 project = leuven2013_social
 dependencies[] = context
 dependencies[] = ctools
+dependencies[] = oauth_common
 dependencies[] = strongarm
 dependencies[] = twitter
 dependencies[] = views
