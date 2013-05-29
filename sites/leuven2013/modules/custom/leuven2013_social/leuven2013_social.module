@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Leuven2013 Social feature.
+ */
+
+include_once 'leuven2013_social.features.inc';
