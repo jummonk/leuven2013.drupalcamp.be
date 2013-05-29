@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Leuven2013 Venue feature.
+ */
+
+include_once 'leuven2013_venue.features.inc';
