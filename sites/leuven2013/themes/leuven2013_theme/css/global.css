@@ -15,10 +15,11 @@ body {
   height: auto;
 }
 
-.block-tweets-block {
+.block, .region-content {
   background: white;
   padding: 1.5em 1.5em 1.5em 0;
   border: 1px solid lightGrey;
+  box-sizing: border-box;
 }
 
 .block-tweets-block ul li {
