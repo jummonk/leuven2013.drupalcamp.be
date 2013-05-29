@@ -5,3 +5,29 @@
  */
 
 include_once 'leuven2013_general.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_general_block_info() {
+  $blocks = array();
+  $blocks['countdown_timer'] = array(
+    'info' => t('Countdown block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_general_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_general', 'leuven2013_general.block');
+
+  $callback = '_leuven2013_general_block_' . $delta;
+  if (!function_exists($callback)) {
+    return;
+  }
+
+  return $callback();
+}

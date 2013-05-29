@@ -176,9 +176,9 @@ function leuven2013_general_strongarm() {
       'modules/update/update.css' => 0,
     ),
     'alpha_debug_block_toggle' => 0,
-    'alpha_debug_block_active' => 0,
+    'alpha_debug_block_active' => 1,
     'alpha_debug_grid_toggle' => 0,
-    'alpha_debug_grid_active' => 0,
+    'alpha_debug_grid_active' => 1,
     'alpha_debug_grid_roles' => array(
       1 => 0,
       2 => 0,
@@ -310,7 +310,7 @@ function leuven2013_general_strongarm() {
     'alpha_region_header_first_force' => 0,
     'alpha_region_header_first_zone' => 'header',
     'alpha_region_header_first_prefix' => '0',
-    'alpha_region_header_first_columns' => '6',
+    'alpha_region_header_first_columns' => '12',
     'alpha_region_header_first_suffix' => '0',
     'alpha_region_header_first_weight' => '1',
     'alpha_region_header_first_position' => '0',
@@ -320,7 +320,7 @@ function leuven2013_general_strongarm() {
     'alpha_region_header_second_force' => 0,
     'alpha_region_header_second_zone' => 'header',
     'alpha_region_header_second_prefix' => '0',
-    'alpha_region_header_second_columns' => '6',
+    'alpha_region_header_second_columns' => '12',
     'alpha_region_header_second_suffix' => '0',
     'alpha_region_header_second_weight' => '2',
     'alpha_region_header_second_position' => '0',
@@ -489,6 +489,15 @@ function leuven2013_general_strongarm() {
     'alpha_region_footer_second_equal_height_container' => 0,
   );
   $export['theme_leuven2013_theme_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_settings';
+  $strongarm->value = array(
+    'toggle_node_info_page' => FALSE,
+  );
+  $export['theme_settings'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
