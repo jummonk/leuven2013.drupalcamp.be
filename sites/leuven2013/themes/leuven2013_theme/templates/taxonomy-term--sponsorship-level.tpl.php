@@ -49,8 +49,10 @@
 
   <div class="content">
     <?php print render($content); ?>
-    <?php if ($apply_link): ?>
+    <?php if (!empty($apply_link)): ?>
       <?php print render($apply_link); ?>
+    <?php else: ?>
+      This package is sold out!
     <?php endif; ?>
   </div>
 

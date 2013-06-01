@@ -1,0 +1,17 @@
+name = leuven2013_sponsors
+core = 7.x
+package = Leuven2013
+version = 7.x-1.0
+project = leuven2013_sponsors
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = field_sql_storage
+dependencies[] = image
+dependencies[] = number
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[field][] = taxonomy_term-sponsorship_level-field_package_logo
+features[field][] = taxonomy_term-sponsorship_level-field_package_slots
+features[image][] = sponsor_full_logo
+features[views_view][] = leuven2013_sponsors
