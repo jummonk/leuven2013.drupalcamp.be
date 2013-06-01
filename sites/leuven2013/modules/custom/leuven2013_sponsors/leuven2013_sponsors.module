@@ -6,6 +6,9 @@
 
 include_once 'leuven2013_sponsors.features.inc';
 
+/**
+ * Implements hook_menu().
+ */
 function leuven2013_sponsors_menu() {
   $items = array();
   $items['sponsorship/%taxonomy_term/apply'] = array(
@@ -17,6 +20,10 @@ function leuven2013_sponsors_menu() {
   );
   return $items;
 }
+
+/**
+ * Menu callback to goto mailto.
+ */
 function leuven2013_sponsors_view($term) {
   if (empty($term) || empty($term->name) || empty($term->tid) || $term->vocabulary_machine_name != 'sponsorship_level') {
     return 'No such sponsorship level found';
