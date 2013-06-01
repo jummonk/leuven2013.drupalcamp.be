@@ -6,6 +6,12 @@ body {
   background: url('../img/bg_pattern.png') repeat;
 }
 
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
 .content ul li {
   margin-left: 30px;
 }
