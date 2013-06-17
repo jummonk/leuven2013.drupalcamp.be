@@ -20,7 +20,11 @@ function leuven2013_general_install() {
   //_leuven2013_general_set_variables();
   // Enable leuven2013 modules
   _leuven2013_general_enable_default_modules();
+  
+  // custom blocks
+  _leuven2013_general_custom_blocks();
  }
+
  
  /**
  * Enable default modules
@@ -49,4 +53,110 @@ function _leuven2013_general_enable_default_modules() {
     watchdog('Installation', 'About to install custom %modules for DrupalCamp Leuven 2013', array('%modules' => implode(', ', $leuven2013)), WATCHDOG_INFO);
     $result = module_enable($leuven2013, TRUE);
   }
+}
+  
+  
+function _leuven2013_general_custom_blocks() {
+  // Learn block
+  $bid = db_select('block_custom', 'b')
+          ->fields('b', array('bid'))
+          ->orderby('b.bid','DESC')
+          ->range(0,1)
+          ->execute()->fetchField() + 1;
+
+  db_insert('block_custom')
+      ->fields(array(
+        'bid' => $bid,
+        'body' => t('Two days packed with sessions about Drupal in three tracks: Sitebuilding, Front/Back-end Development and Business Cases. Everything you should know about Drupal, delivered by top experts in the field.'),
+        'info' => t('Learn'),
+        'format' => 'full_html',
+      ))
+      ->execute();
+
+  db_insert('block')
+      ->fields(array(
+        'module' => 'block',
+        'delta' => $bid,
+        'theme' => 'leuven2013_theme',
+        'status' => 0,
+        'weight' => 0,
+        'region' => -1,
+        'custom' => 0,
+        'visibility' => 0,
+        'pages' => '',
+        'title' => '<none>',
+        'cache' => DRUPAL_CACHE_GLOBAL,
+      ))
+      ->execute();
+  
+  // Share block
+  $bid = db_select('block_custom', 'b')
+          ->fields('b', array('bid'))
+          ->orderby('b.bid','DESC')
+          ->range(0,1)
+          ->execute()->fetchField() + 1;
+
+  db_insert('block_custom')
+      ->fields(array(
+        'bid' => $bid,
+        'body' => t('We expect over 40 speakers and 400 attendees who share their love for Drupal. DrupalCamp is the best place to network with fellow-Drupal lovers.'),
+        'info' => t('Share'),
+        'format' => 'full_html',
+      ))
+      ->execute();
+
+  db_insert('block')
+      ->fields(array(
+        'module' => 'block',
+        'delta' => $bid,
+        'theme' => 'leuven2013_theme',
+        'status' => 0,
+        'weight' => 0,
+        'region' => -1,
+        'custom' => 0,
+        'visibility' => 0,
+        'pages' => '',
+        'title' => '<none>',
+        'cache' => DRUPAL_CACHE_GLOBAL,
+      ))
+      ->execute();
+  
+  // Get involved block
+  $bid = db_select('block_custom', 'b')
+          ->fields('b', array('bid'))
+          ->orderby('b.bid','DESC')
+          ->range(0,1)
+          ->execute()->fetchField() + 1;
+
+  db_insert('block_custom')
+      ->fields(array(
+        'bid' => $bid,
+        'body' => t('The Drupal community is very open and we would love to meet you in the coffee breaks or during our BBQ on Saturday night.'),
+        'info' => t('Get involved'),
+        'format' => 'full_html',
+      ))
+      ->execute();
+
+  db_insert('block')
+      ->fields(array(
+        'module' => 'block',
+        'delta' => $bid,
+        'theme' => 'leuven2013_theme',
+        'status' => 0,
+        'weight' => 0,
+        'region' => -1,
+        'custom' => 0,
+        'visibility' => 0,
+        'pages' => '',
+        'title' => '<none>',
+        'cache' => DRUPAL_CACHE_GLOBAL,
+      ))
+      ->execute();
+}
+/**
+ * Custom blocks
+ */
+
+function leuven2013_general_update_7001() {
+  _leuven2013_general_custom_blocks();
 }
