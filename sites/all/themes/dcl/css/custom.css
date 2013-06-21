@@ -26,6 +26,18 @@
 .font {
   font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
 }
+h1#page-title {
+  font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 50px 0;
+  text-align: center;
+}
+h2,
+h3,
+h4 {
+  font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
+}
 body {
   color: #404040;
   line-height: 22px;
@@ -84,18 +96,45 @@ body #header #header-top #header-top-inner #navbutton.open {
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
-body #header #header-top #header-top-inner #navigation {
-  position: absolute;
-  right: 10px;
-  width: 80px;
-  background: #ccc;
-  padding: 20px;
-}
 body #header #header-top #header-top-inner #navigation h2 {
   display: none;
 }
+body #header #header-top #header-top-inner #navigation ul {
+  position: absolute;
+  right: 10px;
+  width: 120px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  border: 1px solid #ccc;
+}
+body #header #header-top #header-top-inner #navigation ul:before {
+  position: absolute;
+  content: "";
+  top: -20px;
+  right: 15px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
 body #header #header-top #header-top-inner #navigation ul li {
+  padding: 0;
+}
+body #header #header-top #header-top-inner #navigation ul li a {
+  padding: 10px 30px;
   display: block;
+  border-bottom: 1px dashed #ccc;
+  font-size: 16px;
+  color: #404040;
+}
+body #header #header-top #header-top-inner #navigation ul li a:hover,
+body #header #header-top #header-top-inner #navigation ul li a.active {
+  color: #fff;
+  background: #3993c0;
+  text-decoration: none;
+}
+body #header #header-top #header-top-inner #navigation ul li.last a {
+  border-bottom: none;
 }
 body #header #header-top #header-top-inner .region-header-top #block-superfish-1 {
   margin-top: -40px;
@@ -107,17 +146,58 @@ body #header #header-top #header-top-inner .region-header-top #block-superfish-1
 }
 body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 20px;
   float: none;
 }
 body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li:nth-child(3) {
   margin-right: 200px;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li:nth-child(3) > ul {
+  margin-left: -38px;
 }
 body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > a {
   display: block;
   color: #404040;
   font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
   font-size: 18px;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > a:hover {
+  color: #3993c0;
+  text-decoration: none;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul {
+  width: 120px !important;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  border: 1px solid #ccc;
+  margin-left: -32px;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul:before {
+  position: absolute;
+  content: "";
+  top: -20px;
+  left: 50px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul > li > a {
+  padding: 10px 30px;
+  display: block;
+  border-bottom: 1px dashed #ccc;
+  font-size: 16px;
+  color: #404040;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul > li > a:hover,
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul > li > a.active {
+  color: #fff;
+  background: #3993c0;
+  text-decoration: none;
+}
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul > li.last a,
+body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > ul > li.firstandlast a {
+  border-bottom: none;
 }
 body #header #header-middle {
   height: 679px;
