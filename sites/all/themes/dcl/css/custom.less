@@ -1,16 +1,148 @@
 // imports
 
-@import "/sites/all/themes/g_raph_/css/fonts.css";
 @import "/sites/all/themes/g_raph_/css/12cols.css";
 @import "/sites/all/themes/g_raph_/css/html5reset.css";
 @import "/sites/all/themes/g_raph_/css/regions.css";
 @import "/sites/all/themes/g_raph_/css/styleguide.css";
 
+// fonts
 
+@font-face {
+  font-family: proxima_nova_excn_ltlight;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/proximanovaexcn-light-webfont.eot');
+  src: url('../font/proximanovaexcn-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/proximanovaexcn-light-webfont.woff') format('woff'),
+  url('../font/proximanovaexcn-light-webfont.ttf') format('truetype'),
+  url('../font/proximanovaexcn-light-webfont.svg#league_gothicregular') format('svg');
+}
 
+// vars - classes
 
+.transit {
+  -webkit-transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  -webkit-transition: -ms-transform .2s ease-in-out;
+  -moz-transition: -ms-transform .2s ease-in-out;
+  transition: -ms-transform .2s ease-in-out;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  -moz-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+}
 
+.font {
+  font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
+}
 
+// theme
 
+body {
+  color: #404040;
+  line-height: 22px;
+  font-size: 15px;
+  .font;
+  #header {
+    position: relative;
+    #header-top {
+      position: fixed;
+      width: 100%;
+      z-index: 2;
+      height: 75px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+      background: #fff;
+      #header-top-inner {
+        text-align: center;
+        margin: 0 auto;
+        float: none;
+        display: block;
+        a#logo {
+          float: none;
+          padding: 0;
+          position: relative;
+          z-index: 2;
+          img {
+            margin-top: 10px;
+          }
+        }
+        #navbutton {
+          position: absolute;
+          right: 30px;
+          top: 30px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/navbutton.png) no-repeat center center;
+          cursor: pointer;
+          .transit;
+          transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          &.open {
+            transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+          }
+        }
+        #navigation {
+          position: absolute;
+          right: 10px;
+          width: 80px;
+          background: #ccc;
+          padding: 20px;
+          h2 {
+            display: none;
+          }
+          ul {
+            li {
+              display: block;
+            }
+          }
+        }
+        .region-header-top {
+          #block-superfish-1 {
+            margin-top: -40px;
+            ul#superfish-1 {
+              text-align: center;
+              width: 100%;
+              margin-left: 27px;
+              > li {
+                display: inline-block;
+                margin: 0 10px;
+                float: none;
+                &:nth-child(3) {
+                  margin-right: 200px;
+                }
+                > a {
+                  display: block;
+                  color: #404040;
+                  .font;
+                  font-size: 18px;
+                }
+                > ul {
+                  > li {
+                    > a {
 
+                    }
+                    > ul {
+                      > li {
+                        > a {
 
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #header-middle {
+      height: 679px;
+      background: url(../images/bg-header-middle-front.jpg) no-repeat center center;
+      background-size: cover;
+    }
+  }
+}
