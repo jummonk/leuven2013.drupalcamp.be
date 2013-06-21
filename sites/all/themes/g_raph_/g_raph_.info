@@ -1,0 +1,39 @@
+; -----------------------------------------------------------
+; Description
+; -----------------------------------------------------------
+name = G-raph!
+description = Lightweight drupal 7 base theme, based on 960 grid system.
+core = 7.x
+engine = phptemplate
+
+; -----------------------------------------------------------
+; Stylesheets
+; -----------------------------------------------------------
+stylesheets[all][] = css/html5reset.css
+stylesheets[all][] = css/regions.css
+stylesheets[all][] = css/12cols.css
+stylesheets[all][] = css/styleguide.css
+
+; -----------------------------------------------------------
+; JS
+; -----------------------------------------------------------
+scripts[] = js/modernizr-2.5.3-min.js
+scripts[] = js/selectivizr-min.js
+scripts[] = js/jquery-1.8.3.min.js
+
+; -----------------------------------------------------------
+; Regions
+; -----------------------------------------------------------
+regions[header_top] = Header Top
+regions[header_bottom_left] = Header Bottom Left
+regions[header_bottom_right] = Header Bottom Right
+regions[preface] = Preface
+regions[sidebar_first] = Left sidebar
+regions[content] = Content
+regions[sidebar_second] = Right sidebar
+regions[postscript] = Postscript
+regions[bottom_left] = Bottom Left
+regions[bottom_right] = Bottom Right
+regions[footer_top] = Footer Top
+regions[footer_bottom_left] = Footer Bottom Left
+regions[footer_bottom_right] = Footer Bottom Right
