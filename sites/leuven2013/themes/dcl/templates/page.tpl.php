@@ -130,17 +130,26 @@
   <div id="content">    
     <div id="content-inner">
 
+      <?php if ($breadcrumb): ?>
+        <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+      <?php endif; ?>
+
       <?php print $messages; ?>
 
       <?php if ($page['preface_top']): ?>
-        <div id="preface-top" class="col12">
+        <div id="preface-left" class="col12">
           <?php print render($page['preface_top']); ?>
         </div>
       <?php endif; ?>
 
       <?php if ($page['preface_left']): ?>
-        <div id="preface-left" class="col12">
+        <div id="preface-left" class="col6">
           <?php print render($page['preface_left']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($page['preface_right']): ?>
+        <div id="preface-right" class="col6">
+          <?php print render($page['preface_right']); ?>
         </div>
       <?php endif; ?>
 
@@ -150,12 +159,7 @@
         <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
 
-        <?php if ($page['sidebar_second']): ?>
-          <div id="content" class="col8"><div class="section">
-        <?php else: ?>
-          <div id="content" class="col12"><div class="section">
-        <?php endif; ?>
-
+        <div id="content" class="col8"><div class="section">
           <a id="main-content"></a>
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
