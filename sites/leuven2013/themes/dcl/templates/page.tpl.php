@@ -136,6 +136,12 @@
 
       <?php print $messages; ?>
 
+      <?php if ($page['preface_top']): ?>
+        <div id="preface-top" class="col12">
+          <?php print render($page['preface_top']); ?>
+        </div>
+      <?php endif; ?>
+
       <?php if ($page['preface_left']): ?>
         <div id="preface-left" class="col12">
           <?php print render($page['preface_left']); ?>
