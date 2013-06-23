@@ -1,0 +1,24 @@
+#header #header-middle #header-middle-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
+#header #header-bottom {
+  background: #3993c0;
+}
+#header #header-bottom #header-bottom-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
+#preface-wrapper {
+  background: #fff;
+}
+#footer {
+  background: #282828;
+}
+#footer #footer-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}

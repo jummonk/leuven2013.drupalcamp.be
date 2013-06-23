@@ -1,9 +1,12 @@
 // imports
 
-@import "/sites/all/themes/g_raph_/css/12cols.css";
-@import "/sites/all/themes/g_raph_/css/html5reset.css";
-@import "/sites/all/themes/g_raph_/css/regions.css";
-@import "/sites/all/themes/g_raph_/css/styleguide.css";
+@import "../../g_raph_/css/12cols.css";
+@import "../../g_raph_/css/html5reset.css";
+@import "../../g_raph_/css/regions.css";
+@import "../../g_raph_/css/styleguide.css";
+
+// Dev CSS
+@import "./kevin.css";
 
 // fonts
 
@@ -228,8 +231,90 @@ body {
       #header-middle {
         height: 195px;
         background: url(../images/dcl-banner.png) no-repeat center bottom @blue;
+        cursor: pointer;
       }
     }
   }
+  &.front {
+    #main-wrapper {
+      // display: none;
+    }
+  }
+}
+
+// MOBILE VERSION
+
+@media only screen and (max-width: 740px) {
+  
+  body {
+    #header {
+      #header-top {
+        #menubutton {
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          left: 30px;
+          top: 30px;
+          background: url(../images/menubutton.png) no-repeat left top;
+          cursor: pointer;
+        }
+        #header-top-inner {
+          .region-header-top {
+            #block-superfish-1 {
+              position: absolute;
+              z-index: 9;
+              left: 20px;
+              display: none;
+              top: 106px;
+              ul#superfish-1 {
+                width: 120px !important;
+                background: rgba(255,255,255,0.9);
+                padding: 0;
+                border: 1px solid #ccc;
+                margin-left: 0;
+                &:before {
+                  position: absolute;
+                  content: "";
+                  top: -20px;
+                  left: 10px;
+                  border-top: 10px solid transparent;
+                  border-left: 10px solid transparent;
+                  border-right: 10px solid transparent;
+                  border-bottom: 10px solid #ccc;
+                }
+                > li {
+                  margin: 0;
+                  > a {
+                    padding: 10px 30px;
+                    display: block;
+                    border-bottom: 1px dashed #ccc;
+                    font-size: 16px;
+                    color: #404040;
+                    &:hover, &.active {
+                      color: #fff;
+                      background: @blue;
+                      text-decoration: none;
+                    }
+                  }
+                  &:nth-child(3) {
+                    margin: 0;
+                    a {
+
+                    }
+                  }
+                  &.last, &.firstandlast {
+                    a {
+                      border-bottom: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 

@@ -125,28 +125,26 @@
   </div>
 </div>
 
+<div id="preface-wrapper" class="clearfix">
+  <?php if ($page['preface_top']): ?>
+    <div id="preface-top" class="col12">
+      <?php print render($page['preface_top']); ?>
+    </div>
+  <?php endif; ?>
+
+  <?php if ($page['preface_left']): ?>
+    <div id="preface-left" class="col12">
+      <?php print render($page['preface_left']); ?>
+    </div>
+  <?php endif; ?>
+</div>
+
 <div id="page-wrapper"><div id="page" class="clearfix">
 
   <div id="content">    
     <div id="content-inner">
 
-      <?php if ($breadcrumb): ?>
-        <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-      <?php endif; ?>
-
       <?php print $messages; ?>
-
-      <?php if ($page['preface_top']): ?>
-        <div id="preface-top" class="col12">
-          <?php print render($page['preface_top']); ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($page['preface_left']): ?>
-        <div id="preface-left" class="col12">
-          <?php print render($page['preface_left']); ?>
-        </div>
-      <?php endif; ?>
 
       <div id="main-wrapper"><div id="main" class="clearfix">
 
@@ -154,7 +152,12 @@
         <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
 
-        <div id="content" class="col8"><div class="section">
+        <?php if ($page['sidebar_second']): ?>
+          <div id="content" class="col8"><div class="section">
+        <?php else: ?>
+          <div id="content" class="col12"><div class="section">
+        <?php endif; ?>
+
           <a id="main-content"></a>
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
