@@ -1,0 +1,235 @@
+// imports
+
+@import "/sites/all/themes/g_raph_/css/12cols.css";
+@import "/sites/all/themes/g_raph_/css/html5reset.css";
+@import "/sites/all/themes/g_raph_/css/regions.css";
+@import "/sites/all/themes/g_raph_/css/styleguide.css";
+
+// fonts
+
+@font-face {
+  font-family: proxima_nova_excn_ltlight;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/proximanovaexcn-light-webfont.eot');
+  src: url('../font/proximanovaexcn-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/proximanovaexcn-light-webfont.woff') format('woff'),
+  url('../font/proximanovaexcn-light-webfont.ttf') format('truetype'),
+  url('../font/proximanovaexcn-light-webfont.svg#league_gothicregular') format('svg');
+}
+
+// vars - classes
+
+@blue: #3993c0;
+
+.transit {
+  -webkit-transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  -webkit-transition: -ms-transform .2s ease-in-out;
+  -moz-transition: -ms-transform .2s ease-in-out;
+  transition: -ms-transform .2s ease-in-out;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  -moz-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+}
+
+.font {
+  font-family: proxima_nova_excn_ltlight, helvetica, arial, verdana;
+}
+
+// theme
+
+h1#page-title {
+  .font;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 50px 0;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  .font;
+}
+
+body {
+  color: #404040;
+  line-height: 22px;
+  font-size: 15px;
+  .font;
+  #header {
+    position: relative;
+    #header-top {
+      position: fixed;
+      width: 100%;
+      z-index: 2;
+      height: 75px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+      background: #fff;
+      #header-top-inner {
+        text-align: center;
+        margin: 0 auto;
+        float: none;
+        display: block;
+        a#logo {
+          float: none;
+          padding: 0;
+          position: relative;
+          z-index: 2;
+          img {
+            margin-top: 10px;
+          }
+        }
+        #navbutton {
+          position: absolute;
+          right: 30px;
+          top: 30px;
+          width: 14px;
+          height: 14px;
+          background: url(../images/navbutton.png) no-repeat center center;
+          cursor: pointer;
+          .transit;
+          transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          &.open {
+            transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+          }
+        }
+        #navigation {
+          h2 {
+            display: none;
+          }
+          ul {
+            position: absolute;
+            right: 10px;
+            width: 120px;
+            background: rgba(255,255,255,0.9);
+            padding: 0;
+            border: 1px solid #ccc;
+            &:before {
+              position: absolute;
+              content: "";
+              top: -20px;
+              right: 15px;
+              border-top: 10px solid transparent;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid #ccc;
+            }
+            li {
+              padding: 0;
+              a {
+                padding: 10px 30px;
+                display: block;
+                border-bottom: 1px dashed #ccc;
+                font-size: 16px;
+                color: #404040;
+                &:hover, &.active {
+                  color: #fff;
+                  background: @blue;
+                  text-decoration: none;
+                }
+              }
+              &.last {
+                a {
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+        .region-header-top {
+          #block-superfish-1 {
+            margin-top: -40px;
+            ul#superfish-1 {
+              text-align: center;
+              width: 100%;
+              margin-left: 27px;
+              > li {
+                display: inline-block;
+                margin: 0 20px;
+                float: none;
+                &:nth-child(3) {
+                  margin-right: 200px;
+                  > ul {
+                    margin-left: -38px;
+                  }
+                }
+                > a {
+                  display: block;
+                  color: #404040;
+                  .font;
+                  font-size: 18px;
+                  &:hover {
+                    color: @blue;
+                    text-decoration: none;
+                  }
+                }
+                > ul {
+                  width: 120px !important;
+                  background: rgba(255,255,255,0.9);
+                  padding: 0;
+                  border: 1px solid #ccc;
+                  margin-left: -32px;
+                  &:before {
+                    position: absolute;
+                    content: "";
+                    top: -20px;
+                    left: 50px;
+                    border-top: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid #ccc;
+                  }
+                  > li {
+                    > a {
+                      padding: 10px 30px;
+                      display: block;
+                      border-bottom: 1px dashed #ccc;
+                      font-size: 16px;
+                      color: #404040;
+                      &:hover, &.active {
+                        color: #fff;
+                        background: @blue;
+                        text-decoration: none;
+                      }
+                    }
+                    &.last, &.firstandlast {
+                      a {
+                        border-bottom: none;
+                      }
+                    }
+                    > ul {
+                      > li {
+                        > a {
+
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #header-middle {
+      height: 679px;
+      background: url(../images/bg-header-middle-front.jpg) no-repeat center center;
+      background-size: cover;
+    }
+  }
+  &.not-front {
+    #header {
+      #header-middle {
+        height: 195px;
+        background: url(../images/dcl-banner.png) no-repeat center bottom @blue;
+      }
+    }
+  }
+}
+
