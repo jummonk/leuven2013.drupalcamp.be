@@ -18,7 +18,7 @@ function _leuven2013_general_block_how_to_propose_session() {
   $step1 = theme('html_tag', array(
     'element' => array(
       '#tag' => 'div',
-      '#value' => t('Make sure you are !registered and !loggedin on this website', array(
+      '#value' => t('Make sure you are !registered and !loggedin on this website.', array(
         '!registered' => l(t('registered'), 'user/register'),
         '!loggedin' => l(t('logged in'), 'user/login'),
       )),
@@ -32,7 +32,7 @@ function _leuven2013_general_block_how_to_propose_session() {
   $step2 = theme('html_tag', array(
     'element' => array(
       '#tag' => 'div',
-      '#value' => t('!fillin (make sure you are logged in!)', array(
+      '#value' => t('!fillin (make sure you are logged in!).', array(
         '!fillin' => l(t('Fill in the session proposal form'), 'node/add/session'),
       )),
       '#attributes' => array(
