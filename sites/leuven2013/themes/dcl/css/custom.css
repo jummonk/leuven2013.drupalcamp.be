@@ -211,9 +211,6 @@ body.not-front #header #header-middle {
   background: url(../images/dcl-banner.png) no-repeat center bottom #3993c0;
   cursor: pointer;
 }
-body.front #main-wrapper {
-  display: none;
-}
 @media only screen and (max-width: 740px) {
   body #header #header-top #menubutton {
     width: 14px;
