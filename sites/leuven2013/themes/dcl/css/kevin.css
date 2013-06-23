@@ -11,6 +11,9 @@
   max-width: 960px;
   width: 100%;
 }
+#preface-wrapper {
+  color: #fff;
+}
 #footer {
   background: #282828;
 }
