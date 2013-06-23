@@ -27,3 +27,8 @@
   max-width: 960px;
   width: 100%;
 }
+#footer #footer-inner .sponsor-bronze-footer {
+  width: 30%;
+  display: inline-block;
+  margin: 1%;
+}
