@@ -204,6 +204,9 @@ body #header #header-middle {
   background: url(../images/bg-header-middle-front.jpg) no-repeat center center;
   background-size: cover;
 }
+body #footer #footer-bottom {
+  margin: 0 auto;
+}
 body.not-front #header #header-middle {
   height: 195px;
   background: url(../images/dcl-banner.png) no-repeat center bottom #3993c0;
