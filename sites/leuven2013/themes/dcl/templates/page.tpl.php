@@ -125,26 +125,24 @@
   </div>
 </div>
 
-<div id="preface-wrapper">
-  <?php if ($page['preface_top']): ?>
-    <div id="preface-top" class="col12">
-      <?php print render($page['preface_top']); ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($page['preface_left']): ?>
-    <div id="preface-left" class="col12">
-      <?php print render($page['preface_left']); ?>
-    </div>
-  <?php endif; ?>
-</div>
-
 <div id="page-wrapper"><div id="page" class="clearfix">
 
   <div id="content">    
     <div id="content-inner">
 
       <?php print $messages; ?>
+
+      <?php if ($page['preface_top']): ?>
+        <div id="preface-top" class="col12">
+          <?php print render($page['preface_top']); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if ($page['preface_left']): ?>
+        <div id="preface-left" class="col12">
+          <?php print render($page['preface_left']); ?>
+        </div>
+      <?php endif; ?>
 
       <div id="main-wrapper"><div id="main" class="clearfix">
 
