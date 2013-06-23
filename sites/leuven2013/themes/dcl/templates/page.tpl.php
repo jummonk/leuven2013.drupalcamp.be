@@ -130,10 +130,6 @@
   <div id="content">    
     <div id="content-inner">
 
-      <?php if ($breadcrumb): ?>
-        <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-      <?php endif; ?>
-
       <?php print $messages; ?>
 
       <?php if ($page['preface_top']): ?>

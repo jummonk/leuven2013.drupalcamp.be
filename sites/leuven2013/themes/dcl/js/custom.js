@@ -9,7 +9,11 @@
       $('#navbutton').click(function(){
       	secMenu.slideToggle('fast');
       	$(this).toggleClass('open');
+      });
 
+      // not front header click to frontpage
+      $('body.not-front #header #header-middle').click(function(){
+        window.location = "/";
       });
 
     }
