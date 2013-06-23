@@ -15,6 +15,10 @@ function leuven2013_general_block_info() {
     'info' => t('Countdown block'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['how_to_propose_session'] = array(
+    'info' => t('How to propose a session'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -26,7 +30,7 @@ function leuven2013_general_block_view($delta = '') {
 
   $callback = '_leuven2013_general_block_' . $delta;
   if (!function_exists($callback)) {
-    return;
+    return array();
   }
 
   return $callback();
