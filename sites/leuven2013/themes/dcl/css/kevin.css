@@ -1,6 +1,8 @@
 #footer {
   background: #282828;
 }
-#footer #footer-bottom {
+#footer #footer-inner {
+  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
 }
