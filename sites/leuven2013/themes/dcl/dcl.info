@@ -25,6 +25,7 @@ regions[header_middle] = Header middle
 regions[header_bottom_left] = Header Bottom Left
 regions[header_bottom_middle] = Header Bottom Middle
 regions[header_bottom_right] = Header Bottom Right
+regions[preface_top] = Preface Top
 regions[preface_left] = Preface Left
 regions[preface_right] = Preface Right
 regions[content] = Content
