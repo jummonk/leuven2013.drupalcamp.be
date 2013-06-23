@@ -150,7 +150,12 @@
         <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
 
-        <div id="content" class="col8"><div class="section">
+        <?php if ($page['sidebar_second']): ?>
+          <div id="content" class="col8"><div class="section">
+        <?php else: ?>
+          <div id="content" class="col12"><div class="section">
+        <?php endif; ?>
+
           <a id="main-content"></a>
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
