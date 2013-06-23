@@ -126,7 +126,7 @@
 </div>
 
 <div id="preface-wrapper" class="clearfix">
-  <div id"preface-inner">
+  <div id="preface-inner">
     <?php if ($page['preface_top']): ?>
       <div id="preface-top" class="col12">
         <?php print render($page['preface_top']); ?>
