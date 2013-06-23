@@ -1,8 +1,18 @@
+#header #header-bottom #header-bottom-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
+#header #header-middle #header-middle-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
 #footer {
   background: #282828;
 }
 #footer #footer-inner {
-  width: 100%;
-  max-width: 960px;
   margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
 }
