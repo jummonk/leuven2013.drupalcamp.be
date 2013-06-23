@@ -5,3 +5,29 @@
  */
 
 include_once 'leuven2013_social.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_social_block_info() {
+  $blocks = array();
+  $blocks['social_sidebar'] = array(
+    'info' => t('Social Icons Sidebar'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_social_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_social', 'leuven2013_social.block');
+
+  $callback = '_leuven2013_social_block_' . $delta;
+  if (!function_exists($callback)) {
+    return array();
+  }
+
+  return $callback();
+}
