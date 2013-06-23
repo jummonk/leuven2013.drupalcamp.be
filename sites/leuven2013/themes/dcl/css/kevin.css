@@ -15,11 +15,14 @@
   background: #fff;
 }
 #preface-wrapper #preface-inner {
-  float: none;
   display: block;
-  margin: 15px auto;
+  float: none;
+  margin: 0 auto;
   max-width: 960px;
   width: 100%;
+}
+#preface-wrapper #preface-inner #preface-top {
+  margin: 15px auto;
 }
 #footer {
   background: #282828;
