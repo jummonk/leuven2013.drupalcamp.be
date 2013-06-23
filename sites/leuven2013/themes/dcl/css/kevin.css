@@ -28,7 +28,16 @@
   width: 100%;
 }
 #footer #footer-inner .sponsor-bronze-footer {
-  width: 30%;
   display: inline-block;
   margin: 1%;
+  width: 30%;
+}
+#sidebar-second .block {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+#sidebar-second .block h2 {
+  text-align: center;
 }
