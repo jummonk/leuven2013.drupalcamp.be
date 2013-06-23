@@ -2,6 +2,14 @@
   Drupal.behaviors.theming = {
     attach: function(context, settings) {
 
+      // primary menu
+      var priMenu = $('#header-top-inner #block-superfish-1');
+      $('<div id="menubutton"></div>').insertBefore('#header-top-inner');
+      $('#menubutton').click(function(){
+        priMenu.slideToggle('fast');
+        $(this).toggleClass('open');
+      });
+
       // secondary menu
       var secMenu = $('#header-top-inner #navigation ul');
       secMenu.hide();
