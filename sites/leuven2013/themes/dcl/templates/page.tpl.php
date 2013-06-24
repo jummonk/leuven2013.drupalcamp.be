@@ -203,10 +203,10 @@
 
 <div id="footer">
   <div id="footer-inner" class="clearfix">
-    <div id="footer-top" class="col12">
+    <div id="footer-top">
       <?php print render($page['footer_top']); ?>
     </div>
-    <div id="footer-bottom" class="col12">
+    <div id="footer-bottom">
       <?php print render($page['footer_bottom']); ?>
     </div>
   </div>
