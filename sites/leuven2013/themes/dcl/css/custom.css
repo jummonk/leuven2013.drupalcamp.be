@@ -345,4 +345,40 @@ body.not-front #header #header-middle {
   body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li.firstandlast a {
     border-bottom: none;
   }
+  body #header #header-middle #header-middle-inner #block-block-5,
+  body #header #header-middle #header-middle-inner #block-block-6,
+  body #header #header-middle #header-middle-inner #block-block-7,
+  body #header #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 {
+    width: 90%;
+    text-align: center;
+    float: none;
+  }
+  body #header #header-middle #header-middle-inner #block-block-8 {
+    background-size: 80%;
+    padding-top: 120px;
+  }
+  body #header #header-middle #header-middle-inner #block-block-8 .content p {
+    font-size: 20px;
+  }
+  body #header #header-middle #header-middle-inner #block-block-8 .content p.bigtext {
+    font-size: 28px;
+  }
+  body #header #header-middle #header-middle-inner #block-block-8 .content #counter {
+    width: 90%;
+    font-size: 18px !important;
+  }
+  body #header #header-middle #header-middle-inner #block-block-5 {
+    line-height: 25px;
+    font-size: 20px;
+    text-shadow: none;
+    margin: 0 5% 40px;
+  }
+  body #header #header-middle #header-middle-inner #block-block-6,
+  body #header #header-middle #header-middle-inner #block-block-7 {
+    margin-left: 5%;
+  }
+  body #header #header-middle #header-middle-inner #block-block-6 .content p a,
+  body #header #header-middle #header-middle-inner #block-block-7 .content p a {
+    font-size: 20px;
+  }
 }
