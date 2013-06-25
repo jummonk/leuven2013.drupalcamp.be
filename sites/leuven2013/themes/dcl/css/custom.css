@@ -261,6 +261,9 @@ body #header #header-middle #header-middle-inner #block-block-6 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+body #header #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 {
+  margin-top: 10px;
+}
 body #header #header-bottom #header-bottom-inner .block {
   padding: 80px 5px 20px;
 }
@@ -292,6 +295,9 @@ body.not-front #header #header-middle {
   background: url(../images/dcl-banner.png) no-repeat center center #3993c0;
   background-size: contain;
   cursor: pointer;
+}
+body.not-front #header #header-bottom {
+  display: none;
 }
 #counter {
   font-size: 24px !important;
@@ -406,5 +412,8 @@ body.not-front #header #header-middle {
   body #header #header-middle #header-middle-inner #block-block-6 .content p a,
   body #header #header-middle #header-middle-inner #block-block-7 .content p a {
     font-size: 20px;
+  }
+  body #header #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 {
+    margin-left: 5%;
   }
 }
