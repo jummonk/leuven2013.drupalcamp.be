@@ -320,6 +320,107 @@ body.not-front #header #header-bottom {
 .not-front #cntdwn {
   display: none;
 }
+.page-program #page-wrapper #main-wrapper {
+  position: relative;
+}
+.page-program #page-wrapper #main-wrapper .tabs {
+  clear: both;
+  margin: 0 0 60px;
+  position: relative;
+  width: 940px;
+}
+.page-program #page-wrapper #main-wrapper .tabs > ul {
+  background: none;
+  padding: 0;
+  text-align: center;
+}
+.page-program #page-wrapper #main-wrapper .tabs > ul li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: none;
+}
+.page-program #page-wrapper #main-wrapper .tabs > ul li a {
+  font-size: 22px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+.page-program #page-wrapper #main-wrapper .tabs > ul li a.active {
+  background: #3993c0;
+  position: relative;
+}
+.page-program #page-wrapper #main-wrapper .tabs > ul li a.active:after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 45%;
+  border-top: 8px solid #3993c0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.page-program #page-wrapper #main-wrapper .region-content {
+  width: 940px;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters {
+  background: #fff;
+  padding: 10px 20px;
+  margin: 0 0 60px;
+  border-radius: 4px;
+  position: relative;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .feed-icon {
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget {
+  width: 12.5%;
+  padding: 0 2%;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget.views-submit-button > input {
+  width: 100%;
+  border-radius: 4px;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content {
+  margin-bottom: 30px;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row {
+  float: left;
+  width: 46%;
+  margin: 0 2% 30px;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row .views-label {
+  float: left;
+  margin-right: 5px;
+}
+.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row .views-field-title {
+  font-size: 30px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.page-program #page-wrapper #main-wrapper #sidebar-second {
+  width: 940px;
+  margin-top: 60px;
+}
+.page-program #page-wrapper #main-wrapper #sidebar-second .block {
+  width: 29%;
+  float: left;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding: 10px 1%;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+.page-program #page-wrapper #main-wrapper #sidebar-second .block h2 {
+  margin-bottom: 20px;
+}
+.page-program #page-wrapper #main-wrapper #sidebar-second .block#block-views-leuven2013-sponsors-block-6 {
+  width: 95%;
+  margin: 0 0 30px 1%;
+  text-align: center;
+}
 @media only screen and (max-width: 740px) {
   body #header #header-top #menubutton {
     width: 14px;

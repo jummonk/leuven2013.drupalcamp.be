@@ -27,6 +27,12 @@
       // counter
       $('#cntdwn').appendTo('#block-block-8 #counter');
 
+      // program views-rows equal height
+      $('.page-program .view-sessions .views-row').equalHeights();
+
+      // program feed icon
+      $('.page-program #main-wrapper .feed-icon').appendTo('.page-program #main-wrapper .view-filters');
+
     }
   };
 })(jQuery);

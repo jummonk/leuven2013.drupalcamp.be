@@ -15,6 +15,7 @@ stylesheets[all][] = css/custom.css
 ; -----------------------------------------------------------
 ; JS
 ; -----------------------------------------------------------
+scripts[] = js/equalheights.js
 scripts[] = js/countdown.js
 scripts[] = js/custom.js
 

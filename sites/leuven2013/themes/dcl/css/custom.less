@@ -366,6 +366,120 @@ body {
   }
 }
 
+// page program
+
+.page-program {
+  #page-wrapper {
+    #main-wrapper {
+      position: relative;
+      .tabs {
+        clear: both;
+        margin: 0 0 60px;
+        position: relative;
+        width: 940px;
+        > ul {
+          background: none;
+          padding: 0;
+          text-align: center;
+          li {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            float: none;
+            a {
+              font-size: 22px;
+              text-transform: uppercase;
+              border-radius: 4px;
+              &.active {
+                background: @blue;
+                position: relative;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  bottom: -16px;
+                  left: 45%;
+                  border-top: 8px solid @blue;
+                  border-left: 8px solid transparent;
+                  border-right: 8px solid transparent;
+                  border-bottom: 8px solid transparent;
+                }
+              }
+            }
+          }
+        }
+      }
+      .region-content {
+        width: 940px;
+        .view-sessions {
+          .view-filters {
+            background: #fff;
+            padding: 10px 20px;
+            margin: 0 0 60px;
+            border-radius: 4px;
+            position: relative;
+            .feed-icon {
+              position: absolute;
+              right: 15px;
+              top: 0;
+            }
+            .views-exposed-form {
+              .views-exposed-widget {
+                width: 12.5%;
+                padding: 0 2%;
+                &.views-submit-button {
+                  > input {
+                    width: 100%;
+                    border-radius: 4px;
+                  }
+                }
+              }
+            }
+          }
+          .view-content {
+            margin-bottom: 30px;
+            .views-row {
+              float: left;
+              width: 46%;
+              margin: 0 2% 30px;
+              .views-label {
+                float: left;
+                margin-right: 5px;
+              }
+              .views-field-title {
+                font-size: 30px;
+                padding-bottom: 5px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+              }
+            }
+          }
+        }
+      }
+      #sidebar-second {
+        width: 940px;
+        margin-top: 60px;
+        .block {
+          width: 29%;
+          float: left;
+          margin-left: 1%;
+          margin-right: 1%; 
+          padding: 10px 1%;
+          background: #f5f5f5;
+          border-radius: 4px;
+          h2 {
+            margin-bottom: 20px;
+          }
+          &#block-views-leuven2013-sponsors-block-6 {
+            width: 95%;
+            margin: 0 0 30px 1%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
 // MOBILE VERSION
 
 @media only screen and (max-width: 740px) {

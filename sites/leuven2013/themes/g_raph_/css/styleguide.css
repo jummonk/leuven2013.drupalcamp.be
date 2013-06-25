@@ -327,7 +327,7 @@ h1#site-name {
   margin-top: 7px;
   word-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ba1926;
+  color: #ff9430;
 }
 /* Region header blocks. */
 .region-header .block {
@@ -1013,13 +1013,13 @@ ul.links {
 .tabs ul li.active a:link,
 .tabs ul li.active a:visited {
   color: #FFFFFF;
-  background: none repeat scroll 0 0 #ba1926;
+  background: none repeat scroll 0 0 #ff9430;
   margin: 0 3px 0 0;
   padding: 5px 10px;
 }
 .tabs ul li a:hover {
   color: #FFFFFF;
-  background: none repeat scroll 0 0 #ba1926;
+  background: none repeat scroll 0 0 #ff9430;
   margin: 0 3px 0 0;
   padding: 5px 10px;
 }
@@ -1084,7 +1084,7 @@ div.password-confirm {
 /* ---------------- Buttons    ---------------- */
 input.form-submit,
 a.button {
-  background: #ba1926;
+  background: #ff9430;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -1670,7 +1670,7 @@ body.overlay {
   color: #fff;
 }
 a {
-  color: #ba1926;
+  color: #ff9430;
 }
 a:hover,
 a:focus {
