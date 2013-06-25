@@ -103,12 +103,12 @@
 .view-leuven2013-sponsors .sponsor-overview-activity .node-sponsor {
   padding: 0 10px;
 }
-.call-to-action-list ul {
+ul.call-to-action-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.call-to-action-list ul li a {
+ul.call-to-action-list li a {
   color: #fff;
   font-size: 28px;
   background: #ff9430;
@@ -116,7 +116,7 @@
   text-align: center;
   border-radius: 4px;
 }
-.call-to-action-list ul li a:hover {
+ul.call-to-action-list li a:hover {
   background: #3993c0;
   text-decoration: none;
 }
