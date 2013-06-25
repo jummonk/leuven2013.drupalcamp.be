@@ -139,6 +139,9 @@ body #header #header-top #header-top-inner #navigation ul li a.active {
 body #header #header-top #header-top-inner #navigation ul li.last a {
   border-bottom: none;
 }
+body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 {
+  display: none;
+}
 body #header #header-top #header-top-inner .region-header-top #block-superfish-1 {
   margin-top: -40px;
 }
@@ -423,6 +426,9 @@ body.not-front #header #header-bottom {
   text-align: center;
 }
 @media only screen and (max-width: 740px) {
+  body #header #header-top {
+    position: relative;
+  }
   body #header #header-top #menubutton {
     width: 14px;
     height: 14px;
@@ -432,21 +438,21 @@ body.not-front #header #header-bottom {
     background: url(../images/menubutton.png) no-repeat left top;
     cursor: pointer;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 {
     position: absolute;
     z-index: 9;
     left: 20px;
     display: none;
     top: 106px;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 {
-    width: 120px !important;
-    background: rgba(255, 255, 255, 0.9);
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul {
+    width: 200px;
+    background: #fff;
     padding: 0;
     border: 1px solid #ccc;
     margin-left: 0;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1:before {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul:before {
     position: absolute;
     content: "";
     top: -20px;
@@ -456,28 +462,85 @@ body.not-front #header #header-bottom {
     border-right: 10px solid transparent;
     border-bottom: 10px solid #ccc;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li {
     margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > a {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > a {
     padding: 10px 30px;
     display: block;
     border-bottom: 1px dashed #ccc;
     font-size: 16px;
     color: #404040;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > a:hover,
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li > a.active {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > a:hover,
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > a.active {
     color: #fff;
     background: #3993c0;
     text-decoration: none;
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li:nth-child(3) {
-    margin: 0;
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li #submenubutton {
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    width: 30px;
+    height: 30px;
+    background: url(../images/submenubutton.png) no-repeat center center;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: -ms-transform 0.2s ease-in-out;
+    -moz-transition: -ms-transform 0.2s ease-in-out;
+    transition: -ms-transform 0.2s ease-in-out;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    -moz-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li.last a,
-  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 ul#superfish-1 > li.firstandlast a {
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li #submenubutton.open {
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > ul {
+    width: 200px;
+    background: #ccc;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+    padding: 0;
+    margin-left: 0;
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > ul > li {
+    margin: 0;
+    padding: 0;
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > ul > li > a {
+    padding: 10px 30px;
+    display: block;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #404040;
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > ul > li > a:hover,
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li > ul > li > a.active {
+    color: #fff;
+    background: #3993c0;
+    text-decoration: none;
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li.last a,
+  body #header #header-top #header-top-inner .region-header-top #block-menu-block-1 .menu-block-wrapper > ul > li.firstandlast a {
     border-bottom: none;
+  }
+  body #header #header-top #header-top-inner .region-header-top #block-superfish-1 {
+    display: none;
+  }
+  body #header #header-middle {
+    margin-top: 0;
   }
   body #header #header-middle #header-middle-inner #block-block-5,
   body #header #header-middle #header-middle-inner #block-block-6,
@@ -490,6 +553,7 @@ body.not-front #header #header-bottom {
   body #header #header-middle #header-middle-inner #block-block-8 {
     background-size: 80%;
     padding-top: 120px;
+    margin-top: 0;
   }
   body #header #header-middle #header-middle-inner #block-block-8 .content p {
     font-size: 20px;

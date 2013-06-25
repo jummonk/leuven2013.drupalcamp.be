@@ -2,12 +2,21 @@
   Drupal.behaviors.theming = {
     attach: function(context, settings) {
 
-      // primary menu
-      var priMenu = $('#header-top-inner #block-superfish-1');
+      // primary menu responsive
+      var priMenu = $('#header-top-inner #block-menu-block-1');
+      var priSubMenu = $('#header-top-inner #block-menu-block-1 ul li.expanded ul');
+      priSubMenu.hide();
       $('<div id="menubutton"></div>').insertBefore('#header-top-inner');
+      $('<div id="submenubutton"></div>').insertBefore(priSubMenu);
       $('#menubutton').click(function(){
         priMenu.slideToggle('fast');
         $(this).toggleClass('open');
+      });
+      $('li.expanded #submenubutton').each(function(){
+        $(this).click(function(){
+          $(this).next().slideToggle('fast');
+          $(this).toggleClass('open');
+        });
       });
 
       // secondary menu
