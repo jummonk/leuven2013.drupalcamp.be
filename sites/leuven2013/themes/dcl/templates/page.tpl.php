@@ -150,16 +150,16 @@
 
       <div id="main-wrapper"><div id="main" class="clearfix">
 
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
-
         <?php if ($page['sidebar_second']): ?>
           <div id="content" class="col8"><div class="section">
         <?php else: ?>
           <div id="content" class="col12"><div class="section">
         <?php endif; ?>
 
+        <?php print render($title_prefix); ?>
+        <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
+        <?php print render($title_suffix); ?>
+        
           <a id="main-content"></a>
           <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
           <?php print render($page['help']); ?>
