@@ -1,3 +1,9 @@
+
+// vars - classes
+
+@blue: #3993c0;
+@orange: #ff9430;
+
 #header {
   #header-middle {
     #header-middle-inner {
@@ -127,6 +133,27 @@
     width: 33%;
     .node-sponsor {
       padding: 0 10px;
+    }
+  }
+}
+
+ul.call-to-action-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 25px 0;
+    a {
+      color: #fff;
+      font-size: 28px;
+      background: @orange;
+      padding: 5px 30px;
+      text-align: center;
+      border-radius: 4px;
+      &:hover {
+        background: @blue;
+        text-decoration: none;
+      }
     }
   }
 }
