@@ -24,6 +24,7 @@
 // vars - classes
 
 @blue: #3993c0;
+@orange: #ff9430;
 
 .transit {
   -webkit-transition: transform .2s ease-in-out;
@@ -64,6 +65,7 @@ body {
     position: relative;
     #header-top {
       position: fixed;
+      top: 0;
       width: 100%;
       z-index: 2;
       height: 75px;
@@ -221,16 +223,71 @@ body {
       }
     }
     #header-middle {
+      margin-top: 75px;
       height: 679px;
       background: url(../images/bg-header-middle-front.jpg) no-repeat center center;
       background-size: cover;
+      #header-middle-inner {
+        display: block;
+        float: none;
+        #block-block-8 {
+          text-align: center;
+          margin: 50px 0;
+          background: url(../images/dcl-banner-front.png) no-repeat center top;
+          padding-top: 200px;
+          .content {
+            p {
+              color: #fff;
+              font-size: 25px;
+              margin-bottom: 15px;
+              &.bigtext {
+                color: @orange;
+                font-size: 46px;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+        #block-block-5 {
+          width: 49%;
+          float: left;
+          text-align: right;
+          color: #fff;
+          font-size: 25px;
+          text-shadow: 1px 1px 0 rgba(0,0,0,0.8);
+          line-height: 40px;
+        }
+        #block-block-6, #block-block-7, #block-views-leuven2013-sponsors-block-1 {
+          width: 49%;
+          float: right;
+        }
+        #block-block-6, #block-block-7 {
+          .content {
+            p {
+              a {
+                color: #fff;
+                font-size: 28px;
+                background: @orange;
+                padding: 5px 30px;
+                text-align: center;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
+        #block-block-6 {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
     }
   }
   &.not-front {
     #header {
       #header-middle {
-        height: 195px;
-        background: url(../images/dcl-banner.png) no-repeat center bottom @blue;
+        height: 110px;
+        background: url(../images/dcl-banner.png) no-repeat center center @blue;
+        background-size: contain;
         cursor: pointer;
       }
     }
@@ -239,6 +296,32 @@ body {
     #main-wrapper {
       // display: none;
     }
+  }
+}
+
+// countdown
+
+#counter {
+  font-size: 24px !important;
+  position: relative;
+  background: @blue;
+  padding: 10px 0;
+  width: 44%;
+  margin: 0 auto;
+  #cntdwn {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent !important;
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.not-front {
+  #cntdwn {
+    display: none;
   }
 }
 

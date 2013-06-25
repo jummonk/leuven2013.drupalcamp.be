@@ -24,6 +24,9 @@
         window.location = "/";
       });
 
+      // counter
+      $('#cntdwn').appendTo('#block-block-8 #counter');
+
     }
   };
 })(jQuery);
