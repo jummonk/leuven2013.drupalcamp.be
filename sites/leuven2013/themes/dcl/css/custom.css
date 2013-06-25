@@ -274,6 +274,7 @@ body.not-front #header #header-middle {
   padding: 10px 0;
   width: 44%;
   margin: 0 auto;
+  border-radius: 4px;
 }
 #counter #cntdwn {
   padding: 0;
