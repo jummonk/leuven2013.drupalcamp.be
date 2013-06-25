@@ -320,6 +320,9 @@ body.not-front #header #header-bottom {
 .not-front #cntdwn {
   display: none;
 }
+.page-program #page-wrapper h1#page-title {
+  width: 940px;
+}
 .page-program #page-wrapper #main-wrapper {
   position: relative;
 }
