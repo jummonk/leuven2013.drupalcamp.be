@@ -261,6 +261,32 @@ body #header #header-middle #header-middle-inner #block-block-6 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+body #header #header-bottom #header-bottom-inner .block {
+  padding: 80px 5px 20px;
+}
+body #header #header-bottom #header-bottom-inner .block h2 {
+  text-align: center;
+  font-size: 46px;
+  color: #fff;
+  font-weight: normal;
+}
+body #header #header-bottom #header-bottom-inner .block .content {
+  font-size: 16px;
+  text-align: justify;
+  color: #fff;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-left {
+  background: url(../images/icon-learn.png) no-repeat center top;
+  margin-top: 30px;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-middle {
+  background: url(../images/icon-share.png) no-repeat center top;
+  margin-top: 30px;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-right {
+  background: url(../images/icon-involve.png) no-repeat center top;
+  margin-top: 30px;
+}
 body.not-front #header #header-middle {
   height: 110px;
   background: url(../images/dcl-banner.png) no-repeat center center #3993c0;

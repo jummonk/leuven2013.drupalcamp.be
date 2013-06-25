@@ -101,39 +101,63 @@
 
 @media only screen and (max-width: 740px) {
 	.col12 {
-		width: 100%; 
+		width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col11 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col10 {
-		width: 100%; 
-	}
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 	.col9 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col8 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col7 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col6 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col5 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col4 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col3 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col2 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 	.col1 {
-		width: 100%; 
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 	}
 }
