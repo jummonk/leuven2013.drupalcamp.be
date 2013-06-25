@@ -323,36 +323,37 @@ body.not-front #header #header-bottom {
 .page-program #page-wrapper h1#page-title {
   width: 940px;
 }
-.page-program #page-wrapper #main-wrapper {
+.page-program #page-wrapper #main-wrapper #content {
+  width: 940px;
   position: relative;
 }
-.page-program #page-wrapper #main-wrapper .tabs {
+.page-program #page-wrapper #main-wrapper #content .tabs {
   clear: both;
   margin: 0 0 60px;
   position: relative;
-  width: 940px;
 }
-.page-program #page-wrapper #main-wrapper .tabs > ul {
+.page-program #page-wrapper #main-wrapper #content .tabs > ul {
   background: none;
   padding: 0;
   text-align: center;
+  width: 100%;
 }
-.page-program #page-wrapper #main-wrapper .tabs > ul li {
+.page-program #page-wrapper #main-wrapper #content .tabs > ul li {
   margin: 0;
   padding: 0;
   display: inline-block;
   float: none;
 }
-.page-program #page-wrapper #main-wrapper .tabs > ul li a {
+.page-program #page-wrapper #main-wrapper #content .tabs > ul li a {
   font-size: 22px;
   text-transform: uppercase;
   border-radius: 4px;
 }
-.page-program #page-wrapper #main-wrapper .tabs > ul li a.active {
+.page-program #page-wrapper #main-wrapper #content .tabs > ul li a.active {
   background: #3993c0;
   position: relative;
 }
-.page-program #page-wrapper #main-wrapper .tabs > ul li a.active:after {
+.page-program #page-wrapper #main-wrapper #content .tabs > ul li a.active:after {
   content: "";
   position: absolute;
   bottom: -16px;
@@ -362,42 +363,39 @@ body.not-front #header #header-bottom {
   border-right: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
-.page-program #page-wrapper #main-wrapper .region-content {
-  width: 940px;
-}
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-filters {
   background: #fff;
   padding: 10px 20px;
   margin: 0 0 60px;
   border-radius: 4px;
   position: relative;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .feed-icon {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-filters .feed-icon {
   position: absolute;
   right: 15px;
   top: 0;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget {
   width: 12.5%;
   padding: 0 2%;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget.views-submit-button > input {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-filters .views-exposed-form .views-exposed-widget.views-submit-button > input {
   width: 100%;
   border-radius: 4px;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-content {
   margin-bottom: 30px;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-content .views-row {
   float: left;
   width: 46%;
   margin: 0 2% 30px;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row .views-label {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-content .views-row .views-label {
   float: left;
   margin-right: 5px;
 }
-.page-program #page-wrapper #main-wrapper .region-content .view-sessions .view-content .views-row .views-field-title {
+.page-program #page-wrapper #main-wrapper #content .region-content .view-sessions .view-content .views-row .views-field-title {
   font-size: 30px;
   padding-bottom: 5px;
   margin-bottom: 10px;
