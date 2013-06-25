@@ -371,7 +371,7 @@ body.not-front #header #header-middle {
     line-height: 25px;
     font-size: 20px;
     text-shadow: none;
-    margin-left: 5%;
+    margin: 0 5% 40px;
   }
   body #header #header-middle #header-middle-inner #block-block-6,
   body #header #header-middle #header-middle-inner #block-block-7 {
