@@ -252,6 +252,11 @@ body #header #header-middle #header-middle-inner #block-block-7 .content p a {
   text-align: center;
   border-radius: 4px;
 }
+body #header #header-middle #header-middle-inner #block-block-6 .content p a:hover,
+body #header #header-middle #header-middle-inner #block-block-7 .content p a:hover {
+  background: #3993c0;
+  text-decoration: none;
+}
 body #header #header-middle #header-middle-inner #block-block-6 {
   margin-top: 10px;
   margin-bottom: 10px;
