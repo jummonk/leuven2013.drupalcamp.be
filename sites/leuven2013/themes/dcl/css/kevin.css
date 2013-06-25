@@ -80,3 +80,20 @@
 .view-leuven2013-sponsors ul li img {
   width: 100%;
 }
+.view-leuven2013-sponsors .sponsor-overview-gold .field-name-field-sponsor-body {
+  padding: 15px 0 0 25px;
+}
+.view-leuven2013-sponsors .sponsor-overview-gold .field-name-field-sponsor-body p {
+  margin: 0;
+}
+.view-leuven2013-sponsors .sponsor-overview-silver,
+.view-leuven2013-sponsors .sponsor-overview-bronze,
+.view-leuven2013-sponsors .sponsor-overview-activity {
+  float: left;
+  width: 33%;
+}
+.view-leuven2013-sponsors .sponsor-overview-silver .node-sponsor,
+.view-leuven2013-sponsors .sponsor-overview-bronze .node-sponsor,
+.view-leuven2013-sponsors .sponsor-overview-activity .node-sponsor {
+  padding: 0 10px;
+}
