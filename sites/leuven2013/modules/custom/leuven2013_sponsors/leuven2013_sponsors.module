@@ -11,6 +11,11 @@ include_once 'leuven2013_sponsors.features.inc';
  */
 function leuven2013_sponsors_menu() {
   $items = array();
+  $items['sponsors'] = array(
+    'title' => 'Sponsors',
+    'page callback' => 'leuven2013_sponsors_overview',
+    'access callback' => TRUE,
+  );
   $items['sponsorship/%taxonomy_term/apply'] = array(
     'page callback' => 'leuven2013_sponsors_view',
     'page arguments' => array(1),
@@ -19,6 +24,14 @@ function leuven2013_sponsors_menu() {
     'access callback' => TRUE,
   );
   return $items;
+}
+
+/**
+ * Menu callback sponsors overview page.
+ */
+function leuven2013_sponsors_overview() {
+  return '<p>DrupalCamp Leuven 2013 is organized by DUG BE VZW (Drupal User Group Belgium). We are a non-profit organization and our events are run by volunteers. Still we do need sponsors to keep the event free for the Drupal community. Your sponsorship fee will pay for the location, catering, publicity, ...</p>
+    <p>We offer five sponsor ship packages that can be tailored to suit your needs.</p>';
 }
 
 /**
