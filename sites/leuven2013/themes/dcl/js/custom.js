@@ -42,6 +42,15 @@
       // program feed icon
       $('.page-program #main-wrapper .feed-icon').appendTo('.page-program #main-wrapper .view-filters');
 
+      // program filter button
+      var filter = $('.page-program #main-wrapper .view-filters');
+      filter.hide();
+      $('<div id="filterbox">filter <span id="filterbutton"></span></div>').insertBefore(filter);
+      $('span#filterbutton').click(function(){
+        filter.slideToggle('fast');
+        $(this).toggleClass('open');
+      });
+
     }
   };
 })(jQuery);
