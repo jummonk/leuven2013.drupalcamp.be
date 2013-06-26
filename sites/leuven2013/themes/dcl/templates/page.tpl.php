@@ -134,8 +134,14 @@
     <?php endif; ?>
 
     <?php if ($page['preface_left']): ?>
-      <div id="preface-left" class="col12">
+      <div id="preface-left" class="col6">
         <?php print render($page['preface_left']); ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if ($page['preface_right']): ?>
+      <div id="preface-right" class="col6">
+        <?php print render($page['preface_right']); ?>
       </div>
     <?php endif; ?>
   </div>
