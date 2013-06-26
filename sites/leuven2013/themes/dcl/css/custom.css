@@ -643,6 +643,9 @@ body.not-front #header #header-bottom {
     margin-left: 5%;
     margin-right: 5%;
   }
+  .page-program #page-wrapper #main-wrapper #content .tabs > ul li a {
+    font-size: 18px;
+  }
   .page-program #page-wrapper #main-wrapper #content .view-sessions #filterbox {
     margin-top: -30px;
     margin-bottom: 30px;
