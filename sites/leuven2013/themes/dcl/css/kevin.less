@@ -157,17 +157,33 @@ ul.call-to-action-list {
     }
   }
 }
-
-#block-leuven2013-general-banner-to-frontpage {
-  margin-left: 0;
-  a.frontpage-banner-link {
-    background: url('../images/dcl-banner.png') no-repeat center center;
-    display: inline-block;
-    height: 110px;
-    text-indent: -9999px;
-
-  }
+#header-middle {
+  background: $blue !important; // Override default styling
 }
-#block-views-leuven2013-sponsors-block-1 {
-  margin-right: 0;
+#header-middle-inner {
+  #block-leuven2013-general-banner-to-frontpage {
+    margin-left: 0;
+    a.frontpage-banner-link {
+      background: url('../images/dcl-banner.png') no-repeat center center;
+      display: block;
+      height: 110px;
+      text-indent: -9999px;
+
+    }
+  }
+  #block-views-leuven2013-sponsors-block-1 {
+    margin-right: 0;
+    margin-top: 0;
+    a {
+      display: block;
+      height: 110px;
+      line-height: 110px;
+      text-align: center;
+      vertical-align: middle;
+      img {
+        vertical-align: middle;
+        width: 326px;
+      }
+    }
+  }
 }

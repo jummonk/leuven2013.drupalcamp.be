@@ -29,9 +29,9 @@
       });
 
       // not front header click to frontpage
-      $('body.not-front #header #header-middle').click(function(){
-        window.location = "/";
-      });
+      // $('body.not-front #header #header-middle').click(function(){
+      //   window.location = "/";
+      // });
 
       // counter
       $('#cntdwn').appendTo('#block-block-8 #counter');
