@@ -32,9 +32,26 @@
   max-width: 960px;
   width: 100%;
 }
-#footer #footer-inner .sponsor-bronze-footer {
+#footer #footer-inner #footer-bottom .sponsor-bronze-footer {
   display: inline-block;
   margin-bottom: 15px;
+}
+#footer #footer-inner #footer-bottom .sponsor-bronze-footer img {
+  filter: url(filters.svg#grayscale);
+  /* Firefox 3.5+ */
+
+  filter: gray;
+  /* IE6-9 */
+
+  -webkit-filter: grayscale(1) contrast(0.5) blur(2px);
+  /* Google Chrome & Safari 6+ */
+
+  -webkit-transition-property: -webkit-filter;
+  -webkit-transition-duration: .4s;
+}
+#footer #footer-inner #footer-bottom .sponsor-bronze-footer img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0) contrast 1 blur(0px);
 }
 #sidebar-second .block {
   background: none;

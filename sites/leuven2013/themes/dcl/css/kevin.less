@@ -40,9 +40,22 @@
     margin: 0 auto;
     max-width: 960px;
     width: 100%;
-    .sponsor-bronze-footer {
-      display: inline-block;
-      margin-bottom: 15px;
+    #footer-bottom {
+      .sponsor-bronze-footer {
+        display: inline-block;
+        margin-bottom: 15px;
+        img {
+          filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+          filter: gray; /* IE6-9 */
+          -webkit-filter: grayscale(1) contrast(0.5) blur(2px); /* Google Chrome & Safari 6+ */
+          -webkit-transition-property: -webkit-filter;
+          -webkit-transition-duration: .4s;
+          &:hover {
+            filter:none;
+            -webkit-filter: grayscale(0) contrast (1) blur(0px);
+          }
+        }
+      }
     }
   }
 }
