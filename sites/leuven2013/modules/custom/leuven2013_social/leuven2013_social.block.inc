@@ -3,7 +3,7 @@
  * Display the social media icons.
  */
 function _leuven2013_social_block_social_sidebar() {
-  drupal_add_css(drupal_get_path('module', 'leuven2013_social') . '/css/social.css')
+  drupal_add_css(drupal_get_path('module', 'leuven2013_social') . '/css/social.css');
   $url = drupal_parse_url('http://twitter.com/drupalcampbe');
   $twitter = l('Twitter', $url['path'], array('external' => TRUE, 'attributes' => array('target'=>'_blank')));
 
