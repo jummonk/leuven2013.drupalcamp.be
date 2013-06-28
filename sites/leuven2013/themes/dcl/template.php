@@ -7,9 +7,7 @@ function dcl_preprocess_block(&$vars) {
   $block_id = $vars['block']->module . '-' . $vars['block']->delta;
   $classes = &$vars['classes_array'];
 
-  var_dump($block_id);
-
-  if ($block_id == '' || $block_id == '') {
+  if ($block_id == 'leuven2013_general-banner_to_frontpage' || $block_id == 'views-leuven2013_sponsors-block_1') {
     $classes[] = 'col6';
   }
 }
