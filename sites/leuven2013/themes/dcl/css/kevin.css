@@ -137,7 +137,7 @@ ul.call-to-action-list li a:hover {
   margin-top: 0 !important;
 }
 .not-front #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1.col6 {
-  width: 460px;
+  width: 460px !important;
 }
 .not-front #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 a {
   display: block;
