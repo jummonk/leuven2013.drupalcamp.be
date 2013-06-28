@@ -16,6 +16,11 @@
 }
 #sidebar-second .block .social-icon:hover {
   background-position-y: -87px;
+  -webkit-transition: all 240ms ease-in-out; 
+     -moz-transition: all 240ms ease-in-out; 
+      -ms-transition: all 240ms ease-in-out; 
+       -o-transition: all 240ms ease-in-out; 
+          transition: all 240ms ease-in-out;
 }
 #sidebar-second .block .social-icon a {
   display: inline-block;

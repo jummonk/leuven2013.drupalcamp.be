@@ -45,16 +45,12 @@
         display: inline-block;
         margin-bottom: 15px;
         img {
-          filter: url(filters.svg#grayscale);                         /* Firefox 3.5+ */
-          filter: gray;                                               /* IE6-9 */
           -webkit-filter: grayscale(1) contrast(0.5) blur(0.25px);    /* Google Chrome & Safari 6+ */
-          -webkit-transition-property: -webkit-filter;
-          -webkit-transition-duration: 1s;
+                  filter: url(filters.svg#grayscale);                         /* Firefox 3.5+ */
+                  filter: gray;                                               /* IE6-9 */
           &:hover {
-            filter:none;
             -webkit-filter: grayscale(0) blur(0) contrast(1);
-            -webkit-transition-property: -webkit-filter;
-            -webkit-transition-duration: 1s;
+                    filter:none;
           }
         }
       }
