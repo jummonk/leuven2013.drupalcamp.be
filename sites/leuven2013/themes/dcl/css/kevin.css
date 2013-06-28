@@ -43,7 +43,7 @@
   filter: gray;
   /* IE6-9 */
 
-  -webkit-filter: grayscale(1) contrast(0.5) blur(2px);
+  -webkit-filter: grayscale(1) contrast(0.5) blur(1px);
   /* Google Chrome & Safari 6+ */
 
   -webkit-transition-property: -webkit-filter;
