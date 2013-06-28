@@ -124,7 +124,7 @@ ul.call-to-action-list li a:hover {
   text-decoration: none;
 }
 #header-middle {
-  background: $blue !important;
+  background-image: none !important;
 }
 #header-middle-inner #block-leuven2013-general-banner-to-frontpage {
   margin-left: 0;
@@ -136,8 +136,8 @@ ul.call-to-action-list li a:hover {
   text-indent: -9999px;
 }
 #header-middle-inner #block-views-leuven2013-sponsors-block-1 {
-  margin-right: 0;
-  margin-top: 0;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
 }
 #header-middle-inner #block-views-leuven2013-sponsors-block-1 a {
   display: block;
