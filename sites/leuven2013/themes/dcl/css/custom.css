@@ -284,14 +284,29 @@ body #header #header-bottom #header-bottom-inner .block .content {
 body #header #header-bottom #header-bottom-inner #header-bottom-left {
   background: url(../images/icon-learn.png) no-repeat center top;
   margin-top: 30px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-left:hover {
+  opacity: 1;
 }
 body #header #header-bottom #header-bottom-inner #header-bottom-middle {
   background: url(../images/icon-share.png) no-repeat center top;
   margin-top: 30px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-middle:hover {
+  opacity: 1;
 }
 body #header #header-bottom #header-bottom-inner #header-bottom-right {
   background: url(../images/icon-involve.png) no-repeat center top;
   margin-top: 30px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+body #header #header-bottom #header-bottom-inner #header-bottom-right:hover {
+  opacity: 1;
 }
 body.not-front #header #header-middle {
   height: 110px;
