@@ -41,10 +41,10 @@
         window.location = "/program/sessions";
       });
       $('#header-bottom-middle').click(function(){
-        window.location = "/community";
+        window.location = "/community/attendees";
       });
       $('#header-bottom-right').click(function(){
-        window.location = "/community/attendees";
+        window.location = "/community";
       });
 
       // program views-rows equal height
