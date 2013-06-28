@@ -44,7 +44,7 @@
         window.location = "/community/attendees";
       });
       $('#header-bottom-right').click(function(){
-        window.location = "/community";
+        window.location = "/organization";
       });
 
       // program views-rows equal height
