@@ -163,7 +163,6 @@ ul.call-to-action-list {
       clear: both;
       overflow: hidden;
       #block-leuven2013-general-banner-to-frontpage {
-        margin-left: 0;
         a.frontpage-banner-link {
           background: url('../images/dcl-banner.png') no-repeat center center;
           display: block;
@@ -173,7 +172,9 @@ ul.call-to-action-list {
         }
       }
       #block-views-leuven2013-sponsors-block-1 {
-        margin-right: 0 !important;
+        &.col6 {
+          width: 460px;
+        }
         margin-top: 0 !important;
         a {
           display: block;
@@ -201,7 +202,7 @@ ul.call-to-action-list {
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 959px) {
   .col12 {
     width: 90%;
     margin-left: 5%;

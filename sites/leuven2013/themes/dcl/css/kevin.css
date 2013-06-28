@@ -127,9 +127,6 @@ ul.call-to-action-list li a:hover {
   clear: both;
   overflow: hidden;
 }
-.not-front #header-middle #header-middle-inner #block-leuven2013-general-banner-to-frontpage {
-  margin-left: 0;
-}
 .not-front #header-middle #header-middle-inner #block-leuven2013-general-banner-to-frontpage a.frontpage-banner-link {
   background: url('../images/dcl-banner.png') no-repeat center center;
   display: block;
@@ -137,8 +134,10 @@ ul.call-to-action-list li a:hover {
   text-indent: -9999px;
 }
 .not-front #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 {
-  margin-right: 0 !important;
   margin-top: 0 !important;
+}
+.not-front #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1.col6 {
+  width: 460px;
 }
 .not-front #header-middle #header-middle-inner #block-views-leuven2013-sponsors-block-1 a {
   display: block;
@@ -156,7 +155,7 @@ ul.call-to-action-list li a:hover {
   text-align: center;
 }
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 959px) {
   .col12 {
     width: 90%;
     margin-left: 5%;
