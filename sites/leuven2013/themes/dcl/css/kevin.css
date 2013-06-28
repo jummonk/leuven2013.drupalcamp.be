@@ -154,6 +154,20 @@ ul.call-to-action-list li a:hover {
   font-size: 2em;
   text-align: center;
 }
+.how-to-propose-session-step {
+  margin: 8px 0;
+}
+.how-to-propose-session-step .how-to-propose-session-step-count {
+  background: #3993c0;
+  border-radius: 5px 20px 5px;
+  display: inline-block;
+  font-size: 1.8em;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+}
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 @media only screen and (max-width: 959px) {
   .col12 {
