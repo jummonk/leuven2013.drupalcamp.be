@@ -309,10 +309,8 @@ body #header #header-bottom #header-bottom-inner #header-bottom-right:hover {
   opacity: 1;
 }
 body.not-front #header #header-middle {
-  height: 110px;
-  background: url(../images/dcl-banner.png) no-repeat center center #3993c0;
-  background-size: contain;
-  cursor: pointer;
+  background: #3993c0;
+  height: auto;
 }
 body.not-front #header #header-bottom {
   display: none;
