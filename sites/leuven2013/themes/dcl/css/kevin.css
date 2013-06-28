@@ -151,3 +151,7 @@ ul.call-to-action-list li a:hover {
   vertical-align: middle;
   width: 326px;
 }
+.node-sponsor .field-name-sponsor-level-rendered .sponsor-level-rendered {
+  font-size: 2em;
+  text-align: center;
+}
