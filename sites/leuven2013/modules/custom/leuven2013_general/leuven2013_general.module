@@ -19,6 +19,10 @@ function leuven2013_general_block_info() {
     'info' => t('How to propose a session'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['banner_to_frontpage'] = array(
+    'info' => t('Print banner block that links to the frontpage.'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
