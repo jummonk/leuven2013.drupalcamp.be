@@ -15,10 +15,20 @@ function _leuven2013_general_block_countdown_timer() {
  * Display block with How-to propose a session
  */
 function _leuven2013_general_block_how_to_propose_session() {
+  $numbered = theme('html_tag', array(
+    'element' => array(
+      '#tag' => 'span',
+      '#value' => '1',
+      '#attributes' => array(
+        'class' => drupal_html_class('how-to-propose-session-step-count'),
+      ),
+    )
+  ));
+
   $step1 = theme('html_tag', array(
     'element' => array(
       '#tag' => 'div',
-      '#value' => t('Make sure you are !registered and !loggedin on this website.', array(
+      '#value' => $numbered . t('Make sure you are !registered and !loggedin on this website.', array(
         '!registered' => l(t('registered'), 'user/register'),
         '!loggedin' => l(t('logged in'), 'user/login'),
       )),
@@ -29,10 +39,20 @@ function _leuven2013_general_block_how_to_propose_session() {
     )
   ));
 
+  $numbered = theme('html_tag', array(
+    'element' => array(
+      '#tag' => 'span',
+      '#value' => '2',
+      '#attributes' => array(
+        'class' => drupal_html_class('how-to-propose-session-step-count'),
+      ),
+    )
+  ));
+
   $step2 = theme('html_tag', array(
     'element' => array(
       '#tag' => 'div',
-      '#value' => t('!fillin (make sure you are logged in!).', array(
+      '#value' => $numbered . t('!fillin (make sure you are logged in!).', array(
         '!fillin' => l(t('Fill in the session proposal form'), 'node/add/session'),
       )),
       '#attributes' => array(
@@ -42,10 +62,20 @@ function _leuven2013_general_block_how_to_propose_session() {
     )
   ));
 
+  $numbered = theme('html_tag', array(
+    'element' => array(
+      '#tag' => 'span',
+      '#value' => '3',
+      '#attributes' => array(
+        'class' => drupal_html_class('how-to-propose-session-step-count'),
+      ),
+    )
+  ));
+
   $step3 = theme('html_tag', array(
     'element' => array(
       '#tag' => 'div',
-      '#value' => t('Wait for feedback or !contact in case you have questions.', array(
+      '#value' => $numbered . t('Wait for feedback or !contact in case you have questions.', array(
         '!contact' => l(t('contact us'), 'contact'),
       )),
       '#attributes' => array(
