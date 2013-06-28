@@ -123,9 +123,15 @@ ul.call-to-action-list li a:hover {
   background: #3993c0;
   text-decoration: none;
 }
+#block-leuven2013-general-banner-to-frontpage {
+  margin-left: 0;
+}
 #block-leuven2013-general-banner-to-frontpage a.frontpage-banner-link {
   background: url('../images/dcl-banner.png') no-repeat center center;
   display: inline-block;
   height: 110px;
   text-indent: -9999px;
+}
+#block-views-leuven2013-sponsors-block-1 {
+  margin-right: 0;
 }
