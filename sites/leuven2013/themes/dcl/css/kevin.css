@@ -160,6 +160,7 @@ ul.call-to-action-list li a:hover {
 .how-to-propose-session-step .how-to-propose-session-step-count {
   background: #3993c0;
   border-radius: 5px 20px 5px;
+  color: #FFF;
   display: inline-block;
   font-size: 1.8em;
   height: 50px;
