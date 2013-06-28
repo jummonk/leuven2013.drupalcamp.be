@@ -36,6 +36,17 @@
       // counter
       $('#cntdwn').appendTo('#block-block-8 #counter');
 
+      // front blocks link
+      $('#header-bottom-left').click(function(){
+        window.location = "/program/sessions";
+      });
+      $('#header-bottom-middle').click(function(){
+        window.location = "/community";
+      });
+      $('#header-bottom-right').click(function(){
+        window.location = "/community/attendees";
+      });
+
       // program views-rows equal height
       $('.page-program .view-sessions .views-row').equalHeights();
 
