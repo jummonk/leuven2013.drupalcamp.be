@@ -13,7 +13,8 @@ function _leuven2013_social_block_social_sidebar() {
   $drupalorg = l('Drupal.org', $url['path'], array('external' => TRUE, 'attributes' => array('target'=>'_blank')));
 
   $block = array(
-    'subject' => t('Social Media'),
+    // 'subject' => t('Social Media'),
+    'subject' => '',
     'content' =>  '<div class="social-icon icon-twitter">' . $twitter . '</div> <div class="social-icon icon-facebook">' . $facebook . '</div><div class="social-icon icon-drupalorg">' . $drupalorg . '</div>',
   );
 

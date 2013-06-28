@@ -87,6 +87,11 @@
   text-indent: -9999px;
   width: 85px;
 }
+#sidebar-second .block#block-leuven2013-social-social-sidebar {
+  margin: 30px auto;
+  text-align: center;
+  width: 100%;
+}
 .view-leuven2013-sponsors ul {
   margin: 0;
   padding: 0;
