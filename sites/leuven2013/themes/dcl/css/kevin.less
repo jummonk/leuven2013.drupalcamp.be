@@ -49,10 +49,12 @@
           filter: gray; /* IE6-9 */
           -webkit-filter: grayscale(1) contrast(0.5) blur(2px); /* Google Chrome & Safari 6+ */
           -webkit-transition-property: -webkit-filter;
-          -webkit-transition-duration: .4s;
+          -webkit-transition-duration: 1s;
           &:hover {
             filter:none;
-            -webkit-filter: grayscale(0) contrast (1) blur(0px);
+            -webkit-filter: grayscale(0) blur(0) contrast(1);
+            -webkit-transition-property: -webkit-filter;
+            -webkit-transition-duration: 1s;
           }
         }
       }

@@ -47,11 +47,13 @@
   /* Google Chrome & Safari 6+ */
 
   -webkit-transition-property: -webkit-filter;
-  -webkit-transition-duration: .4s;
+  -webkit-transition-duration: 1s;
 }
 #footer #footer-inner #footer-bottom .sponsor-bronze-footer img:hover {
   filter: none;
-  -webkit-filter: grayscale(0) contrast 1 blur(0px);
+  -webkit-filter: grayscale(0) blur(0) contrast(1);
+  -webkit-transition-property: -webkit-filter;
+  -webkit-transition-duration: 1s;
 }
 #sidebar-second .block {
   background: none;
