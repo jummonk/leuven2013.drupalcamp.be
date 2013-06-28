@@ -67,3 +67,15 @@ function _leuven2013_general_block_how_to_propose_session() {
     )
   );
 }
+
+/**
+ * Print a block that displays the banner to link to the frontpage.
+ */
+function _leuven2013_general_block_banner_to_frontpage() {
+  $block = array();
+
+  $block['subject'] = '';
+  $block['content'] = l(t('Frontpage'), '<front>', array('attributes' => array('class' => 'frontpage-banner-link')));
+
+  return $block;
+}
