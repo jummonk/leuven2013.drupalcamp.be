@@ -3,6 +3,11 @@
   height: 85px;
   margin-right: 15px;
   width: 85px;
+  -webkit-transition: all 240ms ease-in-out; 
+     -moz-transition: all 240ms ease-in-out; 
+      -ms-transition: all 240ms ease-in-out; 
+       -o-transition: all 240ms ease-in-out; 
+          transition: all 240ms ease-in-out;
 }
 #sidebar-second .block .social-icon.icon-twitter {
   background: url('../images/icon_twitter.png') no-repeat 0 0;
