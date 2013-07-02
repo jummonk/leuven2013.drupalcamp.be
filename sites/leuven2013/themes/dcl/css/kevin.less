@@ -1,3 +1,16 @@
+.front {
+  #header {
+    #header-middle {
+      #header-middle-inner {
+        .view-leuven2013-sponsors {
+          .view-empty {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
 #header {
   #header-middle {
     #header-middle-inner {
@@ -64,6 +77,13 @@
       border: none;
       text-align: center;
     }
+    .view-leuven2013-sponsors {
+      .view-empty {
+        a {
+          font-size: 16px;
+        }
+      }
+    }
     // img {
     //   border-radius: 15px;
     // }
@@ -81,6 +101,18 @@
       img {
         width: 100%;
       }
+    }
+  }
+  .view-empty {
+    text-align: center;
+    margin: 0 0 10px 0;
+    a {
+      color: #fff;
+      font-size: 28px;
+      background: @orange;
+      padding: 5px 30px;
+      text-align: center;
+      border-radius: 4px;
     }
   }
 }
@@ -220,9 +252,65 @@ ul.call-to-action-list {
   }
 }
 
+#block-views-leuven2013-news-block {
+  .view-leuven2013-news {
+    margin-left: 0;
+  }
+}
+#block-views-leuven2013-news-block-2 {
+  .view-leuven2013-news {
+    margin-right: 0;
+  }
+}
+.view-leuven2013-news {
+  img {
+    border-radius: 5px 20px 5px;
+    box-shadow: 3px 3px 3px #aaa;
+  }
+  .field-name-post-date {
+    color: #888;
+    float: right;
+    font-size: 0.9em;
+    margin-top: 0;
+  }
+}
+
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 959px) {
+  #block-views-leuven2013-news-block, #block-views-leuven2013-news-block-2 {
+    .view-leuven2013-news {
+      margin: 0;
+    }
+  }
+  #preface-wrapper {
+    #preface-inner {
+      #preface-top {
+        margin-bottom: 25px;
+        margin-top: 25px;
+      }
+    }
+  }
+  .sponsor-silver, .field-type-image {
+    text-align: center;
+  }
+  #content {
+    .view-leuven2013-sponsors {
+      .sponsor-overview-bronze, .sponsor-overview-activity {
+        width: 50%;
+      }
+      .sponsor-overview-silver {
+        .field-name-field-sponsor-body, .sponsor-inline-title {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .ds-2col > .group-left, .ds-2col > .group-right {
+    width: 100%;
+  }
+
+  #content .view-leuven2013-sponsors 
   .col12 {
     width: 90%;
     margin-left: 5%;
