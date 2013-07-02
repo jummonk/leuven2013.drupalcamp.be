@@ -1,0 +1,50 @@
+/* User registration form */
+.multipage-controls-list {
+  .multipage-button {
+    input.form-submit {
+      margin-top: 1em;
+    }
+    a.multipage-link-previous {
+      text-decoration:none !important;
+      color: #333 !important;
+      background:none;
+      border: none;
+      border-radius: 2px !important;
+      -moz-border-radius: 2px !important;
+      -webkit-border-radius: 2px !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      font: 12px arial,sans-serif !important;
+      font-weight: bold !important;
+      color: #666 !important;
+      text-shadow: 0 1px 0 white !important;
+      padding: 7px 12px !important;
+      background: -webkit-gradient(linear,0% 40%,0% 70%,from(whiteSmoke),to(#F1F1F1)) !important;
+      -o-transition: border-top-color 0.218s,border-right-color 0.218s,border-bottom-color 0.218s,border-left-color .218s !important;
+      -webkit-transition: border-color .218s !important;
+    }
+    a.multipage-link-previous:hover{
+      color:#333 !important;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1) !important;
+      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1) !important;
+      border-color: #939393 !important;
+    }
+  }
+}
+
+.first-page { 
+  .multipage-controls-list {
+    .multipage-button {
+      a.multipage-link-previous {
+        display: none;
+      }
+    }
+  }
+}
+.last-page { 
+  .multipage-controls-list {
+    .form-actions {
+      margin-top: 0px;
+      padding-top: 2px;
+    }
+  }
+}
