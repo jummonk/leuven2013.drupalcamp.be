@@ -262,15 +262,26 @@ ul.call-to-action-list {
   .sponsor-silver, .field-type-image {
     text-align: center;
   }
-  #content .view-leuven2013-sponsors .sponsor-overview-bronze, #content .view-leuven2013-sponsors .sponsor-overview-activity {
-    width: 50%;
+  #content {
+    .view-leuven2013-sponsors {
+      .sponsor-overview-bronze {
+        width: 50%;
+      }
+      .sponsor-overview-activity {
+        width: 50%;
+      }
+      .sponsor-overview-silver {
+        .field-name-field-sponsor-body {
+          padding: 0;
+        }
+      }
+    }
   }
   .ds-2col > .group-left, .ds-2col > .group-right {
     width: 100%;
-    .field-name-field-sponsor-body {
-      padding: 0;
-    }
   }
+
+  #content .view-leuven2013-sponsors 
   .col12 {
     width: 90%;
     margin-left: 5%;
