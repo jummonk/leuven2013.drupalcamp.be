@@ -1,0 +1,6 @@
+.view-id-attendees .views-fluid-grid-item {
+  border: none;
+}
+.view-id-attendees .views-fluid-grid-item .views-field-picture .user-picture img {
+  margin: 0;
+}
