@@ -21,3 +21,13 @@ function _leuven2013_social_block_social_sidebar() {
 
   return $block;
 }
+
+/**
+ * Implement de "De Lijn" application.
+ */
+function _leuven2013_social_block_delijnapp() {
+  drupal_add_css(
+      '@import "http://pluggable.reisinfo.delijn.be/routeplannerPluggable/js/dijit/themes/nihilo/nihilo.css";',
+      array('type' => 'inline')
+    );
+}
