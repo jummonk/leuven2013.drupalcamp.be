@@ -8,3 +8,5 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 /nbproject/private/
+sites.php
+sites/leuven2013/themes/dcl/css/*.css
