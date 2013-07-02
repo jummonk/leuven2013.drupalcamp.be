@@ -13,6 +13,9 @@
 }
 #preface-wrapper {
   background: #fff;
+  -webkit-box-shadow: inset 0px 11px 8px -5px #cccccc, inset 0px -11px 8px -5px #dddddd;
+  -moz-box-shadow: inset 0px 11px 8px -5px #cccccc, inset 0px -11px 8px -5px #dddddd;
+  box-shadow: inset 0px 11px 8px -5px #cccccc, inset 0px -11px 8px -5px #dddddd;
 }
 #preface-wrapper #preface-inner {
   display: block;
