@@ -371,7 +371,7 @@ function _leuven2013_social_block_delijnapp() {
           value2label: true
   });
           prp.init();
-          document.getElementById(\aankomstGemeente\').value = \'LEUVEN\'; 
+          document.getElementById(\'aankomstGemeente\').value = \'LEUVEN\'; 
           document.getElementById(\'aankomstStraat\').value = \'HERESTRAAT\';
           document.getElementById(\'aankomstNr\').value = \'49\';
           console.log("addOnLoad ended");
