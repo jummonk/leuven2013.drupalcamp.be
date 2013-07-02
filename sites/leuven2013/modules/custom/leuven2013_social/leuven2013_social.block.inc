@@ -30,4 +30,12 @@ function _leuven2013_social_block_delijnapp() {
       '@import "http://pluggable.reisinfo.delijn.be/routeplannerPluggable/js/dijit/themes/nihilo/nihilo.css";',
       array('type' => 'inline')
     );
+  drupal_add_css(
+      'http://pluggable.reisinfo.delijn.be/routeplannerPluggable/css/pluggableRouteplanner.css',
+      array('external' => TRUE)
+    );
+  drupal_add_js(
+      'http://pluggable.reisinfo.delijn.be/routeplannerPluggable/js/calendar.js',
+      array('external' => TRUE)
+    );
 }
