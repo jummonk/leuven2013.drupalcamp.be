@@ -256,10 +256,10 @@ function _leuven2013_social_block_delijnapp() {
                                                         }
                                                         new tcal({
                                                             // form name
-                                                            'formname': 'routeplanAanvraagFormId',
+                                                            \'formname\': \'routeplanAanvraagFormId\',
                                                             // input name
-                                                            'controlname': 'datum',
-                                                            'selected': s_selected
+                                                            \'controlname\': \'datum\',
+                                                            \'selected\': s_selected
                                                         }, A_CALTPL);
                                                     </script>
                                                     <div class="dl-error-box dl-hidden" id="errorBoodschapDatum">
