@@ -363,20 +363,20 @@ function ds_get_layout($entity_type, $bundle, $view_mode, $fallback = TRUE) {
 
     $entity_info = entity_get_info();
 
-    $overriden = TRUE;
+    $overridden = TRUE;
     if ($view_mode != 'form') {
       $view_mode_settings = field_view_mode_settings($entity_type, $bundle);
-      $overriden = (!empty($view_mode_settings[$view_mode]['custom_settings']) ? TRUE : FALSE);
+      $overridden = (!empty($view_mode_settings[$view_mode]['custom_settings']) ? TRUE : FALSE);
     }
     // Check if a layout is configured.
-    if (isset($entity_info[$entity_type]['bundles'][$bundle]['layouts'][$view_mode]) && ($overriden || $view_mode == 'default')) {
+    if (isset($entity_info[$entity_type]['bundles'][$bundle]['layouts'][$view_mode]) && ($overridden || $view_mode == 'default')) {
       $layouts[$layout_key] = $entity_info[$entity_type]['bundles'][$bundle]['layouts'][$view_mode];
       $layouts[$layout_key]['view_mode'] = $view_mode;
     }
 
     // In case $view_mode is not found, check if we have a default layout,
     // but only if the view mode settings aren't overridden for this view mode.
-    if ($view_mode != 'default' && !$overriden && $fallback && isset($entity_info[$entity_type]['bundles'][$bundle]['layouts']['default'])) {
+    if ($view_mode != 'default' && !$overridden && $fallback && isset($entity_info[$entity_type]['bundles'][$bundle]['layouts']['default'])) {
       $layouts[$layout_key] = $entity_info[$entity_type]['bundles'][$bundle]['layouts']['default'];
       $layouts[$layout_key]['view_mode'] = 'default';
     }
@@ -1312,22 +1312,19 @@ function ds_field_formatter_view($entity_type, $entity, $field, $instance, $lang
  */
 function ds_contextual_links_view_alter(&$element, $items) {
 
-  if (isset($element['#element']['#entity_type']) && module_exists('field_ui') && user_access('administer content types')) {
+  if (!empty($element['#element']['#entity_type']) && !empty($element['#element']['#bundle']) && module_exists('field_ui') && user_access('administer content types')) {
     $entity_type = $element['#element']['#entity_type'];
     $bundle = $element['#element']['#bundle'];
     $view_mode = isset($element['#element']['#view_mode']) ? $element['#element']['#view_mode'] : 'default';
-
-    // Check if we have a configured layout. Do not fallback to default.
-    $layout = ds_get_layout($entity_type, $bundle, $view_mode, FALSE);
 
     // Get the manage display URI.
     $admin_path = _field_ui_bundle_admin_path($entity_type, $bundle);
 
     // Check view mode settings.
     $view_mode_settings = field_view_mode_settings($entity_type, $bundle);
-    $overriden = (!empty($view_mode_settings[$view_mode]['custom_settings']) ? TRUE : FALSE);
+    $overridden = (!empty($view_mode_settings[$view_mode]['custom_settings']) ? TRUE : FALSE);
 
-    if (empty($layout) && !$overriden) {
+    if (!$overridden) {
       $admin_path .= '/display';
     }
     else {
