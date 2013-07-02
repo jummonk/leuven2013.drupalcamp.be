@@ -15,6 +15,10 @@ function leuven2013_social_block_info() {
     'info' => t('Social Icons Sidebar'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['delijnapp'] = array(
+    'info' => t('De Lijn App'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
