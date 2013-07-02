@@ -233,6 +233,7 @@ ul.call-to-action-list {
 .view-leuven2013-news {
   img {
     border-radius: 5px 20px 5px;
+    box-shadow: 3px 3px 3px #aaa;
   }
   .field-name-post-date {
     color: #888;
@@ -245,6 +246,11 @@ ul.call-to-action-list {
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 959px) {
+  #block-views-leuven2013-news-block, #block-views-leuven2013-news-block-2 {
+    .view-leuven2013-news {
+      margin: 0;
+    }
+  }
   .col12 {
     width: 90%;
     margin-left: 5%;
