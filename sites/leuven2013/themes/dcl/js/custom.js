@@ -62,6 +62,32 @@
         $(this).toggleClass('open');
       });
 
+      // speakers swipable carousel
+      var slidebox = $('.page-speakers #page-wrapper #main-wrapper #content .view-speakers .view-content');
+      $('<div class="prev"></div><div class="carousel-navigation"><div class="carousel-navigation-inner"></div></div><div class="next"></div>').insertBefore(slidebox);
+      slidebox.carouFredSel({
+        auto: {
+          timeoutDuration : 6000
+        },
+        scroll : {
+          duration : 500,
+          items : 1
+        },
+        prev: {button:'.prev'},
+        next: {button:'.next'},
+        pagination: {container:'.carousel-navigation-inner'},
+        responsive: true,
+        width: '100%',
+        swipe : {
+          onTouch : true,
+          onMouse : true,
+          items : 1
+        },
+        items: {
+          visible: 3
+        }
+      });
+
     }
   };
 })(jQuery);

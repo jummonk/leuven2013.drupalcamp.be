@@ -17,6 +17,8 @@ stylesheets[all][] = css/custom.css
 ; -----------------------------------------------------------
 scripts[] = js/equalheights.js
 scripts[] = js/countdown.js
+scripts[] = js/caroufredsel.js
+scripts[] = js/swipe.js
 scripts[] = js/custom.js
 
 ; -----------------------------------------------------------

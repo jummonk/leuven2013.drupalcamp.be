@@ -553,6 +553,52 @@ body {
         width: 940px;
         position: relative;
         .view-speakers {
+          .prev {
+            background: url(../images/speaker-slide-arrow-left.png) no-repeat left top;
+            height: 109px;
+            width: 65px;
+            position: absolute;
+            top: 50%;
+            left: -85px;
+            cursor: pointer;
+            &:hover {
+              background: url(../images/speaker-slide-arrow-left-active.png) no-repeat left top;
+            }
+          }
+          .next {
+            background: url(../images/speaker-slide-arrow-right.png) no-repeat left top;
+            height: 109px;
+            width: 65px;
+            position: absolute;
+            top: 50%;
+            right: -85px;
+            cursor: pointer;
+            &:hover {
+              background: url(../images/speaker-slide-arrow-right-active.png) no-repeat left top;
+            }
+          }
+          .carousel-navigation {
+            .carousel-navigation-inner {
+              text-align: center;
+              padding-bottom: 15px;
+              a {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #ccc;
+                display: inline-block;
+                margin: 0 1px;
+                &.selected {
+                  background: @orange;
+                }
+                span {
+                  display: block;
+                  text-align: left;
+                  text-indent: -999999px;
+                }
+              }
+            }
+          }
           .view-content {
             > .view-grouping {
               background: white;
