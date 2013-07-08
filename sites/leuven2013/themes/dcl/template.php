@@ -24,4 +24,22 @@ function dcl_preprocess_field(&$variables, $hook) {
       }
     }
   }
+  elseif ($element['#field_name'] == 'field_experience') {
+    foreach ($variables['items'] as $delta => $item) {
+      if (!empty($item['#markup'])) {
+        $variables['classes_array'][] = 'icon-experience-level';
+        switch (strtolower($item['#markup'])) {
+          case 'beginner':
+            $variables['classes_array'][] = 'experience-level-1';
+            break;
+          case 'intermediate':
+            $variables['classes_array'][] = 'experience-level-2';
+            break;
+          case 'advanced':
+            $variables['classes_array'][] = 'experience-level-3';
+            break;
+        }
+      }
+    }
+  }
 }

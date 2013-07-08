@@ -327,6 +327,7 @@ ul.call-to-action-list {
   margin-bottom: 15px;
   padding-bottom: 15px;
   .view-leuven2013-tracks {
+    overflow: auto;
     .view-content {
       .views-row {
         float: left;
@@ -345,6 +346,28 @@ ul.call-to-action-list {
           margin-right: 15px;
         }
       }
+    }
+  }
+}
+
+.icon-experience-level {
+  .field-item {
+    text-align: center;
+    text-indent: -9999px;
+  }
+  &.experience-level-1 {
+    .field-item {
+      background: url('../images/exp-beginner.png') no-repeat center center;
+    }
+  }
+  &.experience-level-2 {
+    .field-item {
+      background: url('../images/exp-intermediate.png') no-repeat center center;
+    }
+  }
+  &.experience-level-3 {
+    .field-item {
+      background: url('../images/exp-advanced.png') no-repeat center center;
     }
   }
 }
