@@ -1168,21 +1168,9 @@ function theme_field($variables) {
 
   // Render the items.
   $output .= '<div class="field-items"' . $variables['content_attributes'] . '>';
-  $item_count = count($variables['items']);
   foreach ($variables['items'] as $delta => $item) {
-    // Set the default css classes (e.g. zebra, delta, first/last). This
-    // isn't 0 indexed because users expect the first item to be 1 and odd.
-    $classes = array();
-    $classes[] = 'field-item';
-    $classes[] = (($delta + 1) % 2 ? 'odd' : 'even');
-    $classes[] = 'field-item-' . ($delta + 1);
-    if ($delta == 0) {
-      $classes[] = 'field-item-first';
-    }
-    elseif ($delta == $item_count - 1) {
-      $classes[] = 'field-item-last';
-    }
-    $output .= '<div class="' . implode(' ', $classes) . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
+    $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+    $output .= '<div class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
   }
   $output .= '</div>';
 
