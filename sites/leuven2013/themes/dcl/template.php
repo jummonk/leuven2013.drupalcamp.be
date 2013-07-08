@@ -11,3 +11,10 @@ function dcl_preprocess_block(&$vars) {
     $classes[] = 'col6';
   }
 }
+
+function dcl_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+  if ($element['#name'] == 'field_session_track') {
+    $variables['classes_array'][] = 'BLUE';
+  }
+}
