@@ -344,6 +344,12 @@ body {
     }
   }
   &.front {
+    .node-page {
+      display: none;
+    }
+    #block-views-leuven2013-news-block {
+      margin-top: 50px;
+    }
     #preface-wrapper {
       h2 {
         font-size: 30px;
@@ -784,7 +790,128 @@ body {
 
 @media screen and (min-width: 740px) and (max-width: 980px) {
 
-  .page-speakers {
+  .page-speakers, .page-program, body {
+    #header {
+      #header-top {
+        position: relative;
+        #menubutton {
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          left: 30px;
+          top: 30px;
+          background: url(../images/menubutton.png) no-repeat left top;
+          cursor: pointer;
+        }
+        #header-top-inner {
+          width: 100%;
+          .region-header-top {
+            #block-menu-block-1 {
+              position: absolute;
+              z-index: 9;
+              left: 17px;
+              display: none;
+              top: 67px;
+              .menu-block-wrapper {
+                > ul {
+                  width: 200px;
+                  background: #fff;
+                  padding: 0;
+                  border: 1px solid #ccc;
+                  margin-left: 0;
+                  &:before {
+                    position: absolute;
+                    content: "";
+                    top: -20px;
+                    left: 10px;
+                    border-top: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid #ccc;
+                  }
+                  > li {
+                    margin: 0;
+                    padding: 0;
+                    position: relative;
+                    display: block;
+                    > a {
+                      padding: 10px 30px;
+                      display: block;
+                      border-bottom: 1px dashed #ccc;
+                      font-size: 16px;
+                      color: #404040;
+                      &:hover, &.active {
+                        color: #fff;
+                        background: @blue;
+                        text-decoration: none;
+                      }
+                    }
+                    #submenubutton {
+                      position: absolute;
+                      right: 15px;
+                      top: 6px;
+                      width: 30px;
+                      height: 30px;
+                      background: url(../images/submenubutton.png) no-repeat center center;
+                      cursor: pointer;
+                      opacity: 0.5;
+                      .transit;
+                      transform: rotate(0deg);
+                      -ms-transform: rotate(0deg);
+                      -webkit-transform: rotate(0deg);
+                      &.open {
+                        transform: rotate(-45deg);
+                        -ms-transform: rotate(-45deg);
+                        -webkit-transform: rotate(-45deg);
+                      }
+                    }
+                    > ul {
+                      width: 200px;
+                      background: #ccc;
+                      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+                      padding: 0;
+                      margin-left: 0;
+                      > li {
+                        margin: 0;
+                        padding: 0;
+                        > a {
+                          padding: 10px 30px;
+                          display: block;
+                          border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+                          font-size: 16px;
+                          color: #404040;
+                          &:hover, &.active {
+                            color: #fff;
+                            background: @blue;
+                            text-decoration: none;
+                          }
+                        }
+                      }
+                    }
+                    &.last, &.firstandlast {
+                      a {
+                        border-bottom: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            #block-superfish-1 {
+              display: none;
+            }
+          }
+        }
+      }
+      #header-middle {
+        margin-top: 0;
+        #header-middle-inner {
+          #block-block-8 {
+            margin-top: 0;
+          }
+        }
+      }
+    }
     #page-wrapper {
       h1#page-title {
         width: 90%;
@@ -806,8 +933,8 @@ body {
         }
         #sidebar-second {
           width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
+          margin-left: 5%;
+          margin-right: 5%;
         }
       }
     }
@@ -941,7 +1068,7 @@ body {
             float: none;
           }
           #block-block-8 {
-            background-size: 80%;
+            background-size: 300px;
             padding-top: 120px;
             margin-top: 0;
             .content {
