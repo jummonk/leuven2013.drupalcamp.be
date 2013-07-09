@@ -49,6 +49,16 @@
 
       // program views-rows equal height
       $('.page-program .view-sessions .views-row').equalHeights();
+      // $('.page-program .node-session').equalHeights();
+
+      // program tracks legend
+      $('#block-views-leuven2013-tracks-block .view-leuven2013-tracks').addClass('clearfix');
+      $('.page-program #page-wrapper #main-wrapper #content #block-views-leuven2013-tracks-block .view-leuven2013-tracks .views-row').each(function(){
+        var legendLink = $(this).find('.views-field-name a');
+        var legendColorPick = $(this).find('.views-field-field-track-color-code .field-content > div');
+        var legendColor = legendColorPick.css('background-color');
+        legendLink.css('background-color',legendColor);
+      });
 
       // program feed icon
       $('.page-program #main-wrapper .feed-icon').appendTo('.page-program #main-wrapper .view-filters');
