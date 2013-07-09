@@ -16,6 +16,9 @@ function dcl_preprocess_field(&$variables, $hook) {
   $element = $variables['element'];
   if ($element['#field_name'] == 'field_session_track') {
     foreach ($variables['items'] as $delta => $item) {
+      if (empty($item['#options']['entity'])) {
+        continue;
+      }
       $colors = field_get_items('taxonomy_term', $item['#options']['entity'], 'field_track_color_code');
       if (!empty($colors) && !empty($colors[0]['rgb'])) {
         $rgb = $colors[0]['rgb'];
