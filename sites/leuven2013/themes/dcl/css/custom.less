@@ -463,17 +463,48 @@ body {
           }
         }
         #block-views-leuven2013-tracks-block {
-          .view-leuven2013-tracks {
-            .views-row {
-              .views-field-field-track-color-code {
-                display: none;
-              }
-              .views-field-name {
-                a {
-                  border-radius: 4px;
-                  padding: 3px 6px;
-                  color: #fff;
-                  text-transform: uppercase;
+          position: relative;
+          text-align: center;
+          h2 {
+            display: inline-block;
+          }
+          .legendbutton {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 7px;
+            background: url(../images/submenubutton.png) no-repeat center center;
+            cursor: pointer;
+            opacity: 0.5;
+            .transit;
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            &.open {
+              transform: rotate(-45deg);
+              -ms-transform: rotate(-45deg);
+              -webkit-transform: rotate(-45deg);
+            }
+          }
+          > .content {
+            margin-top: 10px;
+            .view-leuven2013-tracks {
+              .views-row {
+                float: none;
+                display: inline-block;
+                margin: 0 5px 5px;
+                .views-field-field-track-color-code {
+                  display: none;
+                }
+                .views-field-name {
+                  margin: 0;
+                  a {
+                    border-radius: 4px;
+                    padding: 3px 6px;
+                    color: #fff;
+                    text-transform: uppercase;
+                  }
                 }
               }
             }
