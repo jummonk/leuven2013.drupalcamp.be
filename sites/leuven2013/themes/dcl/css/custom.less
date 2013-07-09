@@ -373,9 +373,17 @@ body {
   }
 }
 
+#sidebar-second {
+  #block-views-leuven2013-sponsors-block-7, #block-views-leuven2013-sponsors-block-9 {
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+  } 
+}
+
 // page program
 
-.page-program {
+.page-program, .page-taxonomy-term {
   #page-wrapper {
     h1#page-title {
       width: 940px;
@@ -416,6 +424,64 @@ body {
                     border-right: 8px solid transparent;
                     border-bottom: 8px solid transparent;
                   }
+                }
+              }
+            }
+          }
+        }
+        #block-views-leuven2013-tracks-block {
+          .view-leuven2013-tracks {
+            .views-row {
+              .views-field-field-track-color-code {
+                display: none;
+              }
+              .views-field-name {
+                a {
+                  border-radius: 4px;
+                  padding: 3px 6px;
+                  color: #fff;
+                  text-transform: uppercase;
+                }
+              }
+            }
+          }
+        }
+        .node-session {
+          height: 280px;
+          .group-left {
+            .field {
+              margin-bottom: 15px;
+              padding-bottom: 15px;
+              border-bottom: 1px dashed #ccc;
+              &.field-name-field-session-track {
+                text-align: center;
+                .field-item {
+                  border-radius: 4px;
+                  margin-bottom: 2px;
+                  a {
+                    color: #fff;
+                    text-transform: uppercase;
+                  }
+                }
+              }
+              &.field-name-field-speakers {
+                > .field-label {
+                  text-indent: -999999px;
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 5px;
+                  background: url(../images/icon-speaker) no-repeat left top;
+                }
+              }
+            }
+          }
+          .group-right {
+            .field-name-title {
+              h3 {
+                font-size: 22px;
+                margin-top: 0;
+                a {
+                  color: #404040;
                 }
               }
             }
@@ -604,6 +670,7 @@ body {
               background: white;
               border: 1px solid #ddd;
               //width: 31%;
+              height: 400px;
               margin: 0 10px 20px;
               float: left;
               .view-grouping-header {
