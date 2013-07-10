@@ -48,7 +48,7 @@ function dcl_preprocess_field(&$variables, $hook) {
   elseif ($element['#field_name'] == 'title' && $element['#bundle'] == 'schedule_item') {
     $node = $element['#object'];
     $type = field_get_items('node', $node, 'field_schedule_item_type');
-    dsm($type);
+
     if (empty($type) || empty($type[0]['value'])) { return; }
 
     $variables['classes_array'][] = 'schedule_item';
