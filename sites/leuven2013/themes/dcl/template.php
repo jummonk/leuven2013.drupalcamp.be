@@ -16,6 +16,9 @@ function dcl_preprocess_field(&$variables, $hook) {
   $element = $variables['element'];
   if ($element['#field_name'] == 'field_session_track') {
     foreach ($variables['items'] as $delta => $item) {
+      if (empty($item['#options']['entity'])) {
+        continue;
+      }
       $colors = field_get_items('taxonomy_term', $item['#options']['entity'], 'field_track_color_code');
       if (!empty($colors) && !empty($colors[0]['rgb'])) {
         $rgb = $colors[0]['rgb'];
@@ -41,5 +44,14 @@ function dcl_preprocess_field(&$variables, $hook) {
         }
       }
     }
+  }
+  elseif ($element['#field_name'] == 'title' && $element['#bundle'] == 'schedule_item') {
+    $node = $element['#object'];
+    $type = field_get_items('node', $node, 'field_schedule_item_type');
+
+    if (empty($type) || empty($type[0]['value'])) { return; }
+
+    $variables['classes_array'][] = 'schedule_item';
+    $variables['classes_array'][] = 'schedule_' . check_plain($type[0]['value']);
   }
 }

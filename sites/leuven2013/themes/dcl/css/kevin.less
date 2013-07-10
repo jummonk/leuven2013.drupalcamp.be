@@ -178,16 +178,44 @@
       }
     }
   }
-  .ds-2col.node-session.node-teaser {
-    width: 46%;
-    float: left;
-    margin: 30px 4% 30px 0;
+  .ds-3col.node-session.node-teaser, .ds-3col.node-schedule-item.node-teaser {
+    width: 100%;
+    margin: 30px 0 30px 0;
     .group-left {
-      width: 25%;
+
+    }
+    .group-middle {
+      margin: 0 2%;
+      width: 55%;
+      h3 {
+        margin: 0 0 15px 0;
+      }
     }
     .group-right {
-      width: 72%;
-      float: right;
+      width: 15%;
+      behavior:url(-ms-transform.htc);
+          -moz-transform:rotate(-90deg);  
+       -webkit-transform:rotate(-90deg);  
+            -o-transform:rotate(-90deg);  
+           -ms-transform:rotate(-90deg);  
+      .field-name-field-slot-datetime {
+        .field-label {
+          display: none;
+        }
+      }
+      h2 {
+        font-size: 1.5em;
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .ds-3col.node-schedule-item.node-teaser {
+    .group-middle {
+      margin: 0 2% 0 0 !important;
+      text-align: center;
+      width: 85% !important;
     }
   }
   .term-listing-heading {
@@ -351,6 +379,52 @@ ul.call-to-action-list {
   &.experience-level-3 {
     .field-item {
       background: url('../images/exp-advanced.png') no-repeat left top;
+    }
+  }
+}
+
+#conf-program {
+  h2 {
+    // border: 1px solid @orange;
+    // border-radius: 25px;
+    border-bottom: 1px solid #ccc;
+    color: @orange;
+    font-size: 2.5em;
+    padding: 0 0 1em 0;
+    text-align: center;
+  }
+}
+
+.schedule_item {
+  // ICON PLACEMENT
+  &.schedule_welcome {
+    h3 { 
+      // welcome icon 
+    }
+  }
+  &.schedule_bbq {
+    h3 { 
+      // bbq icon
+    }
+  }
+  &.schedule_coffee {
+    h3 { 
+      // coffee icon
+    }
+  }
+  &.schedule_closing {
+    h3 { 
+      // closing icon
+    }
+  }
+  &.schedule_lunch {
+    h3 { 
+      // lunch icon
+    }
+  }
+  &.schedule_end {
+    h3 { 
+      // the final end icon
     }
   }
 }
