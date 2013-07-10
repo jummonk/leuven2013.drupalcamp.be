@@ -7,28 +7,25 @@ function leuven2013_program_default_page($day) {
   // Get nids of all sessions
   $timeslots = leuven2013_program_page_get_timeslots($day);
 
-  $output = '';
+  $output = '<div id="conf-program">';
+
+  $timezone = new DateTimeZone('Europe/Brussels');
 
   foreach ($timeslots as $value => $timeslot) {
     $nids = leuven2013_program_page_get_content($day, $timeslot->datetime);
     // Load entities
     $entities = node_load_multiple(array_keys($nids));
+
     // Get teaser view of entities
-    // TODO: since room is not available in teaser view, we probably need to theme nodes manually
     $nodes = entity_view('node', $entities, 'teaser');
 
-    // Return node
-    // TODO: add legend for tracks and experience level
-
-    $utcTimezone = new DateTimeZone('UTC');
-    $timezone = new DateTimeZone('Europe/Brussels');
     $dateTime = new DateTime($timeslot->datetime, $timezone);
     $offset = $timezone->getOffset($dateTime);
 
     $output .= '<h2>' . date('D d/m/Y H:i', $dateTime->format('U') + $offset) . '</h2>' . render($nodes);
   }
 
-
+  $output .= '</div>';
   
   return $output;
 }
