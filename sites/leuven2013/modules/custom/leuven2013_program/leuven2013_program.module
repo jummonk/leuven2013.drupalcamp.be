@@ -49,7 +49,7 @@ function leuven2013_program_menu() {
     'type' => MENU_NORMAL_ITEM,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$saturday"),
-    'access callback' => '_leuven_2013_program_my_program_access',
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
@@ -59,7 +59,7 @@ function leuven2013_program_menu() {
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$saturday"),
-    'access callback' => '_leuven_2013_program_my_program_access',
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
@@ -69,7 +69,7 @@ function leuven2013_program_menu() {
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$sunday"),
-    'access callback' => '_leuven_2013_program_my_program_access',
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
@@ -80,8 +80,7 @@ function leuven2013_program_menu() {
     'weight' => 10,
     'page callback' => 'drupal_goto',
     'page arguments' => array('node/add/session'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
+    'access callback' => '_leuven_2013_program_access',
   );
 
   return $items;
@@ -94,7 +93,7 @@ function leuven2013_program_menu() {
  * One can only access the profile page of a user if he is an administrator or
  * the user has checked the privacy checkbox. Off course one can allows view his own profile.
  */
-function _leuven_2013_program_my_program_access() {
+function _leuven_2013_program_access() {
   if (user_access('access content') && !user_is_anonymous()) {
     return TRUE;
   }
@@ -119,7 +118,7 @@ function leuven2013_program_menu_link_alter(&$item) {
  * 'My program' is only visible if user is logged in.
  */
 function leuven2013_program_translated_menu_link_alter(&$item, $map) {
-  if ($map === array('program', 'my_program') && user_is_anonymous()) {
+  if (user_is_anonymous() && $map === array('program', 'my_program')) {
     $item['access'] = FALSE;
   }
 }
