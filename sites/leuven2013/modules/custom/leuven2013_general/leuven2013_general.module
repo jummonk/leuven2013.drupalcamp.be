@@ -6,6 +6,9 @@
 
 include_once 'leuven2013_general.features.inc';
 
+/***********************************************************************************
+ * BLOCK
+ ***********************************************************************************/
 /**
  * Implements hook_block_info().
  */
@@ -38,4 +41,31 @@ function leuven2013_general_block_view($delta = '') {
   }
 
   return $callback();
+}
+
+/***********************************************************************************
+ * MENU
+ ***********************************************************************************/
+/**
+ * Implements hook_menu_alter()
+ * Change access callback for user profile page.
+ */
+function leuven2013_general_menu_alter(&$items) {
+  $items['user/%user']['access callback'] = '_leuven_2013_general_profile_access';
+}
+
+/**
+ * One can only access the profile page of a user if he is an administrator or
+ * the user has checked the privacy checkbox. Off course one can allows view his own profile.
+ */
+function _leuven_2013_general_profile_access($account) {
+  global $user;
+
+  if ((user_access('access user profiles') && !empty($account->field_privacy) &&
+    $account->field_privacy[LANGUAGE_NONE][0]['value']) ||
+    $user->uid == 1 || in_array('administrator', $user->roles) || $user->uid == $account->uid
+  ) {
+    return TRUE;
+  }
+  return FALSE;
 }
