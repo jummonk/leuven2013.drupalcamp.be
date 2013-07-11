@@ -3,7 +3,7 @@
 /**
  * Program page.
  */
-function leuven2013_program_default_page($day) {
+function leuven2013_program_default_page($day, $favorite = FALSE) {
   // Get nids of all sessions
   $timeslots = leuven2013_program_page_get_timeslots($day);
 
@@ -12,7 +12,7 @@ function leuven2013_program_default_page($day) {
   $timezone = new DateTimeZone('Europe/Brussels');
 
   foreach ($timeslots as $value => $timeslot) {
-    $nids = leuven2013_program_page_get_content($day, $timeslot->datetime);
+    $nids = leuven2013_program_page_get_content($day, $timeslot->datetime, $favorite);
     // Load entities
     $entities = node_load_multiple(array_keys($nids));
 
@@ -26,7 +26,7 @@ function leuven2013_program_default_page($day) {
   }
 
   $output .= '</div>';
-  
+
   return $output;
 }
 
@@ -35,7 +35,7 @@ function leuven2013_program_default_page($day) {
  * All sessions that the user has bookmarked are shown.
  */
 function leuven2013_program_my_page($day) {
-  return 'My program... is still to come';
+  return leuven2013_program_default_page($day, TRUE);
 }
 
 function leuven2013_program_page_get_timeslots($day) {
@@ -56,9 +56,11 @@ function leuven2013_program_page_get_timeslots($day) {
 }
 
 /**
- *
+ * Get all sessions for a specific day.
  */
-function leuven2013_program_page_get_content($day, $timeslot) {
+function leuven2013_program_page_get_content($day, $timeslot, $favorite) {
+  global $user;
+
   // Get all session of the given day
   $query = db_select('node', 'node');
   $query->addField('node', 'nid', 'nid');
@@ -73,6 +75,14 @@ function leuven2013_program_page_get_content($day, $timeslot) {
   $query->condition('datetime.field_slot_datetime_value', $timeslot);
   // $query->groupBy('datetime.field_slot_datetime_value');
   $query->orderBy('datetime.field_slot_datetime_value');
+
+  // If we only want bookmarked session.
+  if ($favorite) {
+    $query->innerJoin('flag_content', 'flag_content', 'flag_content.content_id = node.nid');
+    $query->innerJoin('flags', 'flags', 'flags.fid = flag_content.fid');
+    $query->condition('flags.name', 'session_schedule');
+    $query->condition('flag_content.uid', $user->uid);
+  }
 
   return $query->execute()->fetchAllAssoc('nid');
 }
