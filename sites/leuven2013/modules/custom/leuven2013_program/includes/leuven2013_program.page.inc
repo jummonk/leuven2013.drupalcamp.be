@@ -13,6 +13,11 @@ function leuven2013_program_default_page($day, $favorite = FALSE) {
 
   foreach ($timeslots as $value => $timeslot) {
     $nids = leuven2013_program_page_get_content($day, $timeslot->datetime, $favorite);
+
+    if (empty($nids)) {
+      continue;
+    }
+
     // Load entities
     $entities = node_load_multiple(array_keys($nids));
 
