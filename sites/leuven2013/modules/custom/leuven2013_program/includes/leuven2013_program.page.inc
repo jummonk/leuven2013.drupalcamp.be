@@ -1,18 +1,96 @@
 <?php
 
 /**
- * Program page.
+ * Default Program page (without flags).
  */
-function leuven2013_program_default_page($day, $favorite = FALSE) {
-  // Get nids of all sessions
-  $timeslots = leuven2013_program_page_get_timeslots($day);
+function leuven2013_program_default_page($day) {
+  global $user;
 
-  $output = '<div id="conf-program">';
+  if (user_is_anonymous()) {
+    $text = t('You can create your own program by bookmarking different sessions.
+    To use this functionality, you must be !registered and !logged_in.', array(
+      '!registered' => l(t('registered'), 'user/register'),
+      '!logged_in' => l(t('logged in'), 'user'),
+    ));
+  }
+  else {
+    $text = t('You can create your !own_program by bookmarking different sessions.
+    An overview of all bookmarked sessions can be found on your !profile_page.', array(
+      '!own_program' => l(t('own program'), 'program/my_program'),
+      '!profile_page' => l(t('profile page'), "user/$user->uid/sessions"),
+    ));
+  }
+
+  if (isset($text)) {
+    // Create message
+    $message = theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#value' => '<p>' . $text . '</p>',
+        '#attributes' => array('id' => drupal_html_id('conf-message')),
+      )
+    ));
+  }
+
+  $output = _leuven2013_program_create_page($day);
+
+  if (!$output) {
+    $text = t('At the moment, there are no sessions accepted for this day.');
+
+    // Create message
+    $output = theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#value' => '<p>' . $text . '</p>',
+        '#attributes' => array('id' => drupal_html_id('conf-message')),
+      )
+    ));
+  }
+  else {
+    $output = (isset($message) ? $message : '') . $output;
+  }
+
+  return $output;
+}
+
+/**
+ * Personal program page.
+ * All sessions that the user has bookmarked are shown.
+ */
+function leuven2013_program_my_page($day) {
+  $output = _leuven2013_program_create_page($day, TRUE);
+
+  if (!$output) {
+    $text = t("You haven't bookmarked any sessions.
+    Sessions can be bookmarked on the !program_page or the detail page of a session.", array(
+      '!program_page' => l(t('program page'), 'program'),
+    ));
+
+    // Create message
+    $output = theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#value' => '<p>' . $text . '</p>',
+        '#attributes' => array('id' => drupal_html_id('conf-message')),
+      )
+    ));
+  }
+
+  return $output;
+}
+
+/**
+ * Create program page.
+ */
+function _leuven2013_program_create_page($day, $favorite = FALSE) {
+  // Get nids of all sessions
+  $timeslots = _leuven2013_program_page_get_timeslots($day);
 
   $timezone = new DateTimeZone('Europe/Brussels');
 
+  $output = '';
   foreach ($timeslots as $value => $timeslot) {
-    $nids = leuven2013_program_page_get_content($day, $timeslot->datetime, $favorite);
+    $nids = _leuven2013_program_page_get_content($day, $timeslot->datetime, $favorite);
 
     if (empty($nids)) {
       continue;
@@ -27,23 +105,33 @@ function leuven2013_program_default_page($day, $favorite = FALSE) {
     $dateTime = new DateTime($timeslot->datetime, $timezone);
     $offset = $timezone->getOffset($dateTime);
 
-    $output .= '<h2>' . date('D d/m/Y H:i', $dateTime->format('U') + $offset) . '</h2>' . render($nodes);
+    $output .= theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'h2',
+        '#attributes' => array('class' => drupal_html_class('timeslot-title')),
+        '#value' => date('D d/m/Y H:i', $dateTime->format('U') + $offset),
+      ),
+    ));
+
+    $output .= render($nodes);
   }
 
-  $output .= '</div>';
-
-  return $output;
+  if (!empty($output)) {
+    // Put everything in a div
+    return theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#attributes' => array('id' => drupal_html_id('conf-program')),
+        '#value' => $output,
+      ),
+    ));
+  }
+  else {
+    return FALSE;
+  }
 }
 
-/**
- * Personal program page.
- * All sessions that the user has bookmarked are shown.
- */
-function leuven2013_program_my_page($day) {
-  return leuven2013_program_default_page($day, TRUE);
-}
-
-function leuven2013_program_page_get_timeslots($day) {
+function _leuven2013_program_page_get_timeslots($day) {
   $query = db_select('node', 'node');
   $query->addField('datetime', 'field_slot_datetime_value', 'datetime');
   $query->innerJoin('field_data_field_session_timeslot', 'timeslot', 'timeslot.entity_id = node.nid');
@@ -63,7 +151,7 @@ function leuven2013_program_page_get_timeslots($day) {
 /**
  * Get all sessions for a specific day.
  */
-function leuven2013_program_page_get_content($day, $timeslot, $favorite) {
+function _leuven2013_program_page_get_content($day, $timeslot, $favorite) {
   global $user;
 
   // Get all session of the given day
