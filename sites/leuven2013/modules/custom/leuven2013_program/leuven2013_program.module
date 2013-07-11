@@ -73,6 +73,17 @@ function leuven2013_program_menu() {
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
+  // Create extra tab on session page.
+  $items['program/sessions/propose'] = array(
+    'title' => t('Propose a session'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 10,
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('node/add/session'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+  );
+
   return $items;
 }
 
