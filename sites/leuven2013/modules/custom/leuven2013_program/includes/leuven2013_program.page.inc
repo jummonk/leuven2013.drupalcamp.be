@@ -4,34 +4,6 @@
  * Default Program page (without flags).
  */
 function leuven2013_program_default_page($day) {
-  global $user;
-
-  if (user_is_anonymous()) {
-    $text = t('You can create your own program by bookmarking different sessions.
-    To use this functionality, you must be !registered and !logged_in.', array(
-      '!registered' => l(t('registered'), 'user/register'),
-      '!logged_in' => l(t('logged in'), 'user'),
-    ));
-  }
-  else {
-    $text = t('You can create your !own_program by bookmarking different sessions.
-    An overview of all bookmarked sessions can be found on your !profile_page.', array(
-      '!own_program' => l(t('own program'), 'program/my_program'),
-      '!profile_page' => l(t('profile page'), "user/$user->uid/sessions"),
-    ));
-  }
-
-  if (isset($text)) {
-    // Create message
-    $message = theme('html_tag', array(
-      'element' => array(
-        '#tag' => 'div',
-        '#value' => '<p>' . $text . '</p>',
-        '#attributes' => array('id' => drupal_html_id('conf-message')),
-      )
-    ));
-  }
-
   $output = _leuven2013_program_create_page($day);
 
   if (!$output) {
@@ -42,12 +14,9 @@ function leuven2013_program_default_page($day) {
       'element' => array(
         '#tag' => 'div',
         '#value' => '<p>' . $text . '</p>',
-        '#attributes' => array('id' => drupal_html_id('conf-message')),
+        '#attributes' => array('class' => drupal_html_class('conf-message')),
       )
     ));
-  }
-  else {
-    $output = (isset($message) ? $message : '') . $output;
   }
 
   return $output;
@@ -71,7 +40,7 @@ function leuven2013_program_my_page($day) {
       'element' => array(
         '#tag' => 'div',
         '#value' => '<p>' . $text . '</p>',
-        '#attributes' => array('id' => drupal_html_id('conf-message')),
+        '#attributes' => array('class' => drupal_html_class('conf-message')),
       )
     ));
   }

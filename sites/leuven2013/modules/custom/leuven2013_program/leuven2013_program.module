@@ -112,3 +112,32 @@ function leuven2013_program_translated_menu_link_alter(&$item, $map) {
     $item['access'] = FALSE;
   }
 }
+
+/***********************************************************************************
+ * BLOCK
+ ***********************************************************************************/
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_program_block_info() {
+  $blocks = array();
+  $blocks['program_message'] = array(
+    'info' => t('Message on program page'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_program_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_program', 'includes/leuven2013_program.block');
+
+  $callback = '_leuven2013_program_block_' . $delta;
+  if (!function_exists($callback)) {
+    return array();
+  }
+
+  return $callback();
+}
