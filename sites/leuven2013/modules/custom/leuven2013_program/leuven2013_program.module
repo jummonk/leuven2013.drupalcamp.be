@@ -98,7 +98,7 @@ function _leuven_2013_program_my_program_access() {
  * Allow 'My program' menu link to be altered
  */
 function leuven2013_program_menu_link_alter(&$item) {
-  if ($item['path'] == 'program/my_program') {
+  if (isset($item['path']) && $item['path'] == 'program/my_program') {
     $item['options']['alter'] = TRUE;
   }
 }
