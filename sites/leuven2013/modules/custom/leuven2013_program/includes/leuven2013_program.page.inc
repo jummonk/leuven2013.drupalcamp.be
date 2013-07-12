@@ -1,18 +1,70 @@
 <?php
 
 /**
- * Program page.
+ * Default Program page (without flags).
  */
 function leuven2013_program_default_page($day) {
-  // Get nids of all sessions
-  $timeslots = leuven2013_program_page_get_timeslots($day);
+  $output = _leuven2013_program_create_page($day);
 
-  $output = '<div id="conf-program">';
+  if (!$output) {
+    $text = t('At the moment, there are no sessions accepted for this day.');
+
+    // Create message
+    $output = theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#value' => '<p>' . $text . '</p>',
+        '#attributes' => array('class' => drupal_html_class('conf-message')),
+      )
+    ));
+  }
+
+  return $output;
+}
+
+/**
+ * Personal program page.
+ * All sessions that the user has bookmarked are shown.
+ */
+function leuven2013_program_my_page($day) {
+  $output = _leuven2013_program_create_page($day, TRUE);
+
+  if (!$output) {
+    $text = t("You haven't bookmarked any sessions.
+    Sessions can be bookmarked on the !program_page or the detail page of a session.", array(
+      '!program_page' => l(t('program page'), 'program'),
+    ));
+
+    // Create message
+    $output = theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#value' => '<p>' . $text . '</p>',
+        '#attributes' => array('class' => drupal_html_class('conf-message')),
+      )
+    ));
+  }
+
+  return $output;
+}
+
+/**
+ * Create program page.
+ */
+function _leuven2013_program_create_page($day, $favorite = FALSE) {
+  // Get nids of all sessions
+  $timeslots = _leuven2013_program_page_get_timeslots($day);
 
   $timezone = new DateTimeZone('Europe/Brussels');
 
+  $output = '';
   foreach ($timeslots as $value => $timeslot) {
-    $nids = leuven2013_program_page_get_content($day, $timeslot->datetime);
+    $nids = _leuven2013_program_page_get_content($day, $timeslot->datetime, $favorite);
+
+    if (empty($nids)) {
+      continue;
+    }
+
     // Load entities
     $entities = node_load_multiple(array_keys($nids));
 
@@ -22,23 +74,33 @@ function leuven2013_program_default_page($day) {
     $dateTime = new DateTime($timeslot->datetime, $timezone);
     $offset = $timezone->getOffset($dateTime);
 
-    $output .= '<h2>' . date('D d/m/Y H:i', $dateTime->format('U') + $offset) . '</h2>' . render($nodes);
+    $output .= theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'h2',
+        '#attributes' => array('class' => drupal_html_class('timeslot-title')),
+        '#value' => date('D d/m/Y H:i', $dateTime->format('U') + $offset),
+      ),
+    ));
+
+    $output .= render($nodes);
   }
 
-  $output .= '</div>';
-  
-  return $output;
+  if (!empty($output)) {
+    // Put everything in a div
+    return theme('html_tag', array(
+      'element' => array(
+        '#tag' => 'div',
+        '#attributes' => array('id' => drupal_html_id('conf-program')),
+        '#value' => $output,
+      ),
+    ));
+  }
+  else {
+    return FALSE;
+  }
 }
 
-/**
- * Personal program page.
- * All sessions that the user has bookmarked are shown.
- */
-function leuven2013_program_my_page($day) {
-  return 'My program... is still to come';
-}
-
-function leuven2013_program_page_get_timeslots($day) {
+function _leuven2013_program_page_get_timeslots($day) {
   $query = db_select('node', 'node');
   $query->addField('datetime', 'field_slot_datetime_value', 'datetime');
   $query->innerJoin('field_data_field_session_timeslot', 'timeslot', 'timeslot.entity_id = node.nid');
@@ -56,9 +118,11 @@ function leuven2013_program_page_get_timeslots($day) {
 }
 
 /**
- *
+ * Get all sessions for a specific day.
  */
-function leuven2013_program_page_get_content($day, $timeslot) {
+function _leuven2013_program_page_get_content($day, $timeslot, $favorite) {
+  global $user;
+
   // Get all session of the given day
   $query = db_select('node', 'node');
   $query->addField('node', 'nid', 'nid');
@@ -73,6 +137,14 @@ function leuven2013_program_page_get_content($day, $timeslot) {
   $query->condition('datetime.field_slot_datetime_value', $timeslot);
   // $query->groupBy('datetime.field_slot_datetime_value');
   $query->orderBy('datetime.field_slot_datetime_value');
+
+  // If we only want bookmarked session.
+  if ($favorite) {
+    $query->innerJoin('flag_content', 'flag_content', 'flag_content.content_id = node.nid');
+    $query->innerJoin('flags', 'flags', 'flags.fid = flag_content.fid');
+    $query->condition('flags.name', 'session_schedule');
+    $query->condition('flag_content.uid', $user->uid);
+  }
 
   return $query->execute()->fetchAllAssoc('nid');
 }

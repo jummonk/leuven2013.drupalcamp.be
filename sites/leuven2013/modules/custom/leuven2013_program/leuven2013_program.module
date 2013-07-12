@@ -43,15 +43,13 @@ function leuven2013_program_menu() {
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
-
   // Personalized menu
   $items['program/my_program'] = array(
     'title' => t('My Program'),
     'type' => MENU_NORMAL_ITEM,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$saturday"),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
@@ -61,8 +59,7 @@ function leuven2013_program_menu() {
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$saturday"),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
@@ -72,10 +69,85 @@ function leuven2013_program_menu() {
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'leuven2013_program_my_page',
     'page arguments' => array("$sunday"),
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
+    'access callback' => '_leuven_2013_program_access',
     'file' => 'includes/leuven2013_program.page.inc',
   );
 
+  // Create extra tab on session page.
+  $items['program/sessions/propose'] = array(
+    'title' => t('Propose a session'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 10,
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('node/add/session'),
+    'access callback' => '_leuven_2013_program_access',
+  );
+
   return $items;
+}
+
+/***********************************************************************************
+ * MENU ACCESS
+ ***********************************************************************************/
+/**
+ * One can only access the profile page of a user if he is an administrator or
+ * the user has checked the privacy checkbox. Off course one can allows view his own profile.
+ */
+function _leuven_2013_program_access() {
+  if (user_access('access content') && !user_is_anonymous()) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/***********************************************************************************
+ * MENU ITEM
+ ***********************************************************************************/
+/**
+ * Implements hook_menu_link_alter()
+ * Allow 'My program' menu link to be altered
+ */
+function leuven2013_program_menu_link_alter(&$item) {
+  if (isset($item['path']) && $item['path'] == 'program/my_program') {
+    $item['options']['alter'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_translated_menu_link_alter().
+ * 'My program' is only visible if user is logged in.
+ */
+function leuven2013_program_translated_menu_link_alter(&$item, $map) {
+  if (user_is_anonymous() && $map === array('program', 'my_program')) {
+    $item['access'] = FALSE;
+  }
+}
+
+/***********************************************************************************
+ * BLOCK
+ ***********************************************************************************/
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_program_block_info() {
+  $blocks = array();
+  $blocks['program_message'] = array(
+    'info' => t('Message on program page'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_program_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_program', 'includes/leuven2013_program.block');
+
+  $callback = '_leuven2013_program_block_' . $delta;
+  if (!function_exists($callback)) {
+    return array();
+  }
+
+  return $callback();
 }
