@@ -59,3 +59,4 @@
  $sites['dev.van-ransbeeck.be'] = 'leuven2013';
  $sites['dcl.local'] = 'leuven2013';
  $sites['dc.dev'] = 'leuven2013';
+ $sites['87.238.165.200'] = 'leuven2013';
