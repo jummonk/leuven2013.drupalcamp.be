@@ -59,11 +59,17 @@ h4 {
   color: @blue;
 }
 
-.webform-client-form {
+form {
   label {
     font-weight: normal;
-    color: #888;
+    color: #999;
   }
+}
+
+div.messages {
+  border: 1px solid #ccc;
+  margin: 0;
+  border-radius: 4px;
 }
 
 .tabs {
@@ -89,7 +95,8 @@ h4 {
             content: "";
             position: absolute;
             bottom: -16px;
-            left: 40%;
+            left: 50%;
+            margin-left: -8px;
             border-top: 8px solid @blue;
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
@@ -108,7 +115,8 @@ h4 {
             content: "";
             position: absolute;
             bottom: -16px;
-            left: 40%;
+            left: 50%;
+            margin-left: -8px;
             border-top: 8px solid @blue;
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
@@ -1289,10 +1297,6 @@ input#edit-submit {
   #main-wrapper {
     .region-content {
       #user-register-form {
-        label {
-          font-weight: normal;
-          color: @blue;
-        }
         .field-group-multipage-group-wrapper {
           .multipage-controls-list {
             float: left;

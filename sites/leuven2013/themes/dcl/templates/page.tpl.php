@@ -152,8 +152,6 @@
   <div id="content">    
     <div id="content-inner">
 
-      <?php print $messages; ?>
-
       <div id="main-wrapper"><div id="main" class="clearfix">
 
         <?php if ($page['sidebar_second']): ?>
@@ -165,13 +163,15 @@
         <?php print render($title_prefix); ?>
         <?php if ($title): ?><h1 class="title" id="page-title"><span><?php print $title; ?></span></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
+
+        <?php print $messages; ?>
         
-          <a id="main-content"></a>
-          <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
-          <?php print render($page['help']); ?>
-          <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-          <?php print render($page['content']); ?>
-          <?php print $feed_icons; ?>
+        <a id="main-content"></a>
+        <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+        <?php print render($page['help']); ?>
+        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+        <?php print render($page['content']); ?>
+        <?php print $feed_icons; ?>
         </div></div> <!-- /.section, /#content -->
 
         <?php if ($page['sidebar_second']): ?>
