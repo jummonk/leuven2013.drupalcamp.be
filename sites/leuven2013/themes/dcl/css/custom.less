@@ -1252,6 +1252,79 @@ input#edit-submit {
   }
 }
 
+// location page
+
+.page-node-6 {
+  #main-wrapper {
+    .region-content {
+      #node-6 {
+        .field-name-body {
+          iframe {
+            padding: 4px;
+            border: 1px solid #ccc;
+          }
+          a {
+            color: @orange !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// sign up page
+
+.page-user-register {
+  #main-wrapper {
+    .region-content {
+      #user-register-form {
+        label {
+          font-weight: normal;
+          color: @blue;
+        }
+        .field-group-multipage-group-wrapper {
+          .multipage-controls-list {
+            float: left;
+            margin-top: -20px;
+            input.form-submit {
+              color: white;
+              font-size: 12px;
+              background: @blue;
+              padding: 5px 10px;
+              text-align: center;
+              border-radius: 4px;
+              margin: 0 15px 5px 0;
+              text-transform: uppercase;
+              &:hover {
+                background: @orange;
+              }
+            }
+            a.multipage-link-previous {
+              background: none;
+              border: none;
+              color: @blue;
+              text-decoration: none;
+              margin-top: 20px;
+              &:hover {
+                color: @orange;
+              }
+            }
+          }
+          .multipage-counter {
+            float: right;
+            font-size: 14px;
+          }
+        }
+        #edit-actions {
+          float: left;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
 // TABLET VERSION ---------------------------------------------------------------------------------------------------------------------------
 
 @media screen and (min-width: 740px) and (max-width: 980px) {
