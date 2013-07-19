@@ -487,6 +487,30 @@ body {
   }
 }
 
+// pager
+
+.item-list .pager {
+  padding: 40px 0;
+  margin-left: -35px;
+  li {
+    border-radius: 50%;
+    background: #ddd;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 1px;
+    &.pager-current {
+      color: #fff;
+      background: @blue;
+      
+    }
+    a {
+      color: #404040;
+      display: block;
+    }
+  }
+}
+
 // countdown
 
 #counter {
