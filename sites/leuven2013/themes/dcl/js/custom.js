@@ -38,7 +38,8 @@
 
       // front blocks link
       $('#header-bottom-left').click(function () {
-        window.location = "/program";
+        // window.location = "/program";
+        window.location = "/program/sessions";
       });
       $('#header-bottom-middle').click(function () {
         window.location = "/community/attendees";

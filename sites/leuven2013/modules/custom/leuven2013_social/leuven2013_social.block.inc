@@ -7,7 +7,7 @@ function _leuven2013_social_block_social_sidebar() {
   $url = drupal_parse_url('http://twitter.com/drupalcampbe');
   $twitter = l('Twitter', $url['path'], array('external' => TRUE, 'attributes' => array('target'=>'_blank')));
 
-  $url = drupal_parse_url('http://www.facebook.com/groups/241001195936454/events/');
+  $url = drupal_parse_url('https://www.facebook.com/DrupalcampLeuven');
   $facebook = l('Facebook', $url['path'], array('external' => TRUE, 'attributes' => array('target'=>'_blank')));
 
   $url = drupal_parse_url('http://groups.drupal.org/node/289348');
