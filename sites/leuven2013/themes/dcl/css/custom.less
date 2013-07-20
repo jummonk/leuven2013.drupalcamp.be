@@ -430,7 +430,7 @@ body {
     #footer-bottom {
       #block-views-leuven2013-sponsors-block-3 {
         .view-leuven2013-sponsors {
-          .views-row-first {
+          .views-row:nth-child(2) {
             img {
               margin-top: -10px;
             }
@@ -483,6 +483,29 @@ body {
     }
     #main-wrapper { // display: none;
 
+    }
+  }
+}
+
+// pager
+
+.item-list .pager {
+  padding: 40px 0;
+  li {
+    border-radius: 50%;
+    background: #ddd;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 1px;
+    &.pager-current {
+      color: #fff;
+      background: @blue;
+      
+    }
+    a {
+      color: #404040;
+      display: block;
     }
   }
 }
@@ -734,6 +757,7 @@ body {
               .views-field-title {
                 font-size: 30px;
                 padding-bottom: 5px;
+                line-height: 1;
                 margin-bottom: 10px;
                 border-bottom: 1px solid #ddd;
               }
@@ -1516,11 +1540,6 @@ input#edit-submit {
             }
           }
         }
-        #sidebar-second {
-          width: 100%;
-          margin-left: 0;
-          margin-right: 0;
-        }
       }
     }
     #footer {
@@ -1558,6 +1577,21 @@ input#edit-submit {
       .user-profile {
         .group-right {
           height: 216px;
+        }
+      }
+    }
+  }
+
+  .not-front {
+    
+    #sidebar-second {
+      .block {
+        .view-leuven2013-sponsors {
+          .view-empty {
+            a {
+              display: block;
+            }
+          }
         }
       }
     }
@@ -1886,6 +1920,16 @@ input#edit-submit {
               width: 47%;
               margin: 0 1% 20px;
             }
+          }
+        }
+        #sidebar-second {
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%;
+          .block {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
           }
         }
       }
