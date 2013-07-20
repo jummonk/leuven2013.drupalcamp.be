@@ -15,6 +15,9 @@
 #sidebar-second .block .social-icon.icon-facebook {
   background: url('../images/icon_facebook.png') no-repeat 0 0;
 }
+#sidebar-second .block .social-icon.icon-googleplus {
+  background: url('../images/icon_googleplus.png') no-repeat 0 0;
+}
 #sidebar-second .block .social-icon.icon-drupalorg {
   background: url('../images/icon_drupalorg.png') no-repeat 0 0;
   margin-right: 0;
