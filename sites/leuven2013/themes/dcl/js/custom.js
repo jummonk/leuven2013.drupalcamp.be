@@ -86,6 +86,9 @@
 
       // message on frontpage after form submission
       $('.front #content .messages').appendTo('#header-top');
+
+      // De lijn app
+      $('.page-node-112 #main-wrapper #content #block-leuven2013-social-delijnapp .content .dl-wrapper .dl-col-right #routeplanAanvraagFormId .dl-border').addClass('clearfix');
       
     }
   };
