@@ -50,7 +50,7 @@
 
       // program views-rows equal height
       $('.page-program .view-sessions .views-row').equalHeights();
-      // $('.page-program .node-session').equalHeights();
+      // $('.page-program .ds-3col > div').equalHeights();
 
       // program tracks legend
       $('#block-views-leuven2013-tracks-block .view-leuven2013-tracks').addClass('clearfix');
