@@ -849,6 +849,23 @@ body {
           border-radius: 4px;
         }
         .ds-3col {
+          .group-middle {
+            position: relative;
+            .field-name-flag {
+              position: absolute;
+              right: 0;
+              top: 0;
+              a {
+                padding-left: 16px;
+                &.flag-action {
+                  background: url(../images/add.png) no-repeat left center;
+                }
+                &.unflag-action {
+                  background: url(../images/remove.png) no-repeat left center;
+                }
+              }
+            }
+          }
           .group-right {
             background: #ccc;
           }
@@ -2312,6 +2329,24 @@ input#edit-submit {
       #main-wrapper {
         #content {
           .ds-3col {
+            .group-middle {
+              position: relative;
+              .field-name-flag {
+                position: relative;
+                right: auto;
+                top: auto;
+                margin-bottom: 10px;
+                a {
+                  padding-left: 16px;
+                  &.flag-action {
+                    background: url(../images/add.png) no-repeat left center;
+                  }
+                  &.unflag-action {
+                    background: url(../images/remove.png) no-repeat left center;
+                  }
+                }
+              }
+            }
             .group-right {
               width: 10%;
               .field-name-session-room {
