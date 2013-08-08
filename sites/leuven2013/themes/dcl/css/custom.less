@@ -97,7 +97,7 @@ div.messages {
       display: inline-block;
       float: none;
       &.active {
-        a:link {
+        a {
           background: @blue;
           position: relative;
           &:after {
@@ -120,6 +120,9 @@ div.messages {
         &.active {
           background: @blue;
           position: relative;
+          &:hover {
+            background: @blue;
+          }
           &:after {
             content: "";
             position: absolute;
