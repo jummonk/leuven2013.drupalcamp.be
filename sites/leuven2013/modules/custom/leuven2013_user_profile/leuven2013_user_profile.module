@@ -59,5 +59,19 @@ function leuven2013_user_profile_block_view($delta = '') {
       break;
   }
 }
-    
+/**
+ * Implements hook_user_presave().
+ */
+function leuven2013_user_profile_user_presave(&$edit, $account, $category) {
+  // make sure that our form value 'mymodule_foo' is stored as 'mymodule_bar'.
+  /*
+   *if (isset($edit['mymodule_foo'])) {
+   *  $edit['data']['my_module_foo'] = $edit['my_module_foo'];
+   *}
+   */
+  dsm($edit);
+  $edit['field_profile_first'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_first'][LANGUAGE_NONE][0]['value']);
+  $edit['field_profile_last'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_last'][LANGUAGE_NONE][0]['value']);
+  // var_dump($edit); die;
+}
  
