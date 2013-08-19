@@ -1652,6 +1652,44 @@ input#edit-submit {
   }
 }
 
+// room pages
+.node-type-room {
+  #page-wrapper {
+    .region-content {
+      .ds-1col {
+        .field-label {
+          float: left;
+          font-weight: normal;
+          text-transform: uppercase;
+          margin-right: 5px;
+        }
+        .field-name-field-room-capacity {
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px dashed #ccc;
+          .field-label {
+            float: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin-right: 5px;
+          }
+          .field-item {
+            color: #fff;
+            background: @orange;
+            padding: 0 5px;
+            border-radius: 4px;
+          }
+        }
+        .field-name-field-room-slots-types-allowed {
+          > .field-label {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
 // TABLET VERSION ---------------------------------------------------------------------------------------------------------------------------
 
 @media screen and (min-width: 740px) and (max-width: 980px) {
