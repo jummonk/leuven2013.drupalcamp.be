@@ -7,8 +7,8 @@
  * Implements hook_menu()
  */
 function leuven2013_program_menu() {
-  $saturday = variable_get('leuven2013_saturday_session_nid');
-  $sunday = variable_get('leuven2013_sunday_session_nid');
+  $saturday = variable_get('leuven2013_saturday_session_nid', 1);
+  $sunday = variable_get('leuven2013_sunday_session_nid', 13);
 
   // Default menu callback
   $items['program'] = array(
