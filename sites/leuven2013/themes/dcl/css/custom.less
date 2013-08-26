@@ -1691,6 +1691,29 @@ input#edit-submit {
   }
 }
 
+// session detail page 
+.node-type-session {
+  #page-wrapper {
+    .region-content {
+      .field-name-flag {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-bottom: 10px;
+        a {
+          padding-left: 16px;
+          &.flag-action {
+            background: url(../images/add.png) no-repeat left center;
+          }
+          &.unflag-action {
+            background: url(../images/remove.png) no-repeat left center;
+          }
+        }
+      }
+    }
+  }
+}
+
 // TABLET VERSION ---------------------------------------------------------------------------------------------------------------------------
 
 @media screen and (min-width: 740px) and (max-width: 980px) {
