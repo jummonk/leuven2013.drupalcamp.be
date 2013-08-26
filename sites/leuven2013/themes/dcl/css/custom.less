@@ -828,7 +828,9 @@ body {
 }
 
 // program view
-
+.conf-message {
+  text-align: center;
+}
 .page-program, .page-taxonomy-term {
   #main-wrapper {
     .region-content {
@@ -845,10 +847,14 @@ body {
       }
       .group-middle {
         position: relative;
+        .field-name-title {
+          float: left;
+        }
+        .field-name-body {
+          clear:both;
+        }
         .field-name-flag {
-          position: absolute;
-          right: 0;
-          top: 0;
+          float: right;
           a {
             padding-left: 16px;
             &.flag-action {
