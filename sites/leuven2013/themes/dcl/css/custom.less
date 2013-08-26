@@ -696,6 +696,7 @@ body {
             .field-name-session-room {
               background: @blue;
               border-radius: 0 4px 4px 0;
+              text-align: center;
               a {
                 color: #fff;
               }
@@ -828,7 +829,7 @@ body {
 
 // program view
 
-.page-program {
+.page-program, .page-taxonomy-term {
   #main-wrapper {
     .region-content {
       #block-leuven2013-program-program-message {
@@ -842,6 +843,23 @@ body {
           margin-bottom: 0;
         }
       }
+      .group-middle {
+        position: relative;
+        .field-name-flag {
+          position: absolute;
+          right: 0;
+          top: 0;
+          a {
+            padding-left: 16px;
+            &.flag-action {
+              background: url(../images/add.png) no-repeat left center;
+            }
+            &.unflag-action {
+              background: url(../images/remove.png) no-repeat left center;
+            }
+          }
+        }
+      }
       #conf-program {
         h2.timeslot-title {
           color: #404040;
@@ -852,23 +870,6 @@ body {
           border-radius: 4px;
         }
         .ds-3col {
-          .group-middle {
-            position: relative;
-            .field-name-flag {
-              position: absolute;
-              right: 0;
-              top: 0;
-              a {
-                padding-left: 16px;
-                &.flag-action {
-                  background: url(../images/add.png) no-repeat left center;
-                }
-                &.unflag-action {
-                  background: url(../images/remove.png) no-repeat left center;
-                }
-              }
-            }
-          }
           .group-right {
             background: #ccc;
           }
@@ -1911,6 +1912,7 @@ input#edit-submit {
     #page-wrapper {
       #main-wrapper {
         #content {
+          width: 100%;
           .ds-3col {
             .group-right {
               h2 {
@@ -2374,6 +2376,10 @@ input#edit-submit {
     #page-wrapper {
       #main-wrapper {
         #content {
+          width: 90%;
+          h1.title {
+            width: 100%;
+          }
           .ds-3col {
             .group-middle {
               position: relative;
