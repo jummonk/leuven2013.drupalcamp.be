@@ -1,0 +1,16 @@
+name = Camp BoF Schedule
+description = Create a BoF grid and other BoF features.
+core = 7.x
+package = DrupalCamp
+php = 5.2.4
+dependencies[] = camp_schedule
+dependencies[] = cod_bof
+dependencies[] = ctools
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = camp_bof_grid
+features[views_view][] = camp_room_list
+features[views_view][] = cod_bof_timeslot
