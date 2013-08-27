@@ -72,10 +72,10 @@ function template_preprocess_camp_schedule_grid(&$vars) {
   $class_mapping = array(
     'title_1' => 'room-name',
     'title' => 'title',
-    'field_slot_datetime' => 'time-slot',
-    'field_speakers' => 'speakers',
-    'field_track' => 'track',
-    'field_experience' => 'experience',
+    'field_slot_datetime' => 'time-slot clearfix',
+    'field_speakers' => 'speakers clearfix',
+    'field_session_track' => 'track clearfix',
+    'field_experience' => 'experience clearfix',
   );
 
   // Fields must be rendered in order as of Views 2.3, so we will pre-render
