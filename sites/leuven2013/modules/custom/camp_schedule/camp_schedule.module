@@ -112,7 +112,7 @@ function template_preprocess_camp_schedule_grid(&$vars) {
     $strings = array();
     foreach ($rf as $field => $field_output) {
       // Add field classes
-      $field_classes = $class_mapping[$field];
+      $field_classes = !empty($class_mapping[$field]) ? $class_mapping[$field] : "";
       if ($fields[$field]->options['element_default_classes']) {
         $field_classes .= " views-field views-field-" . $vars['fields'][$field];
       }
