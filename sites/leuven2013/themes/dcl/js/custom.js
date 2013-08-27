@@ -73,13 +73,13 @@
         $(this).toggleClass('open');
       });
 
-      var legends = $('.page-program #block-views-leuven2013-tracks-block > .content');
-      legends.hide();
-      $('<div class="legendbutton"></div>').insertBefore(legends);
-      $('.legendbutton').click(function(){
-        legends.slideToggle('fast');
-        $(this).toggleClass('open');
-      });
+      // var legends = $('.page-program #block-views-leuven2013-tracks-block > .content');
+      // legends.hide();
+      // $('<div class="legendbutton"></div>').insertBefore(legends);
+      // $('.legendbutton').click(function(){
+      //   legends.slideToggle('fast');
+      //   $(this).toggleClass('open');
+      // });
 
       // front preface region title
       $('<h2>Silver sponsors</h2>').insertBefore('.front .region-preface-top');
