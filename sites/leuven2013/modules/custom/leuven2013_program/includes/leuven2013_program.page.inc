@@ -4,6 +4,7 @@
  * Default Program page (without flags).
  */
 function leuven2013_program_default_page($day) {
+  drupal_set_title('Program');
   $output = _leuven2013_program_create_page($day);
 
   if (!$output) {
