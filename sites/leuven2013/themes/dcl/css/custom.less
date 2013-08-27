@@ -688,13 +688,48 @@ body {
                   color: #404040;
                 }
               }
+              &.schedule_welcome, &.schedule_coffee {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-coffee.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_lunch {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-eat.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_drinks {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-drink.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_bbq {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-bbq.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_closing {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-closing.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
             }
           }
           .group-right {
             border-left: 1px solid #ccc;
             background: none;
             height: 170px;
-            .field-name-session-room {
+            &.field-name-session-room {
               background: @blue;
               border-radius: 0 4px 4px 0;
               text-align: center;
@@ -846,9 +881,6 @@ body {
       }
       .group-middle {
         position: relative;
-        h3 {
-          width: 70%;
-        }
         .field-name-flag {
           position: absolute;
           right: 0;
@@ -860,6 +892,16 @@ body {
             }
             &.unflag-action {
               background: url(../images/remove.png) no-repeat left center;
+            }
+          }
+        }
+        .field-name-title {
+          h3 {
+            width: 70%;
+          }
+          &.schedule_welcome {
+            h3 {
+              width: 100%;
             }
           }
         }
