@@ -406,6 +406,7 @@ function _leuven2013_social_block_delijnapp() {
 </script>
   ';
 
+  drupal_add_js(drupal_get_path('module', 'leuven2013_social') . '/js/social.js');
 
-  return array('subject' => t('By Bus'), 'content' => $html . $javascript_config);
+  return array('subject' => t('Plan Public Transport'), 'content' => $html . $javascript_config);
 }
