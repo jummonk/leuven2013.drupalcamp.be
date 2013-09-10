@@ -59,5 +59,13 @@ function leuven2013_user_profile_block_view($delta = '') {
       break;
   }
 }
-    
+/**
+ * Implements hook_user_presave().
+ *
+ * Trim first and last name before saving.
+ */
+function leuven2013_user_profile_user_presave(&$edit, $account, $category) {
+  $edit['field_profile_first'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_first'][LANGUAGE_NONE][0]['value']);
+  $edit['field_profile_last'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_last'][LANGUAGE_NONE][0]['value']);
+}
  

@@ -97,7 +97,7 @@ div.messages {
       display: inline-block;
       float: none;
       &.active {
-        a:link {
+        a {
           background: @blue;
           position: relative;
           &:after {
@@ -120,6 +120,9 @@ div.messages {
         &.active {
           background: @blue;
           position: relative;
+          &:hover {
+            background: @blue;
+          }
           &:after {
             content: "";
             position: absolute;
@@ -458,7 +461,7 @@ body {
     #block-views-leuven2013-news-block {
       margin-top: 50px;
     }
-    #block-views-leuven2013-sponsors-block-9 {
+    #block-views-leuven2013-sponsors-block-5, #block-views-leuven2013-sponsors-block-9 {
       img {
         border-radius: 4px;
       }
@@ -494,9 +497,10 @@ body {
   li {
     border-radius: 50%;
     background: #ddd;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     display: inline-block;
+    line-height: 25px;
     margin: 0 1px;
     &.pager-current {
       color: #fff;
@@ -538,7 +542,10 @@ body {
 }
 
 #sidebar-second {
-  #block-views-leuven2013-sponsors-block-7, #block-views-leuven2013-sponsors-block-9 {
+  #block-views-leuven2013-sponsors-block-5, 
+  #block-views-leuven2013-sponsors-block-7, 
+  #block-views-leuven2013-sponsors-block-9, 
+  #block-views-leuven2013-sponsors-block-14 {
     width: 70%;
     margin-left: 15%;
     margin-bottom: 20px;
@@ -644,7 +651,7 @@ body {
             }
           }
         }
-        .node-session {
+        .ds-3col {
           // height: 280px;
           .group-left {
             .field {
@@ -680,9 +687,58 @@ body {
               h3 {
                 font-size: 22px;
                 margin-top: 0;
+                width: 70%;
                 a {
                   color: #404040;
                 }
+              }
+              &.schedule_welcome, &.schedule_coffee {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-coffee.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_lunch {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-eat.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_drinks {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-drink.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_bbq {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-bbq.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+              &.schedule_closing {
+                h3 {
+                  width: 100%;
+                  background: url(../images/icon-closing.png) no-repeat center top;
+                  padding-top: 65px;
+                }
+              }
+            }
+          }
+          .group-right {
+            border-left: 1px solid #ccc;
+            background: none;
+            height: 170px;
+            .field-name-session-room {
+              background: @blue;
+              border-radius: 0 4px 4px 0;
+              text-align: center;
+              a {
+                color: #fff;
               }
             }
           }
@@ -804,6 +860,68 @@ body {
             background: none;
             border-radius: 0;
             padding-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// program view
+
+.page-program, .page-taxonomy-term {
+  #main-wrapper {
+    .region-content {
+      #block-leuven2013-program-program-message {
+        text-align: center;
+        padding: 10px 0;
+        border: 1px dashed #ccc;
+        border-radius: 4px;
+        background: #f5f5f5;
+        margin-bottom: 40px;
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .group-middle {
+        position: relative;
+        .field-name-flag {
+          position: absolute;
+          right: 0;
+          top: 0;
+          a {
+            padding-left: 16px;
+            &.flag-action {
+              background: url(../images/add.png) no-repeat left center;
+            }
+            &.unflag-action {
+              background: url(../images/remove.png) no-repeat left center;
+            }
+          }
+        }
+        .field-name-title {
+          h3 {
+            width: 70%;
+          }
+          &.schedule_welcome {
+            h3 {
+              width: 100%;
+            }
+          }
+        }
+      }
+      #conf-program {
+        h2.timeslot-title {
+          color: #404040;
+          background: #e5e5e5;
+          border-bottom: none;
+          padding: 0;
+          margin-bottom: 40px;
+          border-radius: 4px;
+        }
+        .ds-3col {
+          .group-right {
+            background: #ccc;
           }
         }
       }
@@ -977,12 +1095,17 @@ body {
         margin: 0;
         .view-attendees {
           .views-row {
-            width: 17%;
+            width: 22%;
             margin: 0 1% 20px;
             float: left;
             background: #fff;
             border: 1px solid #ddd;
             text-align: center;
+            .views-field-field-profile-last {
+              max-height: 1em;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
             .views-field-picture {
               position: relative;
               img {
@@ -1092,6 +1215,7 @@ body {
         .field-name-field-experience {
           .field-item {
             background-position-y: 3px;
+            width: 36px;
           }
         }
       }
@@ -1382,6 +1506,264 @@ input#edit-submit {
   }
 }
 
+// getting there page
+
+.page-node-112 {
+  #main-wrapper {
+    #content {
+      width: 100%;
+      position: relative;
+      margin: 0;
+      #block-leuven2013-social-delijnapp {
+        h2 {
+          font-size: 22px;
+          padding: 10px 0;
+          border-bottom: 1px solid #ddd;
+          color: @blue;
+          margin-bottom: 15px;
+        }
+        .content {
+          .dl-body {
+            input {
+              .font;
+              &.dl-button {
+                text-align: left;
+                color: white;
+                font-size: 14px;
+                background: @orange;
+                padding: 5px 30px;
+                text-align: center;
+                border-radius: 4px;
+                margin: 10px 0;
+                text-transform: uppercase;
+                cursor: pointer;
+                border: none;
+                &:hover {
+                  background: @blue;
+                  text-decoration: none;
+                  color: white;
+                }
+              }
+            }
+            .dl-text-right {
+              text-align: center;
+              clear: both;
+              margin-top: 5px;
+              padding-top: 5px;
+              border-top: 1px dashed #ccc;
+              float: left;
+              width: 100%;
+              margin-top: 40px;
+            }
+          }
+          .dl-wrapper {
+            width: 100%;
+            .dl-col-right {
+              width: 100%;
+              #routeplanAanvraagFormId {
+                .dl-border {
+                  padding: 20px;
+                  background: white;
+                  border: none;
+                  border-radius: 4px;
+                  margin-bottom: 20px;
+                  > .dl-header {
+                    display: none;
+                  }
+                  > fieldset {
+                    width: 28%;
+                    float: left;
+                    margin-right: 2%;
+                    .font;
+                    .dl-titel {
+                      text-align: center;
+                      width: 100%;
+                      padding-top: 5px;
+                      padding-bottom: 5px;
+                      margin-bottom: 5px;
+                      border-bottom: 1px dashed #ccc;
+                    }
+                    .dl-box-content {
+                      .dl-form-row {
+                        width: 100%;
+                        input.form-text {
+                          display: block;
+                          .font;
+                        }
+                        .dl-input-location {
+                          width: 95%;
+                          margin-bottom: 5px;
+                          .font;
+                        }
+                      }
+                    }
+                  }
+                  > .dl-icon-swap {
+                    float: left;
+                    width: 4%;
+                    margin-right: 1%;
+                    margin-top: 105px;
+                    behavior:url(-ms-transform.htc);
+                    -moz-transform:rotate(-90deg);  
+                    -webkit-transform:rotate(-90deg);  
+                    -o-transform:rotate(-90deg);  
+                    -ms-transform:rotate(-90deg);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #sidebar-second {
+      width: 100%;
+      margin-top: 60px;
+      .block {
+        width: 29%;
+        float: left;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding: 10px 1%;
+        border-radius: 4px;
+        h2 {
+          margin-bottom: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #ddd;
+        }
+        &#block-leuven2013-social-social-sidebar {
+          width: 100%;
+          float: left;
+          clear: both;
+          margin: 20px 0 30px 1%;
+          text-align: center;
+          background: none;
+          border-radius: 0;
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+// page user sessions
+.page-user-sessions {
+  #main-wrapper {
+    #content {
+      .view-flag-bookmarks-tab {
+        .view-content {
+          margin-bottom: 30px;
+          .views-row {
+            float: left;
+            width: 100%;
+            margin: 0 0 30px;
+            padding: 0 0 30px;
+            border-bottom: 2px solid #ccc;
+            .views-label {
+              float: left;
+              margin-right: 5px;
+            }
+            .views-field-title {
+              font-size: 30px;
+              padding-bottom: 5px;
+              line-height: 1;
+              margin-bottom: 10px;
+              border-bottom: 1px dashed #ccc;
+              a {
+                color: @blue;
+              }
+            }
+            .views-field-body {
+              font-size: 18px;
+            }
+            .views-field-picture {
+              float: left;
+              margin-right: 20px;
+              img {
+                border-radius: 4px;
+              }
+            }
+            .node-time-slot {
+              padding: 0;
+              margin: 0;
+              border: none;
+              clear: both;
+              .date-display-single {
+                color: @blue;
+              }
+            }
+            .views-field-field-speakers {
+              font-size: 20px;
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// room pages
+.node-type-room {
+  #page-wrapper {
+    .region-content {
+      .ds-1col {
+        .field-label {
+          float: left;
+          font-weight: normal;
+          text-transform: uppercase;
+          margin-right: 5px;
+        }
+        .field-name-field-room-capacity {
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px dashed #ccc;
+          .field-label {
+            float: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin-right: 5px;
+          }
+          .field-item {
+            color: #fff;
+            background: @orange;
+            padding: 0 5px;
+            border-radius: 4px;
+          }
+        }
+        .field-name-field-room-slots-types-allowed {
+          > .field-label {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// session detail page 
+.node-type-session {
+  #page-wrapper {
+    .region-content {
+      .field-name-flag {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-bottom: 10px;
+        a {
+          padding-left: 16px;
+          &.flag-action {
+            background: url(../images/add.png) no-repeat left center;
+          }
+          &.unflag-action {
+            background: url(../images/remove.png) no-repeat left center;
+          }
+        }
+      }
+    }
+  }
+}
+
 // TABLET VERSION ---------------------------------------------------------------------------------------------------------------------------
 
 @media screen and (min-width: 740px) and (max-width: 980px) {
@@ -1530,7 +1912,6 @@ input#edit-submit {
           margin-right: 0;
           position: relative;
           .node-session {
-            height: 335px;
           }
           .view-speakers .view-content > .view-grouping {
             height: 365px;
@@ -1591,6 +1972,39 @@ input#edit-submit {
               display: block;
             }
           }
+        }
+      }
+    }
+  }
+
+  .page-node-112 #main-wrapper #content #block-leuven2013-social-delijnapp .content .dl-wrapper .dl-col-right #routeplanAanvraagFormId .dl-border > fieldset {
+    margin-right: 1%;
+  }
+
+  .page-program, .page-taxonomy-term {
+    #page-wrapper {
+      #main-wrapper {
+        #content {
+          width: 100%;
+          .ds-3col {
+            .group-middle {
+              .field-name-title {
+                h3 {
+                  width: 65%;
+                }
+              }
+            }
+            .group-right {
+              h2 {
+                line-height: 1;
+                padding: 5px;
+              }
+            }
+          }
+        }
+        #sidebar-second {
+          width: 700px;
+          margin: 0;
         }
       }
     }
@@ -1873,6 +2287,17 @@ input#edit-submit {
     }
   }
 
+  #sidebar-second {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    .block {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
+
   .page-speakers {
     #page-wrapper {
       h1#page-title {
@@ -1962,6 +2387,115 @@ input#edit-submit {
           .view-volunteers {
             .views-row {
               width: 47%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page-node-112 {
+    #main-wrapper {
+      #content {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        #block-leuven2013-social-delijnapp {
+
+        }
+      }
+      #sidebar-second {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        .block {
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+      }
+    }
+  }
+
+  .page-node-112 {
+    #main-wrapper {
+      #content {
+        #block-leuven2013-social-delijnapp {
+          .content {
+            .dl-wrapper {
+              .dl-col-right {
+                #routeplanAanvraagFormId {
+                  .dl-border {
+                    > fieldset {
+                      width: 100%;
+                      margin: 0;
+                      margin-bottom: 15px;
+                    }
+                    > .dl-icon-swap {
+                      width: 100%;
+                      background-position: center center;
+                      margin-right: 0;
+                      margin-top: 15px;
+                      behavior:url(-ms-transform.htc);
+                      -moz-transform:rotate(0deg);  
+                      -webkit-transform:rotate(0deg);  
+                      -o-transform:rotate(0deg);  
+                      -ms-transform:rotate(0deg);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page-program, .page-taxonomy-term {
+    #page-wrapper {
+      #main-wrapper {
+        #content {
+          width: 90%;
+          h1.title {
+            width: 100%;
+          }
+          .ds-3col {
+            .group-middle {
+              position: relative;
+              .field-name-flag {
+                position: relative;
+                right: auto;
+                top: auto;
+                margin-bottom: 10px;
+                a {
+                  padding-left: 16px;
+                  &.flag-action {
+                    background: url(../images/add.png) no-repeat left center;
+                  }
+                  &.unflag-action {
+                    background: url(../images/remove.png) no-repeat left center;
+                  }
+                }
+              }
+            }
+            .group-right {
+              width: 10%;
+              .field-name-session-room {
+                height: 200px;
+              }
+              h2 {
+                line-height: 1;
+                padding: 0;
+                margin: 0;
+                width: 204px;
+                height: 200px;
+                behavior:url(-ms-transform.htc);
+          -moz-transform:rotate(-90deg);  
+       -webkit-transform:rotate(-90deg);  
+            -o-transform:rotate(-90deg);  
+           -ms-transform:rotate(-90deg); 
+              }
             }
           }
         }

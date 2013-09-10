@@ -215,12 +215,8 @@
       }
     }
     .group-right {
-      width: 15%;
-      behavior:url(-ms-transform.htc);
-          -moz-transform:rotate(-90deg);  
-       -webkit-transform:rotate(-90deg);  
-            -o-transform:rotate(-90deg);  
-           -ms-transform:rotate(-90deg);  
+      width: 15%; 
+      float: right;
       .field-name-field-slot-datetime {
         .field-label {
           display: none;
@@ -231,20 +227,26 @@
         border: 0;
         margin: 0;
         padding: 0;
+        text-align: center;
       }
     }
   }
   .ds-3col.node-schedule-item.node-teaser {
     .group-middle {
-      margin: 0 2% 0 0 !important;
+      margin: 0 !important;
       text-align: center;
-      width: 85% !important;
+      width: 84% !important;
     }
   }
   .term-listing-heading {
     .field-type-color-field-rgb {
       float: left;
       margin-right: 15px;
+      .field-item {
+        > div {
+          border-radius: 4px;
+        }
+      }
     }
     .field-name-title {
       h2 {
@@ -555,5 +557,15 @@ ul.call-to-action-list {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+  }
+}
+.dl-select-size1 {
+  width: 45px !important;
+}
+.dl-gevonden-header {
+  tr {
+    td {
+      font-size: 75%;
+    }
   }
 }

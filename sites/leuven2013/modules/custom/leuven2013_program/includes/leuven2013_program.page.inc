@@ -4,6 +4,7 @@
  * Default Program page (without flags).
  */
 function leuven2013_program_default_page($day) {
+  drupal_set_title('Program');
   $output = _leuven2013_program_create_page($day);
 
   if (!$output) {
@@ -123,8 +124,25 @@ function _leuven2013_program_page_get_timeslots($day) {
 function _leuven2013_program_page_get_content($day, $timeslot, $favorite) {
   global $user;
 
+  // Sorry - hardcoded because of the incapability to create a better query :-(
+  // (And COD created ugly fugly references and OG references that do NOT make any sense!)
+  // The session is frikkin related to one day (gid) and still sessions from other days appear RAAAARRARRARARARARA;;;;
+  switch ($day) {
+    case 13:
+      $date_day = '2013-09-15';
+      break;
+    case 1:
+    default:
+      $date_day = '2013-09-14';
+  }
+
+  $date_timeslot = date('Y-m-d', strtotime($timeslot));
+  if ($date_timeslot != $date_day) {
+    return;
+  }
+
   // Get all session of the given day
-  $query = db_select('node', 'node');
+  $query = db_select('node', 'node')->distinct();
   $query->addField('node', 'nid', 'nid');
   $query->innerJoin('field_data_field_session_timeslot', 'timeslot', 'timeslot.entity_id = node.nid');
   $query->innerJoin('field_data_field_slot_types_time_slot', 'time_slot', 'time_slot.entity_id = timeslot.field_session_timeslot_target_id');
@@ -135,8 +153,12 @@ function _leuven2013_program_page_get_content($day, $timeslot, $favorite) {
   $query->condition('node.status', 1);
   $query->condition('accepted.field_accepted_value', 1);
   $query->condition('datetime.field_slot_datetime_value', $timeslot);
+  // $query->where('DATE(datetime.field_slot_datetime_value) = ' . $date_day);
   // $query->groupBy('datetime.field_slot_datetime_value');
   $query->orderBy('datetime.field_slot_datetime_value');
+
+  // dsm($query->__toString());
+  // dsm($timeslot);
 
   // If we only want bookmarked session.
   if ($favorite) {

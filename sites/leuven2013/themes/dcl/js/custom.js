@@ -50,7 +50,7 @@
 
       // program views-rows equal height
       $('.page-program .view-sessions .views-row').equalHeights();
-      // $('.page-program .node-session').equalHeights();
+      // $('.page-program .ds-3col > div').equalHeights();
 
       // program tracks legend
       $('#block-views-leuven2013-tracks-block .view-leuven2013-tracks').addClass('clearfix');
@@ -73,19 +73,22 @@
         $(this).toggleClass('open');
       });
 
-      var legends = $('.page-program #block-views-leuven2013-tracks-block > .content');
-      legends.hide();
-      $('<div class="legendbutton"></div>').insertBefore(legends);
-      $('.legendbutton').click(function(){
-        legends.slideToggle('fast');
-        $(this).toggleClass('open');
-      });
+      // var legends = $('.page-program #block-views-leuven2013-tracks-block > .content');
+      // legends.hide();
+      // $('<div class="legendbutton"></div>').insertBefore(legends);
+      // $('.legendbutton').click(function(){
+      //   legends.slideToggle('fast');
+      //   $(this).toggleClass('open');
+      // });
 
       // front preface region title
       $('<h2>Silver sponsors</h2>').insertBefore('.front .region-preface-top');
 
       // message on frontpage after form submission
       $('.front #content .messages').appendTo('#header-top');
+
+      // De lijn app
+      $('.page-node-112 #main-wrapper #content #block-leuven2013-social-delijnapp .content .dl-wrapper .dl-col-right #routeplanAanvraagFormId .dl-border').addClass('clearfix');
       
     }
   };

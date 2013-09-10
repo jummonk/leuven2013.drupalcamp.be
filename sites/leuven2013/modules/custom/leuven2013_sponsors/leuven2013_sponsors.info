@@ -1,11 +1,11 @@
 name = leuven2013_sponsors
 core = 7.x
 package = Leuven2013
+php = 5.2.4
 version = 7.x-1.0
 project = leuven2013_sponsors
 dependencies[] = ctools
 dependencies[] = features
-dependencies[] = field_sql_storage
 dependencies[] = image
 dependencies[] = number
 dependencies[] = views

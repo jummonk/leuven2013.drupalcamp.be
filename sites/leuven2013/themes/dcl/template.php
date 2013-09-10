@@ -54,4 +54,7 @@ function dcl_preprocess_field(&$variables, $hook) {
     $variables['classes_array'][] = 'schedule_item';
     $variables['classes_array'][] = 'schedule_' . check_plain($type[0]['value']);
   }
+  elseif (($element['#bundle'] == 'session' || $element['#bundle'] == 'schedule_item') && $element['#view_mode'] == 'teaser' && $element['#field_name'] == 'body') {
+    $variables['items'][0]['#markup'] = strip_tags($variables['items'][0]['#markup']);
+  }
 }
