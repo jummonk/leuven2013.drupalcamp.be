@@ -1,0 +1,71 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_user_profile_block_info() {
+  $blocks['hello']['info'] = t('Hello there');
+  // Not worth caching.
+  $blocks['hello']['cache'] = DRUPAL_NO_CACHE;
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_user_profile_block_view($delta = '') {
+  global $user;
+
+  if (user_access('access administration menu')) {
+    return;
+  }
+  
+  $block = array();
+
+  switch ($delta) {
+    case 'hello':
+      if ($user->uid) {
+        $links = array(
+          'account' => array(
+            'title' => t('Hello <strong>@username</strong>', array('@username' => format_username($user))),
+            'href' => 'user',
+            'html' => TRUE,
+            'attributes' => array('title' => t('User account')),
+          ),
+        );
+      }
+      else {
+         $links = array(
+          'login' => array(
+            'title' => t('Log in'),
+            'href' => 'user',
+          ),
+        );
+      }
+      $build['hello_user'] = array(
+        '#theme' => 'links',
+        '#links' => $links,
+        '#attributes' => array('id' => 'hello-user'),
+      );
+
+      $block['subject'] = '';
+      $block['content'] = $build;
+     
+      return $block;
+      break;
+  }
+}
+/**
+ * Implements hook_user_presave().
+ *
+ * Trim first and last name before saving.
+ */
+function leuven2013_user_profile_user_presave(&$edit, $account, $category) {
+  $edit['field_profile_first'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_first'][LANGUAGE_NONE][0]['value']);
+  $edit['field_profile_last'][LANGUAGE_NONE][0]['value'] = trim($edit['field_profile_last'][LANGUAGE_NONE][0]['value']);
+}
+ 

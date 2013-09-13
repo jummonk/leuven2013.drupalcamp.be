@@ -148,7 +148,7 @@ function entity_views_table_definition($type, $exclude = TRUE) {
       'entity type' => $type,
     );
     foreach (entity_get_all_property_info($type) as $key => $property) {
-      if (!$exclude || empty($property['entity views field'])) {
+      if (!$exclude && !empty($property['entity views field'])) {
         entity_views_field_definition($key, $property, $tables[$type]);
       }
     }

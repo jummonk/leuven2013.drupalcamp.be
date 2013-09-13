@@ -56,7 +56,7 @@ HTML comment.
   <?php endif; ?>
   <div class="field-items"<?php print $content_attributes; ?>>
     <?php foreach ($items as $delta => $item): ?>
-      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
+      <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?> field-item-<?php print $delta; ?><?php if ($delta == 0): print ' field-item-first'; endif ?><?php if ($delta == count($items) - 1): print ' field-item-last'; endif ?>"<?php print $item_attributes[$delta]; ?>><?php print render($item); ?></div>
     <?php endforeach; ?>
   </div>
 </div>

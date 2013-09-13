@@ -1,0 +1,40 @@
+; -----------------------------------------------------------
+; Description
+; -----------------------------------------------------------
+name = Starterkit
+description = Subtheme G-raph: Lightweight drupal 7 base theme, based on 960 grid system.
+core = 7.x
+engine = phptemplate
+base theme = g_raph_
+
+; IMPORTANT: DELETE THESE TWO LINES IN YOUR SUBTHEME
+
+hidden = TRUE
+starterkit = TRUE
+
+; -----------------------------------------------------------
+; Stylesheets
+; -----------------------------------------------------------
+stylesheets[all][] = css/custom.css
+
+; -----------------------------------------------------------
+; JS
+; -----------------------------------------------------------
+scripts[] = js/custom.js
+
+; -----------------------------------------------------------
+; Regions
+; -----------------------------------------------------------
+regions[header_top] = Header Top
+regions[header_bottom_left] = Header Bottom Left
+regions[header_bottom_right] = Header Bottom Right
+regions[preface] = Preface
+regions[sidebar_first] = Left sidebar
+regions[content] = Content
+regions[sidebar_second] = Right sidebar
+regions[postscript] = Postscript
+regions[bottom_left] = Bottom Left
+regions[bottom_right] = Bottom Right
+regions[footer_top] = Footer Top
+regions[footer_bottom_left] = Footer Bottom Left
+regions[footer_bottom_right] = Footer Bottom Right

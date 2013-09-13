@@ -1,0 +1,41 @@
+; -----------------------------------------------------------
+; Description
+; -----------------------------------------------------------
+name = DrupalCampLeuven2013
+description = Subtheme G-raph: Lightweight drupal 7 base theme, based on 960 grid system.
+core = 7.x
+engine = phptemplate
+base theme = g_raph_
+
+; -----------------------------------------------------------
+; Stylesheets
+; -----------------------------------------------------------
+stylesheets[all][] = css/custom.css
+
+; -----------------------------------------------------------
+; JS
+; -----------------------------------------------------------
+scripts[] = js/equalheights.js
+scripts[] = js/countdown.js
+scripts[] = js/caroufredsel.js
+scripts[] = js/swipe.js
+scripts[] = js/custom.js
+
+; -----------------------------------------------------------
+; Regions
+; -----------------------------------------------------------
+regions[header_top] = Header Top
+regions[header_middle] = Header middle
+regions[header_bottom_left] = Header Bottom Left
+regions[header_bottom_middle] = Header Bottom Middle
+regions[header_bottom_right] = Header Bottom Right
+regions[preface_top] = Preface Top
+regions[preface_left] = Preface Left
+regions[preface_right] = Preface Right
+regions[content] = Content
+regions[sidebar_second] = Right sidebar
+regions[postscript_left] = Postscript Left
+regions[postscript_middle] = Postscript Middle
+regions[postscript_right] = Postscript Right
+regions[footer_top] = Footer Top
+regions[footer_bottom] = Footer Bottom

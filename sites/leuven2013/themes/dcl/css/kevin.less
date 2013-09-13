@@ -1,0 +1,571 @@
+// vars - classes
+
+@blue: #3993c0;
+@orange: #ff9430;
+
+.front {
+  #header {
+    #header-middle {
+      #header-middle-inner {
+        .view-leuven2013-sponsors {
+          .view-empty {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  #preface-wrapper {
+    #preface-top {
+      .view-display-id-block_2 {
+        .views-row {
+          margin: 0 5px;
+          &.views-row-first {
+            margin-left: 0;
+            margin-right: 10px;
+          }
+          &.views-row-last {
+            margin-left: 10px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  #page-title {
+    display: none;
+  }
+}
+#header {
+  #header-middle {
+    #header-middle-inner {
+      margin: 0 auto;
+      max-width: 960px;
+      width: 100%;
+    }
+  }
+  #header-bottom {
+    background: #3993c0; // @blue
+    #header-bottom-inner {
+      margin: 0 auto;
+      max-width: 960px;
+      width: 100%;
+    }
+  }
+}
+#preface-wrapper {
+  background: #fff;
+  -webkit-box-shadow: inset 0px 11px 8px -5px #CCC, inset 0px -11px 8px -5px #ddd;
+     -moz-box-shadow: inset 0px 11px 8px -5px #CCC, inset 0px -11px 8px -5px #ddd;
+          box-shadow: inset 0px 11px 8px -5px #CCC, inset 0px -11px 8px -5px #ddd;
+  #preface-inner {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    #preface-top {
+      margin: 25px auto;
+    }
+  }
+}
+#footer {
+  background: #282828;
+  #footer-inner {
+    margin: 0 auto;
+    max-width: 960px;
+    width: 100%;
+    #footer-bottom {
+      .sponsor-bronze-footer {
+        display: inline-block;
+        margin-bottom: 15px;
+        img {
+          -webkit-filter: grayscale(1) contrast(0.5) blur(0.25px);    /* Google Chrome & Safari 6+ */
+                  filter: url(filters.svg#grayscale);                         /* Firefox 3.5+ */
+                  filter: gray;                                               /* IE6-9 */
+          &:hover {
+            -webkit-filter: grayscale(0) blur(0) contrast(1);
+                    filter:none;
+          }
+        }
+      }
+    }
+  }
+}
+#sidebar-second {
+  .block {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    h2 {
+      border: none;
+      text-align: center;
+    }
+    .view-leuven2013-sponsors {
+      .view-empty {
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+    // img {
+    //   border-radius: 15px;
+    // }
+  }
+}
+
+.view-leuven2013-sponsors {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 0 0 15px 0;
+      padding: 0;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .view-empty {
+    text-align: center;
+    margin: 0 0 10px 0;
+    a {
+      color: #fff;
+      font-size: 28px;
+      background: @orange;
+      text-transform: uppercase;
+      padding: 5px 30px;
+      text-align: center;
+      border-radius: 4px;
+      text-transform: uppercase;
+      &:hover {
+        background: @blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
+#block-views-leuven2013-sponsors-block-10, 
+#block-views-leuven2013-sponsors-block-11, 
+#block-views-leuven2013-sponsors-block-12, 
+#block-views-leuven2013-sponsors-block-13 {
+  clear: both;
+  float: none;
+  width: 100%;
+}
+// Sponsor Layout #1
+// .view-leuven2013-sponsors {
+//   .sponsor-overview-gold {
+//     .field-name-field-sponsor-body {
+//       padding: 15px 0 0 25px;
+//       p {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   .sponsor-overview-silver, .sponsor-overview-bronze, .sponsor-overview-activity {
+//     float: left;
+//     width: 33%;
+//     .node-sponsor {
+//       padding: 0 10px;
+//     }
+//   }
+// }
+// Sponsor Layout #2
+#content {
+  .view-leuven2013-sponsors {
+    .sponsor-inline-title {
+      float: left;
+      line-height: 1em;
+      margin: 0 5px 0 0;
+      vertical-align: top;
+    }
+    .sponsor-overview-silver, .sponsor-overview-gold {
+      .sponsor-inline-title {
+        padding: 15px 0 0 25px;
+      }
+      .field-name-field-sponsor-body {
+        padding: 15px 0 0 25px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .sponsor-overview-bronze, .sponsor-overview-activity {
+      float: left;
+      width: 33%;
+      .node-sponsor {
+        padding: 0 10px;
+      }
+    }
+  }
+  .ds-3col.node-session.node-teaser, .ds-3col.node-schedule-item.node-teaser {
+    width: 100%;
+    margin: 30px 0 30px 0;
+    .group-left {
+
+    }
+    .group-middle {
+      margin: 0 2%;
+      width: 55%;
+      h3 {
+        margin: 0 0 15px 0;
+      }
+    }
+    .group-right {
+      width: 15%; 
+      float: right;
+      .field-name-field-slot-datetime {
+        .field-label {
+          display: none;
+        }
+      }
+      h2 {
+        font-size: 1.5em;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+  .ds-3col.node-schedule-item.node-teaser {
+    .group-middle {
+      margin: 0 !important;
+      text-align: center;
+      width: 84% !important;
+    }
+  }
+  .term-listing-heading {
+    .field-type-color-field-rgb {
+      float: left;
+      margin-right: 15px;
+      .field-item {
+        > div {
+          border-radius: 4px;
+        }
+      }
+    }
+    .field-name-title {
+      h2 {
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+
+ul.call-to-action-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 25px 0;
+    a {
+      color: #fff;
+      font-size: 28px;
+      background: @orange;
+      padding: 5px 30px;
+      text-align: center;
+      border-radius: 4px;
+      &:hover {
+        background: @blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.not-front {
+  #header-middle {
+    #header-middle-inner {
+      clear: both;
+      overflow: hidden;
+      #block-leuven2013-general-banner-to-frontpage {
+        a.frontpage-banner-link {
+          background: url('../images/dcl-banner.png') no-repeat center center;
+          display: block;
+          height: 110px;
+          text-indent: -9999px;
+
+        }
+      }
+      #block-views-leuven2013-sponsors-block-1 {
+        &.col6 {
+          width: 460px;
+        }
+        margin-top: 0;
+        a {
+          display: block;
+          height: 110px;
+          line-height: 110px;
+          text-align: center;
+          vertical-align: middle;
+          img {
+            vertical-align: middle;
+            width: 326px;
+          }
+        }
+      }
+    }
+  }
+}
+.node-sponsor {
+  .field-name-sponsor-level-rendered {
+    .sponsor-level-rendered {
+      font-size: 2em;
+      text-align: center;
+    }
+  }
+}
+
+.how-to-propose-session-step {
+  margin: 8px 0;
+  .how-to-propose-session-step-count {
+    background: @blue;
+    border-radius: 5px 20px 5px;
+    color: #FFF;
+    display: inline-block;
+    font-size: 1.8em;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 15px;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+  }
+}
+
+#block-views-leuven2013-news-block {
+  .view-leuven2013-news {
+    margin-left: 0;
+  }
+}
+#block-views-leuven2013-news-block-2 {
+  .view-leuven2013-news {
+    margin-right: 0;
+  }
+}
+.view-leuven2013-news {
+  img {
+    margin: 5px 15px 0 0;
+    float: left;
+  }
+  .field-name-title {
+    margin-bottom: 10px;
+  }
+  .field-name-post-date {
+    color: #888;
+    float: right;
+    font-size: 0.9em;
+    margin-top: 0;
+  }
+}
+#block-views-leuven2013-tracks-block {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  .view-leuven2013-tracks {
+    .view-content {
+      .views-row {
+        float: left;
+        .views-field-field-track-color-code {
+          float: left;
+          margin-right: 5px;
+          .field-content {
+            > div {
+              border-radius: 50%;
+              border: 1px solid #000;
+            }
+          }
+        }
+        .views-field-name {
+          float: left;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+.icon-experience-level {
+  .field-item {
+    text-align: center;
+    text-indent: -9999px;
+  }
+  &.experience-level-1 {
+    .field-item {
+      background: url('../images/exp-beginner.png') no-repeat left top;
+    }
+  }
+  &.experience-level-2 {
+    .field-item {
+      background: url('../images/exp-intermediate.png') no-repeat left top;
+    }
+  }
+  &.experience-level-3 {
+    .field-item {
+      background: url('../images/exp-advanced.png') no-repeat left top;
+    }
+  }
+}
+
+#conf-program {
+  h2 {
+    // border: 1px solid @orange;
+    // border-radius: 25px;
+    border-bottom: 1px solid #ccc;
+    color: @orange;
+    font-size: 2.5em;
+    padding: 0 0 1em 0;
+    text-align: center;
+  }
+}
+
+.schedule_item {
+  // ICON PLACEMENT
+  &.schedule_welcome {
+    h3 { 
+      // welcome icon 
+    }
+  }
+  &.schedule_bbq {
+    h3 { 
+      // bbq icon
+    }
+  }
+  &.schedule_coffee {
+    h3 { 
+      // coffee icon
+    }
+  }
+  &.schedule_closing {
+    h3 { 
+      // closing icon
+    }
+  }
+  &.schedule_lunch {
+    h3 { 
+      // lunch icon
+    }
+  }
+  &.schedule_end {
+    h3 { 
+      // the final end icon
+    }
+  }
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 980px) {
+  #block-views-leuven2013-news-block, #block-views-leuven2013-news-block-2 {
+    .view-leuven2013-news {
+      margin: 0;
+    }
+  }
+  #preface-wrapper {
+    #preface-inner {
+      #preface-top {
+        margin-bottom: 25px;
+        margin-top: 25px;
+      }
+    }
+  }
+  .sponsor-silver, .field-type-image {
+    text-align: center;
+  }
+  #content {
+    .view-leuven2013-sponsors {
+      .sponsor-overview-bronze, .sponsor-overview-activity {
+        width: 50%;
+      }
+      .sponsor-overview-silver,  .sponsor-overview-gold {
+        .group-left, .group-right {
+          clear: both;
+          float: none;
+          width: 100%;
+        }
+        .field-name-field-sponsor-body, .sponsor-inline-title {
+          padding: 0;
+        }
+      }
+    }
+  }
+  // .ds-2col > .group-left, .ds-2col > .group-right {
+  //   width: 100%;
+  // }
+
+  #content .view-leuven2013-sponsors 
+  .col12 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col11 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col10 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col9 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col8 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col7 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col6 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col5 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col4 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col3 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col2 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .col1 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+.dl-select-size1 {
+  width: 45px !important;
+}
+.dl-gevonden-header {
+  tr {
+    td {
+      font-size: 75%;
+    }
+  }
+}

@@ -55,8 +55,18 @@ function commerce_order_entity_info() {
         'singular' => t('order'),
         'plural' => t('orders'),
       ),
+
+      // // Prevent Redirect alteration of the order form.
+      'redirect' => FALSE,
     ),
   );
+
+  $return['commerce_order']['bundles'] = array();
+  foreach (commerce_order_type_get_name() as $type => $name) {
+    $return['commerce_order']['bundles'][$type] = array(
+      'label' => $name,
+    );
+  }
 
   return $return;
 }
@@ -90,6 +100,12 @@ function commerce_order_label($entity, $entity_type) {
  */
 function commerce_order_hook_info() {
   $hooks = array(
+    'commerce_order_type_info' => array(
+      'group' => 'commerce',
+    ),
+    'commerce_order_type_info_alter' => array(
+      'group' => 'commerce',
+    ),
     'commerce_order_state_info' => array(
       'group' => 'commerce',
     ),
@@ -147,14 +163,11 @@ function commerce_order_modules_enabled($modules) {
  * Ensures the line item field is present on the default order bundle.
  */
 function commerce_order_configure_order_type($type = 'commerce_order') {
-  // If a field type we know should exist isn't found, clear the Field cache.
-  if (!field_info_field_types('commerce_line_item_reference') ||
-    !field_info_field_types('commerce_customer_profile_reference')) {
-    field_cache_clear();
-  }
-
   // Look for or add a line item reference field to the order type.
   $field_name = 'commerce_line_items';
+  commerce_activate_field($field_name);
+  field_cache_clear();
+
   $field = field_info_field($field_name);
   $instance = field_info_instance('commerce_order', $field_name, $type);
 
@@ -222,6 +235,7 @@ function commerce_order_configure_customer_profile_type($customer_profile_type, 
   // First check to ensure this field doesn't already exist and was just inactive
   // because of the profile defining module being disabled previously.
   commerce_activate_field($field_name);
+  field_cache_clear();
 
   $field = field_info_field($field_name);
   $instance = field_info_instance('commerce_order', $field_name, $order_type);
@@ -463,6 +477,7 @@ function commerce_order_commerce_customer_profile_can_delete($profile) {
     $query = new EntityFieldQuery();
 
     $query
+      ->addTag('commerce_order_commerce_customer_profile_can_delete')
       ->entityCondition('entity_type', 'commerce_order', '=')
       ->fieldCondition($field_name, 'profile_id', $profile->profile_id, '=')
       ->count();
@@ -655,6 +670,52 @@ function commerce_order_form_commerce_customer_customer_profile_delete_form_alte
 }
 
 /**
+ * Implements hook_commerce_order_type_info().
+ */
+function commerce_order_commerce_order_type_info() {
+  $order_types = array();
+
+  $order_types['commerce_order'] = array(
+    'type' => 'commerce_order',
+    'name' => t('Order'),
+    'description' => t('Default order.'),
+  );
+
+  return $order_types;
+}
+
+/**
+ * Returns an array of order type arrays keyed by type.
+ */
+function commerce_order_types() {
+  // First check the static cache for a product types array.
+  $order_types = &drupal_static(__FUNCTION__);
+
+  // If it did not exist, fetch the types now.
+  if (!isset($order_types)) {
+    $order_types = array();
+
+    // Find order types defined by hook_commerce_order_type_info().
+    foreach (module_implements('commerce_order_type_info') as $module) {
+      foreach (module_invoke($module, 'commerce_order_type_info') as $type => $order_type) {
+        // Set the module each order type is defined by and revision handling
+        // if they aren't set yet.
+        $order_type += array(
+          'module' => $module,
+          'revision' => 1,
+        );
+        $order_types[$type] = $order_type;
+      }
+    }
+
+    // Last allow the info to be altered by other modules.
+    drupal_alter('commerce_order_type_info', $order_types);
+  }
+
+  return $order_types;
+}
+
+/**
  * Returns the name of the specified order type or all names keyed by type if no
  *   type is specified.
  *
@@ -674,24 +735,27 @@ function commerce_order_form_commerce_customer_customer_profile_delete_form_alte
  *   found, or an array of all names keyed by type if no type is passed in.
  */
 function commerce_order_type_get_name($type = NULL) {
-  $names = array();
+  $order_types = commerce_order_types();
 
-  $entity = entity_get_info('commerce_order');
-
-  foreach ($entity['bundles'] as $key => $value) {
-    $names[$key] = $value['label'];
+  // Return a type name if specified and it exists.
+  if (!empty($type)) {
+    if (isset($order_types[$type])) {
+      return $order_types[$type]['name'];
+    }
+    else {
+      // Return FALSE if it does not exist.
+      return FALSE;
+    }
   }
 
-  if (empty($type)) {
-    return $names;
+  // Otherwise turn the array values into the type name only.
+  $order_type_names = array();
+
+  foreach ($order_types as $key => $value) {
+    $order_type_names[$key] = $value['name'];
   }
 
-  if (empty($names[$type])) {
-    return check_plain($type);
-  }
-  else {
-    return $names[$type];
-  }
+  return $order_type_names;
 }
 
 /**
@@ -844,7 +908,7 @@ function commerce_order_access($op, $order = NULL, $account = NULL) {
 }
 
 /**
- * Implementation of hook_query_commerce_order_access_alter().
+ * Implements hook_query_TAG_alter().
  */
 function commerce_order_query_commerce_order_access_alter(QueryAlterableInterface $query) {
   // Look for an order base table to pass to the query altering function or else
@@ -1404,12 +1468,38 @@ function commerce_order_get_properties($order, array $options, $name) {
       // leading and trailing spaces and replace simple illegal characters with
       // hyphens. More could be done with additional illegal characters if
       // necessary, but those typically won't pass e-mail validation anyways.
+      // We also limit the username to the maximum length for usernames.
       // @see user_validate_name()
       $username = preg_replace('/[^\x{80}-\x{F7} a-z0-9@_.\'-]/i', '-', trim($order->mail));
-
-      // We also limit the username to the maximum length for usernames.
-      return substr($username, 0, USERNAME_MAX_LENGTH);
+      $username = substr($username, 0, USERNAME_MAX_LENGTH);
+      return commerce_order_unique_username($username);
   }
+}
+
+/**
+ * Takes a base username and returns a unique version of the username.
+ *
+ * @param $base
+ *   The base from which to construct a unique username.
+ *
+ * @return
+ *   A unique version of the username using appended numbers to avoid duplicates
+ *   if the base is already in use.
+ */
+function commerce_order_unique_username($base) {
+  $username = $base;
+  $i = 1;
+
+  while (db_query('SELECT 1 FROM {users} WHERE name = :name', array(':name' => $username))->fetchField()) {
+    // Ensure the username does not exceed the maximum character limit.
+    if (strlen($base . $i) > USERNAME_MAX_LENGTH) {
+      $base = substr($base, 0, strlen($base) - strlen($i));
+    }
+
+    $username = $base . $i++;
+  }
+
+  return $username;
 }
 
 /**

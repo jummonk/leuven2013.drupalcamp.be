@@ -53,5 +53,10 @@
  * @see conf_path()
  * @see http://drupal.org/documentation/install/multi-site
  */
- $sites['leuven2013.drupalcamp.local'] = 'leuven2013';
+ $sites['leuven2013.drupalcamp.dev'] = 'leuven2013';
  $sites['leuven2013.drupalcamp.be'] = 'leuven2013';
+ $sites['dev.qandisa.be'] = 'leuven2013';
+ $sites['dev.van-ransbeeck.be'] = 'leuven2013';
+ $sites['dcl.local'] = 'leuven2013';
+ $sites['dc.dev'] = 'leuven2013';
+ $sites['87.238.165.200'] = 'leuven2013';

@@ -2,7 +2,7 @@
 
 /**
  * CKEditor - The text editor for the Internet - http://ckeditor.com
- * Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  *
  * == BEGIN LICENSE ==
  *
@@ -160,7 +160,7 @@ function ckeditor_help_delegate($path, $arg) {
           '<ol>' .
           '<li>' .
           t('By using !ckfinder (commercial), an advanced Ajax file manager.', array(
-            '!ckfinder' => l(t('CKFinder'), 'http://ckfinder.com'),
+            '!ckfinder' => l(t('CKFinder'), 'http://cksource.com/ckfinder'),
               )
           ) .
           '</li>' .
@@ -215,7 +215,7 @@ function ckeditor_filter_xss() {
     if ($name == 'filter_html' && $security_filters['filters']['filter_html'] == 1) {
       preg_match_all("|</?([a-z][a-z0-9]*)(?:\b[^>]*)>|i", $text, $matches);
       if ($matches[1]) {
-        $tags = array_unique($matches[1]);
+        $tags = array_unique(array_merge($matches[1], array('!--')));
         $text = filter_xss($text, $tags);
       }
       continue;

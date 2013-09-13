@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Code for the Leuven2013 Social feature.
+ */
+
+include_once 'leuven2013_social.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_social_block_info() {
+  $blocks = array();
+  $blocks['social_sidebar'] = array(
+    'info' => t('Social Icons Sidebar'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['delijnapp'] = array(
+    'info' => t('De Lijn App'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_social_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_social', 'leuven2013_social.block');
+
+  $callback = '_leuven2013_social_block_' . $delta;
+  if (!function_exists($callback)) {
+    return array();
+  }
+
+  return $callback();
+}

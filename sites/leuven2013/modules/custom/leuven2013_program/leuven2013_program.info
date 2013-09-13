@@ -1,0 +1,7 @@
+name = Leuven2013 Program
+core = 7.x
+description = Program page and personalized program page.
+package = Leuven2013
+php = 5.2.4
+version = 7.x-2.0
+project = leuven2013_program

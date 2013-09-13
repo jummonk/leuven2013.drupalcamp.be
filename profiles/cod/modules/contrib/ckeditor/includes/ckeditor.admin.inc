@@ -2,7 +2,7 @@
 
 /**
  * CKEditor - The text editor for the Internet - http://ckeditor.com
- * Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  *
  * == BEGIN LICENSE ==
  *
@@ -350,7 +350,7 @@ function ckeditor_admin_global_profile_form($form, $form_state, $mode = 'add') {
     '#maxlength' => 128,
     '#description' => t(
         'The path to CKFinder (AJAX based file manager downloaded from !ckfindercom) relative to the document root.', array(
-      '!ckfindercom' => l(t('ckfinder.com'), 'http://ckfinder.com/download')
+      '!ckfindercom' => l(t('ckfinder.com'), 'http://cksource.com/ckfinder')
         )
     ) .
     '<br />' .
@@ -676,7 +676,7 @@ function ckeditor_admin_profile_form($form, $form_state, $profile = NULL) {
     '#type' => 'item',
     '#title' => t('Security filters'),
     '#description' => t(
-        'Below is a list of security filters along with their status for each text format.<br/><br/>The following statuses are available:!img_enabled - the filter is configured for a given text format and will be run on the content during the filtering proces.!img_disabled - the filter is disabled for a given text format and will not be run on the content during the filtering process.<br/><br/>In order to modify the security filters settings for each of the text formats, you need to visit the text format configuration sections as listed below: !elem_format_config', array(
+      'Below is a list of security filters along with their status for each text format.<br /><br />The following statuses are available: !img_enabled - the filter is configured for a given text format and will be run on the content during the filtering process. !img_disabled - the filter is disabled for a given text format and will not be run on the content during the filtering process.<br /><br />In order to modify the security filters settings for each of the text formats, you need to visit the text format configuration sections as listed below: !elem_format_config', array(
       '!img_enabled' => '</br><img src="' . $module_drupal_path . '/images/tick.png"/>',
       '!img_disabled' => '</br><img src="' . $module_drupal_path . '/images/delete.png"/>',
       '!elem_format_config' => '<ul class="text-formats-config"></ul>'
@@ -875,7 +875,7 @@ function ckeditor_admin_profile_form($form, $form_state, $profile = NULL) {
     $form['appearance']['use_divarea'] = array(
       '#type' => 'radios',
       '#title' => t('"Div-based" editor'),
-      '#default_value' => !empty($profile->settings['use_divarea']) ? $profile->settings['use_divarea'] : 't',
+      '#default_value' => !empty($profile->settings['use_divarea']) ? $profile->settings['use_divarea'] : 'f',
       '#options' => array(
         't' => t('Enabled'),
         'f' => t('Disabled')
@@ -1111,7 +1111,7 @@ function ckeditor_admin_profile_form($form, $form_state, $profile = NULL) {
         'Set the file browser settings. A file browser will allow you to browse the files stored on the server and embed them as links, images, or Flash movies. CKEditor is compatible with such Drupal modules as !imce or !elfinder. CKEditor can be also integrated with !ckfinder, an advanced Ajax file manager.', array(
       '!imce' => l(t('IMCE'), 'http://drupal.org/project/imce'),
       '!elfinder' => l(t('elFinder'), 'http://drupal.org/project/elfinder'),
-      '!ckfinder' => l(t('CKFinder'), 'http://ckfinder.com')
+      '!ckfinder' => l(t('CKFinder'), 'http://cksource.com/ckfinder')
         )
     )
   );
@@ -1744,7 +1744,7 @@ function _ckeditor_admin_profile_form_security_filters(&$form, $profile, $securi
           '#type' => 'item',
           '#title' => t("@data", array('@data' => $filter_conf['title'])),
           '#description' => t("!data", array('!data' => $filter_conf['description'])),
-          '#prefix' => t("<div class=\"filter-wrapper\"></div>!formats", array("!formats" => $filter_text_formats)),
+          '#prefix' => "<div class=\"filter-wrapper\"></div>" . $filter_text_formats,
           '#suffix' => "</div>"
         );
       }
@@ -1768,14 +1768,15 @@ function ckeditor_skinframe() {
   $module_drupal_path = ckeditor_module_path('relative');
 
   $html = "<!DOCTYPE html>";
+  $html .= "<html>";
   $html .= "<head>";
-  $html .= "<script src=\"{$editor_path}/ckeditor.js\"></script>";
+  $html .= '<title>CKEditor UI Color Picker</title>';
+  $html .= "<script type=\"text/javascript\" src=\"{$editor_path}/ckeditor.js\"></script>";
   $html .= "</head>";
   $html .= "<body>";
   $html .= "<input type=\"hidden\" name=\"uicolor_user\"/>";
   $html .= "<div id=\"editor\" style=\"height: 200px;\">Click the <strong>UI Color Picker</strong> button to set your color preferences.</div>";
-  $html .= "
-<script>
+  $html .= "<script type=\"text/javascript\">
 var skin = window.location.search.match(/skin=([^&]*)/)[1];
 var uicolor = window.location.search.match(/uicolor=([^&]*)/)[1];
 var ckeditorUiColorOnChange = function() {

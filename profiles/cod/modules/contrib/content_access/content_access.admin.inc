@@ -112,7 +112,7 @@ function content_access_page_reset($form, &$form_state) {
 /**
  * Per content type settings form.
  */
-function content_access_admin_settings($form, $form_state, $content_type) {
+function content_access_admin_settings($form, &$form_state, $content_type) {
   $type = $content_type->type;
 
   $form_state['type'] = $type;
@@ -164,6 +164,7 @@ function content_access_admin_settings($form, $form_state, $content_type) {
 function content_access_admin_settings_submit($form, &$form_state) {
   $roles_permissions = user_role_permissions(user_roles());
   $permissions = user_permission_get_modules();
+  $type = $form_state['type'];
 
   // Remove disabled modules permissions, so they can't raise exception
   // in content_access_save_permissions()
@@ -185,22 +186,21 @@ function content_access_admin_settings_submit($form, &$form_state) {
         $roles_permissions[$rid][$permission] = FALSE;
       }
     }
-    // Don't save the setting, so its default value (get permission) is applied always.
+    // Don't save the setting, so its default value (get permission) is applied
+    // always.
     unset($form_state['values'][$op]);
   }
   content_access_save_permissions($roles_permissions);
 
   // Update content access settings
-  $settings = content_access_get_settings();
+  $settings = content_access_get_settings('all', $type);
   foreach (content_access_available_settings() as $setting) {
-    unset($settings[$setting][$form_state['type']]);
     if (isset($form_state['values'][$setting])) {
-      $settings[$setting][$form_state['type']] = is_array($form_state['values'][$setting]) ? array_keys(array_filter($form_state['values'][$setting])) : $form_state['values'][$setting];
+      $settings[$setting] = is_array($form_state['values'][$setting]) ? array_keys(array_filter($form_state['values'][$setting])) : $form_state['values'][$setting];
     }
   }
-  content_access_set_settings($settings);
+  content_access_set_settings($settings, $type);
 
-  $type = $form_state['type'];
   // Mass update the nodes, but only if necessary.
   if (content_access_get_settings('per_node', $type) ||
       content_access_get_settings('view', $type) != $form['per_role']['view']['#default_value'] ||
@@ -311,7 +311,7 @@ function content_access_force_permissions($element, &$form_state) {
       $element[$op][$rid]['#attributes']['disabled'] = 'disabled';
       $element[$op][$rid]['#value'] = TRUE;
       $element[$op][$rid]['#checked'] = TRUE;
-      $element[$op][$rid]['#prefix'] = '<span title="' . t("Permission is granted due to the content type's access control settings.") . '">';
+      $element[$op][$rid]['#prefix'] = '<span' . drupal_attributes(array('title' => t("Permission is granted due to the content type's access control settings."))) . '>';
       $element[$op][$rid]['#suffix'] = "</span>";
     }
   }

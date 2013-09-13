@@ -1,0 +1,26 @@
+/* Desktop version */
+
+#page {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Tablet version */
+
+@media screen and (min-width: 740px) and (max-width: 980px) {
+  #page {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile version */
+
+@media only screen and (max-width: 740px) {
+  #page {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

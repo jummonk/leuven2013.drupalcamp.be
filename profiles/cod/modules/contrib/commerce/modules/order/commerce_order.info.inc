@@ -113,6 +113,13 @@ function commerce_order_entity_property_info() {
     'clear' => array('mail'),
   );
 
+  $info['commerce_order']['bundles'] = array();
+  foreach (commerce_order_type_get_name() as $type => $name) {
+    $info['commerce_order']['bundles'][$type] = array(
+      'label' => $name,
+    );
+  }
+
   return $info;
 }
 
@@ -129,6 +136,10 @@ function commerce_order_entity_property_info_alter(&$info) {
     $properties += $bundle_info['properties'];
   }
 
-  $info['commerce_order']['properties']['commerce_line_items'] = $properties['commerce_line_items'];
-  $info['commerce_order']['properties']['commerce_order_total'] = $properties['commerce_order_total'];
+  if (!empty($properties['commerce_line_items'])) {
+    $info['commerce_order']['properties']['commerce_line_items'] = $properties['commerce_line_items'];
+  }
+  if (!empty($properties['commerce_order_total'])) {
+    $info['commerce_order']['properties']['commerce_order_total'] = $properties['commerce_order_total'];
+  }
 }

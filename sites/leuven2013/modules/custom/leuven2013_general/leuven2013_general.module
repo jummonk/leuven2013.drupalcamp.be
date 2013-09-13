@@ -1,0 +1,71 @@
+<?php
+/**
+ * @file
+ * Code for the leuven2013_general feature.
+ */
+
+include_once 'leuven2013_general.features.inc';
+
+/***********************************************************************************
+ * BLOCK
+ ***********************************************************************************/
+/**
+ * Implements hook_block_info().
+ */
+function leuven2013_general_block_info() {
+  $blocks = array();
+  $blocks['countdown_timer'] = array(
+    'info' => t('Countdown block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['how_to_propose_session'] = array(
+    'info' => t('How to propose a session'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['banner_to_frontpage'] = array(
+    'info' => t('Print banner block that links to the frontpage.'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function leuven2013_general_block_view($delta = '') {
+  module_load_include('inc', 'leuven2013_general', 'leuven2013_general.block');
+
+  $callback = '_leuven2013_general_block_' . $delta;
+  if (!function_exists($callback)) {
+    return array();
+  }
+
+  return $callback();
+}
+
+/***********************************************************************************
+ * MENU
+ ***********************************************************************************/
+/**
+ * Implements hook_menu_alter()
+ * Change access callback for user profile page.
+ */
+function leuven2013_general_menu_alter(&$items) {
+  $items['user/%user']['access callback'] = '_leuven_2013_general_profile_access';
+}
+
+/**
+ * One can only access the profile page of a user if he is an administrator or
+ * the user has checked the privacy checkbox. Off course one can allows view his own profile.
+ */
+function _leuven_2013_general_profile_access($account) {
+  global $user;
+
+  if ((user_access('access user profiles') && !empty($account->field_privacy) &&
+    $account->field_privacy[LANGUAGE_NONE][0]['value']) ||
+    $user->uid == 1 || in_array('administrator', $user->roles) || $user->uid == $account->uid
+  ) {
+    return TRUE;
+  }
+  return FALSE;
+}
