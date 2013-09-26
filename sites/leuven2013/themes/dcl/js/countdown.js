@@ -57,7 +57,7 @@ if (typeof(DisplayFormat)=="undefined")
 if (typeof(CountActive)=="undefined")
   CountActive = true;
 if (typeof(FinishMessage)=="undefined")
-  FinishMessage = "It is finally here!";
+  FinishMessage = "Let's rock!";
 if (typeof(CountStepper)!="number")
   CountStepper = -1;
 if (typeof(LeadingZero)=="undefined")
